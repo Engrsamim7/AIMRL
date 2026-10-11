@@ -1,0 +1,173 @@
+[
+  {
+    "nodes": 39,
+    "method": "B1",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.2,
+    "lower": -0.30670833333333336,
+    "upper": -0.10666666666666672
+  },
+  {
+    "nodes": 39,
+    "method": "B2",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.15166666666666667,
+    "lower": -0.21500000000000002,
+    "upper": -0.08500000000000002
+  },
+  {
+    "nodes": 39,
+    "method": "B3",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.046666666666666676,
+    "lower": -0.03333333333333332,
+    "upper": 0.1366666666666667
+  },
+  {
+    "nodes": 39,
+    "method": "NC",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 39,
+    "method": "COMM-ALL",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.1683333333333333,
+    "lower": 0.12333333333333334,
+    "upper": 0.215
+  },
+  {
+    "nodes": 39,
+    "method": "GATE",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.0033333333333333214,
+    "lower": -0.0033333333333333214,
+    "upper": 0.009999999999999964
+  },
+  {
+    "nodes": 39,
+    "method": "ORACLE",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.45166666666666666,
+    "lower": 0.3833333333333333,
+    "upper": 0.5216666666666667
+  },
+  {
+    "nodes": 39,
+    "method": "dqn-all",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.25388888888888894,
+    "lower": 0.1760972222222222,
+    "upper": 0.33112499999999995
+  },
+  {
+    "nodes": 39,
+    "method": "dqn-gate",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.22055555555555556,
+    "lower": 0.1549861111111111,
+    "upper": 0.2855555555555555
+  },
+  {
+    "nodes": 39,
+    "method": "dqn-none",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.24722222222222218,
+    "lower": 0.17443055555555556,
+    "upper": 0.32
+  },
+  {
+    "nodes": 39,
+    "method": "ippo-all",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.05888888888888888,
+    "lower": -0.004444444444444445,
+    "upper": 0.11834722222222215
+  },
+  {
+    "nodes": 39,
+    "method": "ippo-gate",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.0,
+    "lower": -0.0600138888888889,
+    "upper": 0.060013888888888825
+  },
+  {
+    "nodes": 39,
+    "method": "ippo-none",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.03500000000000001,
+    "lower": -0.017222222222222205,
+    "upper": 0.08611111111111112
+  },
+  {
+    "nodes": 39,
+    "method": "mappo-all",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.22499999999999995,
+    "lower": 0.18222222222222215,
+    "upper": 0.2661111111111111
+  },
+  {
+    "nodes": 39,
+    "method": "mappo-gate",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.17333333333333334,
+    "lower": 0.12666666666666668,
+    "upper": 0.22111111111111112
+  },
+  {
+    "nodes": 39,
+    "method": "mappo-none",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.16888888888888887,
+    "lower": 0.11555555555555552,
+    "upper": 0.2227777777777778
+  },
+  {
+    "nodes": 39,
+    "method": "ppo-all",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.18555555555555553,
+    "lower": 0.13609722222222215,
+    "upper": 0.23666666666666664
+  },
+  {
+    "nodes": 39,
+    "method": "ppo-gate",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.2316666666666667,
+    "lower": 0.18276388888888886,
+    "upper": 0.2788888888888889
+  },
+  {
+    "nodes": 39,
+    "method": "ppo-none",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.21722222222222226,
+    "lower": 0.17498611111111106,
+    "upper": 0.26055555555555554
+  }
+]

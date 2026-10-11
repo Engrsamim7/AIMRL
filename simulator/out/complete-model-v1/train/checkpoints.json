@@ -1,0 +1,254 @@
+[
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/dqn_none_s0.pt",
+    "algo": "dqn",
+    "comm": "none",
+    "seed": 0,
+    "updates": 2843
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/dqn_none_s1.pt",
+    "algo": "dqn",
+    "comm": "none",
+    "seed": 1,
+    "updates": 2776
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/dqn_none_s2.pt",
+    "algo": "dqn",
+    "comm": "none",
+    "seed": 2,
+    "updates": 2765
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/dqn_all_s0.pt",
+    "algo": "dqn",
+    "comm": "all",
+    "seed": 0,
+    "updates": 2835
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/dqn_all_s1.pt",
+    "algo": "dqn",
+    "comm": "all",
+    "seed": 1,
+    "updates": 2767
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/dqn_all_s2.pt",
+    "algo": "dqn",
+    "comm": "all",
+    "seed": 2,
+    "updates": 2777
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/dqn_gate_s0.pt",
+    "algo": "dqn",
+    "comm": "gate",
+    "seed": 0,
+    "updates": 2828
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/dqn_gate_s1.pt",
+    "algo": "dqn",
+    "comm": "gate",
+    "seed": 1,
+    "updates": 2762
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/dqn_gate_s2.pt",
+    "algo": "dqn",
+    "comm": "gate",
+    "seed": 2,
+    "updates": 2785
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ppo_none_s0.pt",
+    "algo": "ppo",
+    "comm": "none",
+    "seed": 0,
+    "updates": 2272
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ppo_none_s1.pt",
+    "algo": "ppo",
+    "comm": "none",
+    "seed": 1,
+    "updates": 2268
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ppo_none_s2.pt",
+    "algo": "ppo",
+    "comm": "none",
+    "seed": 2,
+    "updates": 2284
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ppo_all_s0.pt",
+    "algo": "ppo",
+    "comm": "all",
+    "seed": 0,
+    "updates": 2280
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ppo_all_s1.pt",
+    "algo": "ppo",
+    "comm": "all",
+    "seed": 1,
+    "updates": 2268
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ppo_all_s2.pt",
+    "algo": "ppo",
+    "comm": "all",
+    "seed": 2,
+    "updates": 2288
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ppo_gate_s0.pt",
+    "algo": "ppo",
+    "comm": "gate",
+    "seed": 0,
+    "updates": 2280
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ppo_gate_s1.pt",
+    "algo": "ppo",
+    "comm": "gate",
+    "seed": 1,
+    "updates": 2288
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ppo_gate_s2.pt",
+    "algo": "ppo",
+    "comm": "gate",
+    "seed": 2,
+    "updates": 2300
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ippo_none_s0.pt",
+    "algo": "ippo",
+    "comm": "none",
+    "seed": 0,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ippo_none_s1.pt",
+    "algo": "ippo",
+    "comm": "none",
+    "seed": 1,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ippo_none_s2.pt",
+    "algo": "ippo",
+    "comm": "none",
+    "seed": 2,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ippo_all_s0.pt",
+    "algo": "ippo",
+    "comm": "all",
+    "seed": 0,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ippo_all_s1.pt",
+    "algo": "ippo",
+    "comm": "all",
+    "seed": 1,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ippo_all_s2.pt",
+    "algo": "ippo",
+    "comm": "all",
+    "seed": 2,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ippo_gate_s0.pt",
+    "algo": "ippo",
+    "comm": "gate",
+    "seed": 0,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ippo_gate_s1.pt",
+    "algo": "ippo",
+    "comm": "gate",
+    "seed": 1,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/ippo_gate_s2.pt",
+    "algo": "ippo",
+    "comm": "gate",
+    "seed": 2,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/mappo_none_s0.pt",
+    "algo": "mappo",
+    "comm": "none",
+    "seed": 0,
+    "updates": 2312
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/mappo_none_s1.pt",
+    "algo": "mappo",
+    "comm": "none",
+    "seed": 1,
+    "updates": 2284
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/mappo_none_s2.pt",
+    "algo": "mappo",
+    "comm": "none",
+    "seed": 2,
+    "updates": 2304
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/mappo_all_s0.pt",
+    "algo": "mappo",
+    "comm": "all",
+    "seed": 0,
+    "updates": 2304
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/mappo_all_s1.pt",
+    "algo": "mappo",
+    "comm": "all",
+    "seed": 1,
+    "updates": 2284
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/mappo_all_s2.pt",
+    "algo": "mappo",
+    "comm": "all",
+    "seed": 2,
+    "updates": 2304
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/mappo_gate_s0.pt",
+    "algo": "mappo",
+    "comm": "gate",
+    "seed": 0,
+    "updates": 2268
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/mappo_gate_s1.pt",
+    "algo": "mappo",
+    "comm": "gate",
+    "seed": 1,
+    "updates": 2244
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train/mappo_gate_s2.pt",
+    "algo": "mappo",
+    "comm": "gate",
+    "seed": 2,
+    "updates": 2320
+  }
+]

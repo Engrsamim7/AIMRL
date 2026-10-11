@@ -1,0 +1,222 @@
+[
+  {
+    "method": "all",
+    "graph_seed": 900,
+    "episode_seed": 4500,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 398,
+    "processed_messages": 398,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "gate",
+    "graph_seed": 900,
+    "episode_seed": 4500,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 397,
+    "processed_messages": 397,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "all",
+    "graph_seed": 900,
+    "episode_seed": 4501,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 478,
+    "processed_messages": 478,
+    "selection": "all",
+    "fir_delivery": 0.99581589958159,
+    "fir_route": 1.0
+  },
+  {
+    "method": "gate",
+    "graph_seed": 900,
+    "episode_seed": 4501,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 521,
+    "processed_messages": 521,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "all",
+    "graph_seed": 901,
+    "episode_seed": 4505,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 358,
+    "processed_messages": 358,
+    "selection": "all",
+    "fir_delivery": 0.9916201117318436,
+    "fir_route": 0.9972067039106145
+  },
+  {
+    "method": "gate",
+    "graph_seed": 901,
+    "episode_seed": 4505,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 364,
+    "processed_messages": 364,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "all",
+    "graph_seed": 901,
+    "episode_seed": 4506,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 353,
+    "processed_messages": 353,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "gate",
+    "graph_seed": 901,
+    "episode_seed": 4506,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 353,
+    "processed_messages": 353,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "all",
+    "graph_seed": 902,
+    "episode_seed": 4510,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 483,
+    "processed_messages": 483,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 0.9958592132505176
+  },
+  {
+    "method": "gate",
+    "graph_seed": 902,
+    "episode_seed": 4510,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 524,
+    "processed_messages": 524,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "all",
+    "graph_seed": 902,
+    "episode_seed": 4511,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 471,
+    "processed_messages": 471,
+    "selection": "all",
+    "fir_delivery": 0.9957537154989384,
+    "fir_route": 1.0
+  },
+  {
+    "method": "gate",
+    "graph_seed": 902,
+    "episode_seed": 4511,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 483,
+    "processed_messages": 483,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "all",
+    "graph_seed": 903,
+    "episode_seed": 4515,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 474,
+    "processed_messages": 474,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "gate",
+    "graph_seed": 903,
+    "episode_seed": 4515,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 474,
+    "processed_messages": 474,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "all",
+    "graph_seed": 903,
+    "episode_seed": 4516,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 424,
+    "processed_messages": 424,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "gate",
+    "graph_seed": 903,
+    "episode_seed": 4516,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 424,
+    "processed_messages": 424,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "all",
+    "graph_seed": 904,
+    "episode_seed": 4520,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 410,
+    "processed_messages": 410,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "gate",
+    "graph_seed": 904,
+    "episode_seed": 4520,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 410,
+    "processed_messages": 410,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "method": "all",
+    "graph_seed": 904,
+    "episode_seed": 4521,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 317,
+    "processed_messages": 317,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 0.9968454258675079
+  },
+  {
+    "method": "gate",
+    "graph_seed": 904,
+    "episode_seed": 4521,
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 312,
+    "processed_messages": 312,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  }
+]

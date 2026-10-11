@@ -1,0 +1,65 @@
+[
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-dqn/dqn_none_s0.pt",
+    "algo": "dqn",
+    "comm": "none",
+    "seed": 0,
+    "updates": 2843
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-dqn/dqn_none_s1.pt",
+    "algo": "dqn",
+    "comm": "none",
+    "seed": 1,
+    "updates": 2776
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-dqn/dqn_none_s2.pt",
+    "algo": "dqn",
+    "comm": "none",
+    "seed": 2,
+    "updates": 2765
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-dqn/dqn_all_s0.pt",
+    "algo": "dqn",
+    "comm": "all",
+    "seed": 0,
+    "updates": 2835
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-dqn/dqn_all_s1.pt",
+    "algo": "dqn",
+    "comm": "all",
+    "seed": 1,
+    "updates": 2767
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-dqn/dqn_all_s2.pt",
+    "algo": "dqn",
+    "comm": "all",
+    "seed": 2,
+    "updates": 2777
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-dqn/dqn_gate_s0.pt",
+    "algo": "dqn",
+    "comm": "gate",
+    "seed": 0,
+    "updates": 2828
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-dqn/dqn_gate_s1.pt",
+    "algo": "dqn",
+    "comm": "gate",
+    "seed": 1,
+    "updates": 2762
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-dqn/dqn_gate_s2.pt",
+    "algo": "dqn",
+    "comm": "gate",
+    "seed": 2,
+    "updates": 2785
+  }
+]

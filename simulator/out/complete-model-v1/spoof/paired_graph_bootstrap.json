@@ -1,0 +1,173 @@
+[
+  {
+    "nodes": 39,
+    "method": "B1",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.30333333333333334,
+    "lower": -0.39670833333333333,
+    "upper": -0.20999999999999996
+  },
+  {
+    "nodes": 39,
+    "method": "B2",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.06500000000000002,
+    "lower": -0.11500000000000003,
+    "upper": -0.016666666666666663
+  },
+  {
+    "nodes": 39,
+    "method": "B3",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.06333333333333332,
+    "lower": -0.11333333333333333,
+    "upper": -0.016666666666666663
+  },
+  {
+    "nodes": 39,
+    "method": "NC",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 39,
+    "method": "COMM-ALL",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.006666666666666698,
+    "lower": -0.013333333333333298,
+    "upper": 0.026666666666666707
+  },
+  {
+    "nodes": 39,
+    "method": "GATE",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.0016666666666666607,
+    "lower": -0.004999999999999982,
+    "upper": 0.0
+  },
+  {
+    "nodes": 39,
+    "method": "ORACLE",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": 0.08666666666666667,
+    "lower": 0.040000000000000036,
+    "upper": 0.13999999999999996
+  },
+  {
+    "nodes": 39,
+    "method": "dqn-all",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.09388888888888886,
+    "lower": -0.13168055555555555,
+    "upper": -0.05165277777777781
+  },
+  {
+    "nodes": 39,
+    "method": "dqn-gate",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.10444444444444442,
+    "lower": -0.1422222222222222,
+    "upper": -0.06444444444444444
+  },
+  {
+    "nodes": 39,
+    "method": "dqn-none",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.09388888888888883,
+    "lower": -0.1294444444444444,
+    "upper": -0.05608333333333343
+  },
+  {
+    "nodes": 39,
+    "method": "ippo-all",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.20055555555555554,
+    "lower": -0.24388888888888882,
+    "upper": -0.15220833333333336
+  },
+  {
+    "nodes": 39,
+    "method": "ippo-gate",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.20833333333333331,
+    "lower": -0.2744444444444444,
+    "upper": -0.14165277777777785
+  },
+  {
+    "nodes": 39,
+    "method": "ippo-none",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.23388888888888887,
+    "lower": -0.29723611111111103,
+    "upper": -0.16443055555555558
+  },
+  {
+    "nodes": 39,
+    "method": "mappo-all",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.048888888888888836,
+    "lower": -0.08501388888888886,
+    "upper": -0.011111111111111082
+  },
+  {
+    "nodes": 39,
+    "method": "mappo-gate",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.018333333333333323,
+    "lower": -0.05666666666666666,
+    "upper": 0.023333333333333338
+  },
+  {
+    "nodes": 39,
+    "method": "mappo-none",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.01499999999999999,
+    "lower": -0.05111111111111109,
+    "upper": 0.022791666666666578
+  },
+  {
+    "nodes": 39,
+    "method": "ppo-all",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.024999999999999967,
+    "lower": -0.05944444444444439,
+    "upper": 0.012222222222222245
+  },
+  {
+    "nodes": 39,
+    "method": "ppo-gate",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.04277777777777775,
+    "lower": -0.07499999999999994,
+    "upper": -0.008333333333333293
+  },
+  {
+    "nodes": 39,
+    "method": "ppo-none",
+    "versus": "NC",
+    "graphs": 10,
+    "delivery_difference": -0.03555555555555552,
+    "lower": -0.07611111111111105,
+    "upper": 0.008902777777777704
+  }
+]

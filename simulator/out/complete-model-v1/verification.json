@@ -1,0 +1,11 @@
+{
+  "core_tests_original_environment": 28,
+  "core_tests_portable_environment": 28,
+  "dependency_check": "passed",
+  "project_dependency_pins": 30,
+  "artifact_audit": "passed",
+  "html_scenario_values_verified": 57,
+  "verified_png_files": 9,
+  "comparison_pdf_pages": 7,
+  "episode_pdf_pages": 2
+}

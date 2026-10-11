@@ -1,0 +1,65 @@
+[
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-mappo/mappo_none_s0.pt",
+    "algo": "mappo",
+    "comm": "none",
+    "seed": 0,
+    "updates": 2312
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-mappo/mappo_none_s1.pt",
+    "algo": "mappo",
+    "comm": "none",
+    "seed": 1,
+    "updates": 2284
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-mappo/mappo_none_s2.pt",
+    "algo": "mappo",
+    "comm": "none",
+    "seed": 2,
+    "updates": 2304
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-mappo/mappo_all_s0.pt",
+    "algo": "mappo",
+    "comm": "all",
+    "seed": 0,
+    "updates": 2304
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-mappo/mappo_all_s1.pt",
+    "algo": "mappo",
+    "comm": "all",
+    "seed": 1,
+    "updates": 2284
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-mappo/mappo_all_s2.pt",
+    "algo": "mappo",
+    "comm": "all",
+    "seed": 2,
+    "updates": 2304
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-mappo/mappo_gate_s0.pt",
+    "algo": "mappo",
+    "comm": "gate",
+    "seed": 0,
+    "updates": 2268
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-mappo/mappo_gate_s1.pt",
+    "algo": "mappo",
+    "comm": "gate",
+    "seed": 1,
+    "updates": 2244
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-mappo/mappo_gate_s2.pt",
+    "algo": "mappo",
+    "comm": "gate",
+    "seed": 2,
+    "updates": 2320
+  }
+]

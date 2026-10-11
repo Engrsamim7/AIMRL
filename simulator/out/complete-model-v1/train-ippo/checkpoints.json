@@ -1,0 +1,65 @@
+[
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-ippo/ippo_none_s0.pt",
+    "algo": "ippo",
+    "comm": "none",
+    "seed": 0,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-ippo/ippo_none_s1.pt",
+    "algo": "ippo",
+    "comm": "none",
+    "seed": 1,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-ippo/ippo_none_s2.pt",
+    "algo": "ippo",
+    "comm": "none",
+    "seed": 2,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-ippo/ippo_all_s0.pt",
+    "algo": "ippo",
+    "comm": "all",
+    "seed": 0,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-ippo/ippo_all_s1.pt",
+    "algo": "ippo",
+    "comm": "all",
+    "seed": 1,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-ippo/ippo_all_s2.pt",
+    "algo": "ippo",
+    "comm": "all",
+    "seed": 2,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-ippo/ippo_gate_s0.pt",
+    "algo": "ippo",
+    "comm": "gate",
+    "seed": 0,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-ippo/ippo_gate_s1.pt",
+    "algo": "ippo",
+    "comm": "gate",
+    "seed": 1,
+    "updates": 14400
+  },
+  {
+    "path": "/workspace/AIMRL/simulator/out/complete-model-v1/train-ippo/ippo_gate_s2.pt",
+    "algo": "ippo",
+    "comm": "gate",
+    "seed": 2,
+    "updates": 14400
+  }
+]

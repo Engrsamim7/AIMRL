@@ -1,0 +1,22 @@
+scenario,comparison,difference,lower,upper,uncertainty
+random,GATE minus COMM-ALL,-0.013333333333333298,-0.0316666666666666,0.0016666666666666607,paired graph bootstrap
+random,COMM-ALL minus NC,0.024999999999999946,0.004999999999999982,0.048333333333333214,paired graph bootstrap
+random,GATE minus NC,0.011666666666666648,0.0,0.0316666666666666,paired graph bootstrap
+random,DQN gate minus all,-0.003888888888888892,-0.0377916666666667,0.042777777777777776,paired graph and training-seed bootstrap
+random,PPO gate minus all,0.006111111111111123,-0.10834722222222223,0.1433472222222223,paired graph and training-seed bootstrap
+random,IPPO gate minus all,-0.006666666666666669,-0.05225000000000002,0.03777777777777778,paired graph and training-seed bootstrap
+random,MAPPO gate minus all,0.047222222222222214,-0.038333333333333344,0.15499999999999994,paired graph and training-seed bootstrap
+spoof,GATE minus COMM-ALL,-0.004999999999999949,-0.02499999999999992,0.014999999999999968,paired graph bootstrap
+spoof,COMM-ALL minus NC,0.004999999999999949,-0.014999999999999968,0.02499999999999992,paired graph bootstrap
+spoof,GATE minus NC,0.0,0.0,0.0,paired graph bootstrap
+spoof,DQN gate minus all,0.017222222222222226,-0.02555555555555556,0.06055555555555554,paired graph and training-seed bootstrap
+spoof,PPO gate minus all,0.03055555555555554,-0.09500000000000003,0.1722361111111112,paired graph and training-seed bootstrap
+spoof,IPPO gate minus all,0.0005555555555555582,-0.04111111111111111,0.045555555555555585,paired graph and training-seed bootstrap
+spoof,MAPPO gate minus all,0.07166666666666663,-0.017236111111111112,0.17166666666666658,paired graph and training-seed bootstrap
+reactive,GATE minus COMM-ALL,-0.24833333333333338,-0.31500000000000006,-0.1766666666666667,paired graph bootstrap
+reactive,COMM-ALL minus NC,0.2516666666666667,0.18000000000000002,0.31833333333333336,paired graph bootstrap
+reactive,GATE minus NC,0.003333333333333327,0.0,0.008333333333333314,paired graph bootstrap
+reactive,DQN gate minus all,0.02888888888888887,-0.002222222222222244,0.061666666666666634,paired graph and training-seed bootstrap
+reactive,PPO gate minus all,0.06611111111111113,-0.09779166666666667,0.24837500000000018,paired graph and training-seed bootstrap
+reactive,IPPO gate minus all,-0.07166666666666664,-0.12333333333333334,-0.008333333333333314,paired graph and training-seed bootstrap
+reactive,MAPPO gate minus all,0.07499999999999998,0.0055555555555555506,0.1455694444444445,paired graph and training-seed bootstrap

@@ -1,0 +1,7 @@
+simulator/__pycache__/
+simulator/**/__pycache__/
+simulator/.pytest_cache/
+simulator/out/
+simulator/figs/
+revision/manuscript.txt
+.venv/

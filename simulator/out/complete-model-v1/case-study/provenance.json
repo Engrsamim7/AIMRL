@@ -1,0 +1,614 @@
+{
+  "source_hash": "596294a014a198d970957e41fc6bf55b92563518b0e73ac507159553cb50babd",
+  "method": "dqn-gate",
+  "training_seed": 0,
+  "graph_seed": 700,
+  "episode_seed": 3500,
+  "config": {
+    "n_convoys": 12,
+    "stagger": 0.5,
+    "hub_cap": 1,
+    "hub_service": 2,
+    "tau_reveal": 5.0,
+    "tau_msg": 4.0,
+    "tau_stale": 8.0,
+    "p_loss": 0.2,
+    "spoof_rate": 8.0,
+    "obs_radius": 1,
+    "adv": "random",
+    "attack_rate": 0.9,
+    "attack_dur": [
+      40.0,
+      80.0
+    ],
+    "budget": 12,
+    "p_kill": 0.7,
+    "blocked_slow": 2.0,
+    "react_delay": 2,
+    "react_eps": 0.2,
+    "react_halflife": 10.0,
+    "horizon": 5000,
+    "conf_mu": 0.85,
+    "spoof_mode": "exogenous",
+    "congestion_factor": 0.2,
+    "conf_sd": 0.1
+  },
+  "selection": "first held-out disrupted episode, fixed in advance; illustrative, not an aggregate comparison",
+  "raw_evaluation_match": true,
+  "phase_totals_match": true,
+  "edges": [
+    {
+      "id": 0,
+      "source": 0,
+      "target": 1,
+      "nominal": 3.1788573451390754
+    },
+    {
+      "id": 1,
+      "source": 0,
+      "target": 2,
+      "nominal": 2.7238244771999645
+    },
+    {
+      "id": 2,
+      "source": 0,
+      "target": 3,
+      "nominal": 2.1454701539125915
+    },
+    {
+      "id": 3,
+      "source": 0,
+      "target": 4,
+      "nominal": 3.980520444927393
+    },
+    {
+      "id": 4,
+      "source": 0,
+      "target": 5,
+      "nominal": 2.063366294317861
+    },
+    {
+      "id": 5,
+      "source": 0,
+      "target": 6,
+      "nominal": 3.1999776244203773
+    },
+    {
+      "id": 6,
+      "source": 1,
+      "target": 7,
+      "nominal": 2.584819839573586
+    },
+    {
+      "id": 7,
+      "source": 1,
+      "target": 8,
+      "nominal": 5.133266640052872
+    },
+    {
+      "id": 8,
+      "source": 2,
+      "target": 8,
+      "nominal": 2.772140703826781
+    },
+    {
+      "id": 9,
+      "source": 2,
+      "target": 9,
+      "nominal": 4.623665741493411
+    },
+    {
+      "id": 10,
+      "source": 3,
+      "target": 9,
+      "nominal": 3.0379920768697106
+    },
+    {
+      "id": 11,
+      "source": 3,
+      "target": 10,
+      "nominal": 3.9820960449469194
+    },
+    {
+      "id": 12,
+      "source": 4,
+      "target": 10,
+      "nominal": 3.0547495639995166
+    },
+    {
+      "id": 13,
+      "source": 4,
+      "target": 11,
+      "nominal": 4.23642511339174
+    },
+    {
+      "id": 14,
+      "source": 5,
+      "target": 11,
+      "nominal": 4.867194925849722
+    },
+    {
+      "id": 15,
+      "source": 5,
+      "target": 12,
+      "nominal": 4.960183443007143
+    },
+    {
+      "id": 16,
+      "source": 6,
+      "target": 12,
+      "nominal": 4.139995485288594
+    },
+    {
+      "id": 17,
+      "source": 6,
+      "target": 7,
+      "nominal": 3.444617517938694
+    },
+    {
+      "id": 18,
+      "source": 7,
+      "target": 13,
+      "nominal": 3.480282246422397
+    },
+    {
+      "id": 19,
+      "source": 7,
+      "target": 14,
+      "nominal": 5.662399524607219
+    },
+    {
+      "id": 20,
+      "source": 8,
+      "target": 14,
+      "nominal": 4.211090860308985
+    },
+    {
+      "id": 21,
+      "source": 8,
+      "target": 15,
+      "nominal": 4.0614073918486895
+    },
+    {
+      "id": 22,
+      "source": 9,
+      "target": 15,
+      "nominal": 3.7077286422470834
+    },
+    {
+      "id": 23,
+      "source": 9,
+      "target": 16,
+      "nominal": 4.461272287733159
+    },
+    {
+      "id": 24,
+      "source": 10,
+      "target": 16,
+      "nominal": 2.6393812477869076
+    },
+    {
+      "id": 25,
+      "source": 10,
+      "target": 17,
+      "nominal": 3.9550255950258335
+    },
+    {
+      "id": 26,
+      "source": 11,
+      "target": 17,
+      "nominal": 2.785502227956562
+    },
+    {
+      "id": 27,
+      "source": 11,
+      "target": 18,
+      "nominal": 3.8867424619317146
+    },
+    {
+      "id": 28,
+      "source": 12,
+      "target": 18,
+      "nominal": 3.494648169019387
+    },
+    {
+      "id": 29,
+      "source": 12,
+      "target": 13,
+      "nominal": 4.908809339348547
+    },
+    {
+      "id": 30,
+      "source": 13,
+      "target": 19,
+      "nominal": 2.8144235734125984
+    },
+    {
+      "id": 31,
+      "source": 13,
+      "target": 20,
+      "nominal": 5.894568586699499
+    },
+    {
+      "id": 32,
+      "source": 14,
+      "target": 20,
+      "nominal": 3.4175679790593287
+    },
+    {
+      "id": 33,
+      "source": 14,
+      "target": 21,
+      "nominal": 4.468762090915559
+    },
+    {
+      "id": 34,
+      "source": 15,
+      "target": 21,
+      "nominal": 3.3748434648233454
+    },
+    {
+      "id": 35,
+      "source": 15,
+      "target": 22,
+      "nominal": 3.8055162846974087
+    },
+    {
+      "id": 36,
+      "source": 16,
+      "target": 22,
+      "nominal": 2.9668137688698955
+    },
+    {
+      "id": 37,
+      "source": 16,
+      "target": 23,
+      "nominal": 5.304708353026589
+    },
+    {
+      "id": 38,
+      "source": 17,
+      "target": 23,
+      "nominal": 2.5604587658731455
+    },
+    {
+      "id": 39,
+      "source": 17,
+      "target": 24,
+      "nominal": 5.404907784298146
+    },
+    {
+      "id": 40,
+      "source": 18,
+      "target": 24,
+      "nominal": 3.118113356086824
+    },
+    {
+      "id": 41,
+      "source": 18,
+      "target": 19,
+      "nominal": 3.133002287764797
+    },
+    {
+      "id": 42,
+      "source": 19,
+      "target": 25,
+      "nominal": 2.611947989230439
+    },
+    {
+      "id": 43,
+      "source": 19,
+      "target": 26,
+      "nominal": 5.981821423327773
+    },
+    {
+      "id": 44,
+      "source": 20,
+      "target": 26,
+      "nominal": 4.995219303564765
+    },
+    {
+      "id": 45,
+      "source": 20,
+      "target": 27,
+      "nominal": 4.519598644248653
+    },
+    {
+      "id": 46,
+      "source": 21,
+      "target": 27,
+      "nominal": 3.6483948951543015
+    },
+    {
+      "id": 47,
+      "source": 21,
+      "target": 28,
+      "nominal": 3.430735868912281
+    },
+    {
+      "id": 48,
+      "source": 22,
+      "target": 28,
+      "nominal": 3.356034797258946
+    },
+    {
+      "id": 49,
+      "source": 22,
+      "target": 29,
+      "nominal": 5.367911377165018
+    },
+    {
+      "id": 50,
+      "source": 23,
+      "target": 29,
+      "nominal": 4.7150911831763125
+    },
+    {
+      "id": 51,
+      "source": 23,
+      "target": 30,
+      "nominal": 5.429013460961528
+    },
+    {
+      "id": 52,
+      "source": 24,
+      "target": 30,
+      "nominal": 4.62923802567348
+    },
+    {
+      "id": 53,
+      "source": 24,
+      "target": 25,
+      "nominal": 3.2149299035187004
+    },
+    {
+      "id": 54,
+      "source": 25,
+      "target": 31,
+      "nominal": 4.283924898004418
+    },
+    {
+      "id": 55,
+      "source": 25,
+      "target": 32,
+      "nominal": 3.99893154776145
+    },
+    {
+      "id": 56,
+      "source": 26,
+      "target": 32,
+      "nominal": 2.768224601459562
+    },
+    {
+      "id": 57,
+      "source": 26,
+      "target": 33,
+      "nominal": 5.840619803660747
+    },
+    {
+      "id": 58,
+      "source": 27,
+      "target": 33,
+      "nominal": 4.826709055057469
+    },
+    {
+      "id": 59,
+      "source": 27,
+      "target": 34,
+      "nominal": 5.584997864322174
+    },
+    {
+      "id": 60,
+      "source": 28,
+      "target": 34,
+      "nominal": 4.8606490859120175
+    },
+    {
+      "id": 61,
+      "source": 28,
+      "target": 35,
+      "nominal": 3.804255199422634
+    },
+    {
+      "id": 62,
+      "source": 29,
+      "target": 35,
+      "nominal": 2.7026074958185777
+    },
+    {
+      "id": 63,
+      "source": 29,
+      "target": 36,
+      "nominal": 4.192283065139922
+    },
+    {
+      "id": 64,
+      "source": 30,
+      "target": 36,
+      "nominal": 2.970999933796887
+    },
+    {
+      "id": 65,
+      "source": 30,
+      "target": 31,
+      "nominal": 4.145071131316273
+    },
+    {
+      "id": 66,
+      "source": 31,
+      "target": 37,
+      "nominal": 2.9828206442695886
+    },
+    {
+      "id": 67,
+      "source": 31,
+      "target": 38,
+      "nominal": 2.7004378066075816
+    },
+    {
+      "id": 68,
+      "source": 32,
+      "target": 37,
+      "nominal": 2.574327194669962
+    },
+    {
+      "id": 69,
+      "source": 32,
+      "target": 38,
+      "nominal": 1.7793009508000133
+    },
+    {
+      "id": 70,
+      "source": 33,
+      "target": 37,
+      "nominal": 2.50425776804602
+    },
+    {
+      "id": 71,
+      "source": 33,
+      "target": 38,
+      "nominal": 2.0238926222679083
+    },
+    {
+      "id": 72,
+      "source": 34,
+      "target": 37,
+      "nominal": 3.1816806510583215
+    },
+    {
+      "id": 73,
+      "source": 34,
+      "target": 38,
+      "nominal": 2.991935948618427
+    },
+    {
+      "id": 74,
+      "source": 35,
+      "target": 37,
+      "nominal": 2.3133289396627372
+    },
+    {
+      "id": 75,
+      "source": 35,
+      "target": 38,
+      "nominal": 3.1194586767359893
+    },
+    {
+      "id": 76,
+      "source": 36,
+      "target": 37,
+      "nominal": 2.2858611756221565
+    },
+    {
+      "id": 77,
+      "source": 36,
+      "target": 38,
+      "nominal": 1.5774058251045722
+    }
+  ],
+  "routes": {
+    "0": [
+      0,
+      6,
+      18,
+      30,
+      42,
+      55,
+      68
+    ],
+    "1": [
+      5,
+      17,
+      18,
+      30,
+      42,
+      54,
+      67
+    ],
+    "2": [
+      2,
+      11,
+      25,
+      38,
+      51,
+      64,
+      76
+    ],
+    "3": [
+      3,
+      12,
+      25,
+      38,
+      51,
+      65,
+      66
+    ],
+    "4": [
+      4,
+      14,
+      26,
+      38,
+      50,
+      62,
+      74
+    ],
+    "5": [
+      5,
+      16,
+      28,
+      41,
+      42,
+      55,
+      69
+    ],
+    "6": [
+      2,
+      10
+    ],
+    "7": [
+      1,
+      8,
+      21,
+      35,
+      48,
+      61,
+      74
+    ],
+    "8": [
+      0,
+      6,
+      18,
+      30,
+      42,
+      55,
+      69
+    ],
+    "9": [
+      4,
+      15,
+      29,
+      30,
+      42,
+      55,
+      69
+    ],
+    "10": [
+      5,
+      17,
+      18,
+      30,
+      42,
+      54,
+      67
+    ],
+    "11": [
+      5,
+      16,
+      28,
+      41,
+      42,
+      55,
+      69
+    ]
+  }
+}

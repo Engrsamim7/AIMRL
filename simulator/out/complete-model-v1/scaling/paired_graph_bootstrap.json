@@ -1,0 +1,686 @@
+[
+  {
+    "nodes": 39,
+    "method": "B1",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.15277777777777782,
+    "lower": -0.3333333333333333,
+    "upper": 0.04166666666666663
+  },
+  {
+    "nodes": 39,
+    "method": "B2",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.05555555555555555,
+    "lower": -0.16666666666666666,
+    "upper": 0.0
+  },
+  {
+    "nodes": 39,
+    "method": "B3",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.11111111111111112,
+    "lower": -0.25,
+    "upper": 0.4583333333333333
+  },
+  {
+    "nodes": 39,
+    "method": "NC",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 39,
+    "method": "COMM-ALL",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.04166666666666663,
+    "lower": 0.0,
+    "upper": 0.08333333333333326
+  },
+  {
+    "nodes": 39,
+    "method": "GATE",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 39,
+    "method": "ORACLE",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.38888888888888884,
+    "lower": 0.0,
+    "upper": 0.625
+  },
+  {
+    "nodes": 39,
+    "method": "dqn-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.18981481481481488,
+    "lower": -0.18055555555555547,
+    "upper": 0.388888888888889
+  },
+  {
+    "nodes": 39,
+    "method": "dqn-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.16203703703703698,
+    "lower": -0.20833333333333337,
+    "upper": 0.34722222222222215
+  },
+  {
+    "nodes": 39,
+    "method": "dqn-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.17129629629629625,
+    "lower": -0.19444444444444453,
+    "upper": 0.375
+  },
+  {
+    "nodes": 39,
+    "method": "ippo-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": -0.2222222222222222,
+    "upper": 0.1527777777777778
+  },
+  {
+    "nodes": 39,
+    "method": "ippo-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.06481481481481487,
+    "lower": -0.3333333333333333,
+    "upper": 0.13888888888888884
+  },
+  {
+    "nodes": 39,
+    "method": "ippo-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.05555555555555558,
+    "lower": -0.375,
+    "upper": 0.1527777777777778
+  },
+  {
+    "nodes": 39,
+    "method": "mappo-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.18518518518518515,
+    "lower": -0.02777777777777779,
+    "upper": 0.38888888888888884
+  },
+  {
+    "nodes": 39,
+    "method": "mappo-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.20833333333333337,
+    "lower": -0.04166666666666663,
+    "upper": 0.388888888888889
+  },
+  {
+    "nodes": 39,
+    "method": "mappo-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.14814814814814814,
+    "lower": -0.02777777777777779,
+    "upper": 0.3333333333333333
+  },
+  {
+    "nodes": 39,
+    "method": "ppo-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.19907407407407404,
+    "lower": 0.0,
+    "upper": 0.38888888888888884
+  },
+  {
+    "nodes": 39,
+    "method": "ppo-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.18981481481481485,
+    "lower": -0.05555555555555547,
+    "upper": 0.38888888888888884
+  },
+  {
+    "nodes": 39,
+    "method": "ppo-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.1435185185185185,
+    "lower": -0.06944444444444453,
+    "upper": 0.3333333333333333
+  },
+  {
+    "nodes": 51,
+    "method": "B1",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.11111111111111116,
+    "lower": -0.4583333333333333,
+    "upper": 0.20833333333333326
+  },
+  {
+    "nodes": 51,
+    "method": "B2",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.055555555555555546,
+    "lower": -0.16666666666666663,
+    "upper": 0.0
+  },
+  {
+    "nodes": 51,
+    "method": "B3",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -3.700743415417188e-17,
+    "lower": -0.25,
+    "upper": 0.20833333333333326
+  },
+  {
+    "nodes": 51,
+    "method": "NC",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 51,
+    "method": "COMM-ALL",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 51,
+    "method": "GATE",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 51,
+    "method": "ORACLE",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.08333333333333326,
+    "lower": 0.0,
+    "upper": 0.16666666666666652
+  },
+  {
+    "nodes": 51,
+    "method": "dqn-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.013888888888888914,
+    "lower": -0.16666666666666663,
+    "upper": 0.06944444444444442
+  },
+  {
+    "nodes": 51,
+    "method": "dqn-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.013888888888888914,
+    "lower": -0.16666666666666663,
+    "upper": 0.11111111111111105
+  },
+  {
+    "nodes": 51,
+    "method": "dqn-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.018518518518518528,
+    "lower": -0.20833333333333337,
+    "upper": 0.0972222222222221
+  },
+  {
+    "nodes": 51,
+    "method": "ippo-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.11111111111111116,
+    "lower": -0.3333333333333333,
+    "upper": 0.02777777777777779
+  },
+  {
+    "nodes": 51,
+    "method": "ippo-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.12500000000000003,
+    "lower": -0.3333333333333333,
+    "upper": 0.01388888888888884
+  },
+  {
+    "nodes": 51,
+    "method": "ippo-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.15277777777777782,
+    "lower": -0.375,
+    "upper": -0.01388888888888895
+  },
+  {
+    "nodes": 51,
+    "method": "mappo-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.009259259259259264,
+    "lower": -0.125,
+    "upper": 0.11111111111111116
+  },
+  {
+    "nodes": 51,
+    "method": "mappo-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": -0.125,
+    "upper": 0.09722222222222221
+  },
+  {
+    "nodes": 51,
+    "method": "mappo-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.02777777777777783,
+    "lower": -0.11111111111111116,
+    "upper": 0.08333333333333337
+  },
+  {
+    "nodes": 51,
+    "method": "ppo-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.01388888888888884,
+    "lower": -0.08333333333333337,
+    "upper": 0.125
+  },
+  {
+    "nodes": 51,
+    "method": "ppo-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.013888888888888914,
+    "lower": -0.11111111111111116,
+    "upper": 0.11111111111111116
+  },
+  {
+    "nodes": 51,
+    "method": "ppo-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.004629629629629613,
+    "lower": -0.13888888888888884,
+    "upper": 0.08333333333333337
+  },
+  {
+    "nodes": 203,
+    "method": "B1",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.3055555555555555,
+    "lower": -0.4166666666666667,
+    "upper": -0.125
+  },
+  {
+    "nodes": 203,
+    "method": "B2",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 203,
+    "method": "B3",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.08333333333333333,
+    "lower": -0.125,
+    "upper": 0.0
+  },
+  {
+    "nodes": 203,
+    "method": "NC",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 203,
+    "method": "COMM-ALL",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 203,
+    "method": "GATE",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 203,
+    "method": "ORACLE",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 203,
+    "method": "dqn-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.018518518518518563,
+    "lower": -0.05555555555555569,
+    "upper": 0.0
+  },
+  {
+    "nodes": 203,
+    "method": "dqn-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.02314814814814814,
+    "lower": -0.04166666666666663,
+    "upper": 0.0
+  },
+  {
+    "nodes": 203,
+    "method": "dqn-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.023148148148148178,
+    "lower": -0.06944444444444453,
+    "upper": 0.0
+  },
+  {
+    "nodes": 203,
+    "method": "ippo-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.1712962962962964,
+    "lower": -0.23611111111111116,
+    "upper": -0.05555555555555569
+  },
+  {
+    "nodes": 203,
+    "method": "ippo-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.20833333333333334,
+    "lower": -0.31944444444444453,
+    "upper": -0.05555555555555547
+  },
+  {
+    "nodes": 203,
+    "method": "ippo-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.18981481481481485,
+    "lower": -0.29166666666666663,
+    "upper": -0.05555555555555569
+  },
+  {
+    "nodes": 203,
+    "method": "mappo-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.055555555555555615,
+    "lower": -0.05555555555555569,
+    "upper": -0.05555555555555547
+  },
+  {
+    "nodes": 203,
+    "method": "mappo-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.03703703703703698,
+    "lower": -0.06944444444444431,
+    "upper": 0.0
+  },
+  {
+    "nodes": 203,
+    "method": "mappo-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.06018518518518523,
+    "lower": -0.06944444444444453,
+    "upper": -0.05555555555555547
+  },
+  {
+    "nodes": 203,
+    "method": "ppo-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.06944444444444449,
+    "lower": -0.09722222222222232,
+    "upper": -0.04166666666666663
+  },
+  {
+    "nodes": 203,
+    "method": "ppo-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.06481481481481484,
+    "lower": -0.08333333333333337,
+    "upper": -0.02777777777777779
+  },
+  {
+    "nodes": 203,
+    "method": "ppo-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.041666666666666664,
+    "lower": -0.06944444444444453,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "B1",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.05555555555555558,
+    "lower": -0.16666666666666674,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "B2",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.11111111111111112,
+    "lower": -0.3333333333333333,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "B3",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.05555555555555558,
+    "lower": -0.16666666666666674,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "NC",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "COMM-ALL",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "GATE",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "ORACLE",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "dqn-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.041666666666666664,
+    "lower": -0.08333333333333337,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "dqn-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.037037037037037014,
+    "lower": -0.08333333333333337,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "dqn-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.023148148148148178,
+    "lower": -0.06944444444444453,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "ippo-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.07870370370370372,
+    "lower": -0.16666666666666663,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "ippo-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.060185185185185196,
+    "lower": -0.125,
+    "upper": -0.01388888888888895
+  },
+  {
+    "nodes": 483,
+    "method": "ippo-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.046296296296296315,
+    "lower": -0.09722222222222221,
+    "upper": -0.01388888888888895
+  },
+  {
+    "nodes": 483,
+    "method": "mappo-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "mappo-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "mappo-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "ppo-all",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": 0.0,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "ppo-gate",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.00462962962962965,
+    "lower": -0.01388888888888895,
+    "upper": 0.0
+  },
+  {
+    "nodes": 483,
+    "method": "ppo-none",
+    "versus": "NC",
+    "graphs": 3,
+    "delivery_difference": -0.00462962962962965,
+    "lower": -0.01388888888888895,
+    "upper": 0.0
+  }
+]

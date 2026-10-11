@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "arguments": {
+    "output": "out/complete-model-v1",
+    "figures": "../revision/complete-visualisations",
+    "episodes": 300,
+    "workers": 4,
+    "graph_start": 700
+  },
+  "protocol": "matched synthetic benchmark; exploratory, convergence not presumed",
+  "started_utc": "2026-10-11T15:28:46Z",
+  "elapsed_seconds": 2157.394476572
+}

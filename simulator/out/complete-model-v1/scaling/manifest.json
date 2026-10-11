@@ -1,0 +1,152 @@
+{
+  "schema": "reviewer-reconstruction-v2",
+  "observation_version": "local-belief-v2",
+  "source_hash": "596294a014a198d970957e41fc6bf55b92563518b0e73ac507159553cb50babd",
+  "argv": [
+    "/workspace/AIMRL/simulator/run_experiments.py",
+    "evaluate",
+    "--checkpoints",
+    "/workspace/AIMRL/simulator/out/complete-model-v1/train",
+    "--graphs",
+    "800",
+    "801",
+    "802",
+    "--eval-episodes",
+    "2",
+    "--sizes",
+    "39",
+    "51",
+    "203",
+    "483",
+    "--threads",
+    "1",
+    "--convoys",
+    "12",
+    "--attack-rate",
+    ".9",
+    "--attack-duration",
+    "40",
+    "80",
+    "--budget",
+    "12",
+    "--p-kill",
+    ".7",
+    "--conf-mu",
+    ".85",
+    "--conf-sd",
+    ".1",
+    "--delay",
+    "4",
+    "--loss",
+    ".2",
+    "--spoof",
+    "8",
+    "--output",
+    "/workspace/AIMRL/simulator/out/complete-model-v1/scaling"
+  ],
+  "arguments": {
+    "command": "evaluate",
+    "output": "/workspace/AIMRL/simulator/out/complete-model-v1/scaling",
+    "smoke": false,
+    "threads": 1,
+    "convoys": 12,
+    "attack_rate": 0.9,
+    "attack_duration": [
+      40.0,
+      80.0
+    ],
+    "budget": 12,
+    "p_kill": 0.7,
+    "hub_service": 2,
+    "conf_mu": 0.85,
+    "conf_sd": 0.1,
+    "profile_memory": false,
+    "delay": 4.0,
+    "loss": 0.2,
+    "spoof": 8.0,
+    "adversary": "random",
+    "spoof_mode": "exogenous",
+    "algos": [
+      "dqn",
+      "ppo",
+      "ippo",
+      "mappo"
+    ],
+    "comms": [
+      "none",
+      "all",
+      "gate"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "episodes": 300,
+    "eval_episodes": 2,
+    "graphs": [
+      800,
+      801,
+      802
+    ],
+    "sizes": [
+      39,
+      51,
+      203,
+      483
+    ],
+    "checkpoints": "/workspace/AIMRL/simulator/out/complete-model-v1/train",
+    "strengths": [
+      0,
+      4,
+      8,
+      12,
+      24
+    ],
+    "etas": [
+      0.4,
+      1,
+      2
+    ],
+    "max_messages": null
+  },
+  "config": {
+    "n_convoys": 12,
+    "stagger": 0.5,
+    "hub_cap": 1,
+    "hub_service": 2,
+    "tau_reveal": 5.0,
+    "tau_msg": 4.0,
+    "tau_stale": 8.0,
+    "p_loss": 0.2,
+    "spoof_rate": 8.0,
+    "obs_radius": 1,
+    "adv": "random",
+    "attack_rate": 0.9,
+    "attack_dur": [
+      40.0,
+      80.0
+    ],
+    "budget": 12,
+    "p_kill": 0.7,
+    "blocked_slow": 2.0,
+    "react_delay": 2,
+    "react_eps": 0.2,
+    "react_halflife": 10.0,
+    "horizon": 5000,
+    "conf_mu": 0.85,
+    "spoof_mode": "exogenous",
+    "congestion_factor": 0.2,
+    "conf_sd": 0.1
+  },
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "torch": "2.14.1+cpu",
+    "scipy": "1.17.0"
+  },
+  "purpose": "experiment (convergence and protocol require review)",
+  "status": "completed",
+  "elapsed_seconds": 536.7678609849997
+}

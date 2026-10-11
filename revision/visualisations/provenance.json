@@ -1,0 +1,6 @@
+{
+  "source_hash": "21843a345b3e23aa5b94bfa75aacf35252ed05e8d60cab79372ed1ea109a0046",
+  "run_root": "/workspace/AIMRL/simulator/out/reviewer-validation",
+  "purpose": "diagnostic smoke visualisations",
+  "plots": 7
+}

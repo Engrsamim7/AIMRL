@@ -1,0 +1,98 @@
+{
+  "source_hash": "596294a014a198d970957e41fc6bf55b92563518b0e73ac507159553cb50babd",
+  "runs": {
+    "ablate": {
+      "command": "ablate",
+      "seconds": 334.948172721,
+      "zero_strength_outcomes_identical": true,
+      "episode_runs": 12500,
+      "convoy_records": 150000,
+      "metric_invariants_verified": true
+    },
+    "fir": {
+      "command": "fir",
+      "seconds": 109.49609510599998,
+      "interventions": 8428,
+      "all_processed_messages": true,
+      "changed_receiver_paths": 24
+    },
+    "random": {
+      "command": "evaluate",
+      "seconds": 327.89304499700006,
+      "episode_runs": 2150,
+      "convoy_records": 25800,
+      "metric_invariants_verified": true,
+      "node_sizes": [
+        39
+      ]
+    },
+    "reactive": {
+      "command": "evaluate",
+      "seconds": 157.820931298,
+      "episode_runs": 2150,
+      "convoy_records": 25800,
+      "metric_invariants_verified": true,
+      "node_sizes": [
+        39
+      ]
+    },
+    "scaling": {
+      "command": "evaluate",
+      "seconds": 536.7678609849997,
+      "episode_runs": 1032,
+      "convoy_records": 12384,
+      "metric_invariants_verified": true,
+      "node_sizes": [
+        39,
+        51,
+        203,
+        483
+      ]
+    },
+    "spoof": {
+      "command": "evaluate",
+      "seconds": 269.380899884,
+      "episode_runs": 2150,
+      "convoy_records": 25800,
+      "metric_invariants_verified": true,
+      "node_sizes": [
+        39
+      ]
+    },
+    "train": {
+      "command": "train",
+      "seconds": 1257.862004641,
+      "episodes": 10800,
+      "checkpoints": 36,
+      "optimizer_updates_verified": true
+    },
+    "train-dqn": {
+      "command": "train",
+      "seconds": 1241.832059466,
+      "episodes": 2700,
+      "checkpoints": 9,
+      "optimizer_updates_verified": true
+    },
+    "train-ippo": {
+      "command": "train",
+      "seconds": 1168.591396452,
+      "episodes": 2700,
+      "checkpoints": 9,
+      "optimizer_updates_verified": true
+    },
+    "train-mappo": {
+      "command": "train",
+      "seconds": 1120.911727919,
+      "episodes": 2700,
+      "checkpoints": 9,
+      "optimizer_updates_verified": true
+    },
+    "train-ppo": {
+      "command": "train",
+      "seconds": 1257.862004641,
+      "episodes": 2700,
+      "checkpoints": 9,
+      "optimizer_updates_verified": true
+    }
+  }
+}
