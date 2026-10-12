@@ -1,5 +1,19 @@
 # AIMRL
 
+## Latest: why the adaptive results were equivalent
+
+The communication opportunity audit replays the existing frozen schedules with
+diagnostic logging, isolated decision probes and complete-episode interventions.
+It checks when warnings are novel, concern the proposed route, and could support
+a feasible detour. The original evaluated simulator and gate source are unchanged;
+this is diagnosis, not new training or a fresh superiority claim.
+
+- [Audit findings and six figures](revision/communication-opportunity-audit/README.md).
+- [Combined audit PDF](revision/communication-opportunity-audit/communication_opportunity_report.pdf).
+- [Offline audit visualization report](revision/communication-opportunity-audit/index.html).
+- [Complete code, weights, prior results and audit data ZIP](deliverables/AIMRL-communication-audit.zip).
+- [Proposed fresh experiments](revision/communication-audit-next-experiments.md).
+
 ## Adaptive gate: latest implementation and fresh tests
 
 The adaptive gate estimates routing sensitivity, combines uncertain sender evidence,

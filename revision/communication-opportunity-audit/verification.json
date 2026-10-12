@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "network_episodes": 7560,
+  "control_episodes": 2400,
+  "processed_packets": 419871,
+  "scheduled_envelopes": 600425,
+  "decisions": 159341,
+  "batch_interventions": 704,
+  "network_current_hazard_opportunities": 40,
+  "network_next_edge_changes": 0,
+  "batch_changed_paths": 0,
+  "batch_helpful": 0,
+  "batch_harmful": 0,
+  "warning_action_interventions": 21,
+  "warning_action_helpful": 10,
+  "warning_action_harmful": 1,
+  "figures": 6,
+  "source_hash": "4da5ccebf13143b860c2705362bb1263e1e4906c45190a4fc8260629fe405c6c"
+}

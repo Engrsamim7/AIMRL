@@ -1,0 +1,5 @@
+family,regime,interventions,currently_blocked,changed_paths,helpful_delivery,harmful_delivery,fewer_blocked_encounters
+synthetic-39,delayed-spoof,4,4,4,3,0,4
+synthetic-39,reliable,15,14,10,5,1,6
+synthetic-51,delayed-spoof,1,1,1,1,0,1
+synthetic-51,reliable,1,1,1,1,0,1
