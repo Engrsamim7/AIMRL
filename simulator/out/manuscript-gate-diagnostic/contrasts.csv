@@ -1,0 +1,17 @@
+scenario,penalties,comparison,difference_pp,lower_pp,upper_pp
+exogenous,0/0,gate minus all,0.0,0.0,0.0
+exogenous,0/0,gate minus none,0.0,0.0,0.0
+exogenous,8/8,gate minus all,0.0,0.0,0.0
+exogenous,8/8,gate minus none,0.0,0.0,0.0
+exogenous,12/12,gate minus all,0.0,0.0,0.0
+exogenous,12/12,gate minus none,0.0,0.0,0.0
+exogenous,8/12,gate minus all,0.0,0.0,0.0
+exogenous,8/12,gate minus none,0.0,0.0,0.0
+reactive,0/0,gate minus all,0.0,0.0,0.0
+reactive,0/0,gate minus none,0.0,0.0,0.0
+reactive,8/8,gate minus all,0.0,0.0,0.0
+reactive,8/8,gate minus none,0.0,0.0,0.0
+reactive,12/12,gate minus all,0.0,0.0,0.0
+reactive,12/12,gate minus none,0.0,0.0,0.0
+reactive,8/12,gate minus all,0.0,0.0,0.0
+reactive,8/12,gate minus none,0.0,0.0,0.0

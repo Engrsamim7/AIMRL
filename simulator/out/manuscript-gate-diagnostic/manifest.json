@@ -1,0 +1,59 @@
+{
+  "status": "completed",
+  "arguments": {
+    "output": "out/manuscript-gate-diagnostic",
+    "train": 300,
+    "graphs": 3,
+    "seeds": 5,
+    "eval": 20
+  },
+  "base_config": {
+    "n_convoys": 3,
+    "stagger": 0,
+    "hub_cap": 2,
+    "hub_service": 1.0,
+    "tau_reveal": 5.0,
+    "tau_msg": 2.0,
+    "tau_stale": 8.0,
+    "p_loss": 0.0,
+    "spoof_rate": 0.0,
+    "obs_radius": 1,
+    "adv": "random",
+    "attack_rate": 0.9,
+    "attack_dur": [
+      20,
+      40
+    ],
+    "budget": 6,
+    "p_kill": 0.7,
+    "blocked_slow": 2.0,
+    "react_delay": 2.0,
+    "react_eps": 0.2,
+    "react_halflife": 10.0,
+    "horizon": 2000.0,
+    "conf_mu": 1.0,
+    "spoof_mode": "exogenous",
+    "congestion_factor": 0.15,
+    "conf_sd": 0.0
+  },
+  "episodes": 24000,
+  "training_episodes": 4500,
+  "source_sha256": {
+    "manuscript_gate.py": "780376b7bfab08a81aaa684998496dbbd7f3c3b1e88fca80a3777b3ec8ea0042",
+    "run_manuscript_gate.py": "715f999408b91290aa600d2c7c8a559a2cebb1c0c110f10e28926b1574cad81d",
+    "ammarl2/sim.py": "1e7382877792e472b6e41272661cb6660096d22956e0816d16fdda0b8a09963f",
+    "ammarl2/graph.py": "c3e4d25a6c003fab884c9f2a1d2e0d1f1953a5d551c8ee864402ad426e5606fc"
+  },
+  "limitations": [
+    "Synthetic 17-node graph, not original topology",
+    "Frozen local Q; no communication-specific retraining",
+    "Negative threat step penalty and explicit death penalty resolve unspecified/ambiguous manuscript choices",
+    "Only three test graphs; intervals are diagnostic",
+    "Training and test episodes independent on same graph; not unseen-graph transfer"
+  ],
+  "checks": [
+    "Frozen Q equality every evaluation",
+    "Identical convoy schedule every comparison",
+    "Zero-response outcome equality every episode"
+  ]
+}
