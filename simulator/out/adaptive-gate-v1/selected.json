@@ -1,0 +1,11 @@
+{
+  "parameters": {
+    "risk_aversion": 0.25,
+    "age_scale": 2.0,
+    "min_value": 0.02
+  },
+  "selection": "highest mean delivery, then shorter delivered elapsed time, then fewer accepted packets; >=5% genuine admission; deterministic parameter tie order",
+  "validation_genuine_admission": 0.07142857142857142,
+  "unknown_block_prior": 0.05,
+  "source_hash": "b293fa951ccb53b657093753aa54e89542fdc4bfbdcf7793dbe2826bb9b213c1"
+}

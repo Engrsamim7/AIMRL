@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "heldout_episodes": 21680,
+  "convoy_records": 65040,
+  "processed_packets": 995237,
+  "validation_episodes": 3240,
+  "controlled_episodes": 5600,
+  "network_interventions": 293,
+  "controlled_interventions": 150,
+  "superiority_supported": 0,
+  "primary_tests": 24,
+  "source_hash": "b293fa951ccb53b657093753aa54e89542fdc4bfbdcf7793dbe2826bb9b213c1",
+  "checks": [
+    "summary/raw agreement",
+    "integer/outcome invariants",
+    "elapsed time decomposition",
+    "Dijkstra bound",
+    "accepted report ages",
+    "common-survivor pairing",
+    "source fingerprint"
+  ]
+}

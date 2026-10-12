@@ -1,0 +1,28 @@
+{
+  "status": "completed",
+  "source_hash": "b293fa951ccb53b657093753aa54e89542fdc4bfbdcf7793dbe2826bb9b213c1",
+  "core_source_hash": "7a8678dcbf68ad1e091bd8971edbe70ef1f8bb632d228ae960707b3f95996358",
+  "parameters": {
+    "risk_aversion": 0.25,
+    "age_scale": 2.0,
+    "min_value": 0.02
+  },
+  "arguments": {
+    "output": "simulator/out/adaptive-gate-v1",
+    "graphs": 10,
+    "episodes": 20
+  },
+  "evaluation_episodes": 21680,
+  "seconds": 652.7951125909967,
+  "new_offline_training_episodes": 0,
+  "reused_baseline_models": 20,
+  "online_learning": "per-convoy sender agreement from local observations; reset every episode",
+  "scope": "original 19-node topology plus ten new graphs each at 39 and 51 nodes; declared mixed sensor coverage",
+  "limitations": [
+    "Approximate probabilities and sender agreement are not calibrated",
+    "No authenticated identity; impersonation can invalidate independent-source fusion",
+    "No learned deep gate; adaptive method is model-based routing and admission",
+    "Soft-fusion comparators isolate estimator changes from filtering",
+    "No general superiority or convergence assumed"
+  ]
+}
