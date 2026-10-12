@@ -1,0 +1,30 @@
+{
+  "status": "completed",
+  "source_hash": "4da5ccebf13143b860c2705362bb1263e1e4906c45190a4fc8260629fe405c6c",
+  "core_source_hash": "7a8678dcbf68ad1e091bd8971edbe70ef1f8bb632d228ae960707b3f95996358",
+  "parameters": {
+    "risk_aversion": 0.0,
+    "age_scale": 2.0,
+    "min_value": 0.02
+  },
+  "arguments": {
+    "output": "simulator/out/adaptive-gate-v2",
+    "graphs": 10,
+    "episodes": 30
+  },
+  "evaluation_episodes": 35040,
+  "seconds": 1147.2932877880012,
+  "new_offline_training_episodes": 0,
+  "reused_baseline_models": 20,
+  "online_learning": "per-convoy sender agreement from local observations; reset every episode",
+  "spoof_contract": "60% false clear on adversary-known interdictions, 40% false block on other edges; 25% identity impersonation in heavy/reactive regimes",
+  "clearance_guard": "two fresh claimed independent clear sources or direct local observation; preserved warning anchors expire at TTL",
+  "scope": "original 19-node topology plus ten new graphs each at 39 and 51 nodes; declared mixed sensor coverage",
+  "limitations": [
+    "Approximate probabilities and sender agreement are not calibrated",
+    "No authenticated identity; multiple forged identities can invalidate clearance quorum",
+    "No learned deep gate; adaptive method is model-based routing and admission",
+    "Soft-fusion comparators isolate estimator changes from filtering",
+    "No general superiority or convergence assumed"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "status": "completed",
+  "source_hash": "4da5ccebf13143b860c2705362bb1263e1e4906c45190a4fc8260629fe405c6c",
+  "helper_sha256": "6edab7c630b1f2514ba0152e8fa716ebfc40fd4d35c17c926fc3fad085989bcd",
+  "episodes": 750,
+  "params": {
+    "risk_aversion": 0.0,
+    "age_scale": 2.0,
+    "min_value": 0.02
+  },
+  "config": {
+    "n_convoys": 3,
+    "stagger": 0,
+    "hub_cap": 2,
+    "hub_service": 0.25,
+    "tau_reveal": 0,
+    "tau_msg": 1,
+    "tau_stale": 8.0,
+    "p_loss": 0.0,
+    "spoof_rate": 0.0,
+    "obs_radius": 1,
+    "adv": "random",
+    "attack_rate": 0,
+    "attack_dur": [
+      15.0,
+      30.0
+    ],
+    "budget": 0,
+    "p_kill": 1,
+    "blocked_slow": 2.0,
+    "react_delay": 2.0,
+    "react_eps": 0.2,
+    "react_halflife": 10.0,
+    "horizon": 2000.0,
+    "conf_mu": 1.0,
+    "spoof_mode": "exogenous",
+    "congestion_factor": 0.2,
+    "conf_sd": 0.0,
+    "allow_base_transit": false
+  },
+  "scope": "injected external-observer messages, small detour, fixed hot branch; constructed mechanism checks only"
+}

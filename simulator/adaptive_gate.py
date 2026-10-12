@@ -27,6 +27,8 @@ class AdaptiveGate(Policy):
     confirmation_window: float = 8.
     adapt_reliability: bool = True
     forced_scout_routes: bool = False
+    clearance_guard: bool = True
+    clearance_quorum: int = 2
 
     def __post_init__(self):
         super().__post_init__()
@@ -37,7 +39,7 @@ class AdaptiveGate(Policy):
 
     def state(self,cv):
         if not hasattr(cv,'value_state'):
-            cv.value_state=dict(reports={},feedback={},confirmed=set(),seen=set(),reputation={})
+            cv.value_state=dict(reports={},feedback={},confirmed=set(),seen=set(),reputation={},anchors={})
         return cv.value_state
 
     def trust(self,state,sender):
@@ -55,6 +57,15 @@ class AdaptiveGate(Policy):
             matches=bool(own[0])==bool(m['blocked'])
             state['reputation'][m['sender']]=(good+weight*matches,bad+weight*(not matches))
             state['confirmed'].add(mid)
+
+    def corroborated_clear(self,sim,cv,t,e,reports):
+        state=self.state(cv)
+        anchors=[m for m in state['anchors'].values() if m['e']==e and 0<=t-m['t_obs']<=sim.cfg.tau_stale]
+        since=max([m['t_obs'] for m in anchors],default=-1e9)
+        observed={m['id']:m for m in state['feedback'].values()}
+        observed.update({m['id']:m for m in reports.values()})
+        sources={m['sender'] for m in observed.values() if m['e']==e and not m['blocked'] and m['t_obs']>=since and 0<=t-m['t_obs']<=sim.cfg.tau_stale and m['conf']>=self.kappa_min and self.trust(state,m['sender'])>=.6}
+        return len(sources)>=self.clearance_quorum
 
     def distribution(self,sim,cv,t,reports=None):
         g=sim.g;state=self.state(cv);records=state['reports'] if reports is None else reports
@@ -78,6 +89,23 @@ class AdaptiveGate(Policy):
         for e,own in cv.own.items():
             if 0<=t-own[1]<=sim.cfg.tau_stale:probability[e]=float(own[0]);uncertainty[e]=0.
         risk=np.clip(probability+self.risk_aversion*uncertainty*np.sqrt(probability*(1-probability)),0,1)
+        if self.mode=='value' and self.clearance_guard:
+            anchor_mass=np.zeros(g.m)
+            for m in state['anchors'].values():
+                e=m['e'];age=t-m['t_obs']
+                if not 0<=age<=sim.cfg.tau_stale or not np.isfinite(eta[int(g.src[e])]):continue
+                credibility=.5+.49*float(np.clip(m['conf'],0,1))*self.trust(state,m['sender'])
+                decay=math.exp(-(age+eta[int(g.src[e])])/(self.age_scale*max(times[e],.001)))
+                anchor_mass[e]+=decay*logit(credibility)
+            for e in np.flatnonzero(negative>0):
+                own=cv.own.get(e)
+                if own is not None and 0<=t-own[1]<=sim.cfg.tau_stale:continue
+                if self.corroborated_clear(sim,cv,t,e,records):continue
+                floor_p=sigmoid(logit(self.unknown_block_probability)+anchor_mass[e])
+                floor_u=1./(1.+anchor_mass[e])
+                floor_risk=min(1.,floor_p+self.risk_aversion*floor_u*math.sqrt(floor_p*(1-floor_p)))
+                probability[e]=max(probability[e],floor_p)
+                risk[e]=max(risk[e],floor_risk)
         return probability,uncertainty,self.w(g)+self.response_strength*risk
 
     def decide(self,sim,cv,t):
@@ -88,6 +116,7 @@ class AdaptiveGate(Policy):
                 sim.broadcast(cv,[(e,blocked,1.)],t);cv.sent[e]=t
         self.confirm(cv,t)
         state['reports']={k:m for k,m in state['reports'].items() if 0<=t-m['t_obs']<=cfg.tau_stale and (self.mode!='frc' or t-m['t_obs']<=self.freshness_limit(sim,cv,m['e']))}
+        state['anchors']={k:m for k,m in state['anchors'].items() if 0<=t-m['t_obs']<=cfg.tau_stale}
         state['feedback']={mid:m for mid,m in state['feedback'].items() if 0<=t-m['t_obs']<=self.confirmation_window}
         accepted=[];n_in=len(cv.inbox)
         for packet in sorted(cv.inbox,key=lambda m:(m['t_obs'],m.get('id',''))):
@@ -118,11 +147,13 @@ class AdaptiveGate(Policy):
                         elif not relevant:reason='relevance'
                     elif self.mode=='value':
                         if not relevant:reason='relevance'
-                        elif utility+self.innovation_weight*innovation*uncertainty[e]<self.min_value:reason='low_estimated_value'
+                        elif utility+self.innovation_weight*innovation*uncertainty[e]<self.min_value:
+                            reason='uncorroborated_clearance' if self.clearance_guard and not m['blocked'] and not self.corroborated_clear(sim,cv,t,e,proposed) else 'low_estimated_value'
             state['seen'].add(m['id'])
             sim.message_audit.append(dict(id=m['id'],convoy=cv.id,edge=e,decision_t=t,t_obs=m['t_obs'],age=age,reason=reason,genuine=packet.get('genuine'),estimated_route_regret=utility,innovation=innovation,estimated_sender_agreement=reliability))
             if reason=='accepted':
                 state['reports'][key]=m;accepted.append(m['id'])
+                if m['blocked'] and m['conf']>=self.kappa_min:state['anchors'][key]=m
                 sim.stats['true_accepted' if packet.get('genuine') else 'spoof_accepted']+=1
             else:sim.stats['rejected']+=1
         cv.inbox.clear();self.confirm(cv,t)

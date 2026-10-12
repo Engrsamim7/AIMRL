@@ -1,3 +1,7 @@
+# Latest adaptive gate study
+
+Use `run_adaptive_experiments.py`, `run_clearance_stress.py`, `run_adaptive_actor_eval.py`, then `report_adaptive_results.py`. Read [adaptive methods](../revision/adaptive-gate-methods.md) and [results](../revision/adaptive-gate-results/README.md). The packaged baseline weights are reused; no new offline training is claimed. Adaptive sender agreement updates within each episode.
+
 # Current reviewer follow-up
 
 Use `run_reviewer_revision.py` for the original-topology, declared-sensor experiments and `report_reviewer_revision.py` for audited raw-data plots. See [changes and protocol](../revision/reviewer-code-changes.md), [current results](../revision/reviewer-revision-results/README.md), and `tests_reviewer_model.py`. Prior checkpoints are incompatible with the new sensor contract; their archived packages remain historical artifacts.

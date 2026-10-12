@@ -1,5 +1,23 @@
 # AIMRL
 
+## Adaptive gate: latest implementation and fresh tests
+
+The adaptive gate estimates routing sensitivity, combines uncertain sender evidence,
+learns local agreement, and protects warnings against uncorroborated clear reports.
+It also has an adapter for the existing frozen DQN/PPO/IPPO/MAPPO actors.
+
+- [Download complete adaptive code, data and baseline weights](deliverables/AIMRL-adaptive-gate.zip).
+- [Latest results and eight figures](revision/adaptive-gate-results/README.md).
+- [Combined PDF](revision/adaptive-gate-results/adaptive_gate_report.pdf).
+- [Offline HTML report](revision/adaptive-gate-results/index.html).
+- [Method, baselines, limitations and reproduction](revision/adaptive-gate-methods.md).
+- [Preserved negative prototype](revision/adaptive-gate-v1-results/README.md).
+
+The controlled single-impersonation fixture improves delivery over fixed and
+soft-fusion baselines. Broader network and frozen-actor comparisons do not establish
+statistical superiority. Multiple forged identities can defeat the quorum; legitimate
+clearance can incur a detour. These outcomes are retained in the report.
+
 ## Current reviewer revision using the original submission topology
 
 The supplied pre-submission code has been audited and preserved. The current

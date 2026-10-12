@@ -1,0 +1,152 @@
+[
+  {
+    "episode": 0,
+    "method": "COMM-ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 21,
+    "processed_messages": 21,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 0,
+    "method": "SOFT-ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 21,
+    "processed_messages": 21,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 0,
+    "method": "VALUE-GATE",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 21,
+    "processed_messages": 21,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 1,
+    "method": "COMM-ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 20,
+    "processed_messages": 20,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 1,
+    "method": "SOFT-ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 20,
+    "processed_messages": 20,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 1,
+    "method": "VALUE-GATE",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 20,
+    "processed_messages": 20,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 2,
+    "method": "COMM-ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 15,
+    "processed_messages": 15,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 2,
+    "method": "SOFT-ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 15,
+    "processed_messages": 15,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 2,
+    "method": "VALUE-GATE",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 15,
+    "processed_messages": 15,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 3,
+    "method": "COMM-ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 18,
+    "processed_messages": 18,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 3,
+    "method": "SOFT-ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 18,
+    "processed_messages": 18,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 3,
+    "method": "VALUE-GATE",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 18,
+    "processed_messages": 18,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 4,
+    "method": "COMM-ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 25,
+    "processed_messages": 25,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 4,
+    "method": "SOFT-ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 25,
+    "processed_messages": 25,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 4,
+    "method": "VALUE-GATE",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 25,
+    "processed_messages": 25,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  }
+]

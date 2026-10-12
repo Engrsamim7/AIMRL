@@ -1,5 +1,7 @@
 # Reviewer coverage: reconstructed simulator
 
+The latest adaptive extension and its bounded findings are documented in [adaptive methods](adaptive-gate-methods.md) and [adaptive results](adaptive-gate-results/README.md). It adds model-based value admission, local agreement feedback, a clearance quorum, and a frozen-neural-actor adapter. Broad delivery superiority is not established.
+
 Source: `simulator/`. Submitted PDF and reviewer letter were read as reference material. The submitted manuscript is not yet rewritten, and no final scientific performance claims are made here.
 
 The current original-topology revision is documented in [code changes and protocol](reviewer-code-changes.md) and [executed results](reviewer-revision-results/README.md). It adds declared sensing roles and an active hazard pathway, 43 tests, fresh five-seed models, matched frozen-weight communication contrasts and raw-data plots. The original submission code is preserved and its evidence provenance is audited separately.

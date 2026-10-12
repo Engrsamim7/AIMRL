@@ -56,10 +56,57 @@ def test_hidden_remote_state_cannot_change_gate_estimates():
     assert all(np.array_equal(a,b) for a,b in zip(before,after))
 
 
-def test_impersonating_a_trusted_sender_exposes_identity_limit():
+def test_single_impersonated_clear_cannot_erase_warning():
     from ammarl2.sim import MSG
     g,_,e=cc2_graph();p=policy();s=cc2_factory(g,cfg(),p,3)
     for receiver in [1,2]:
         s.push(3.,MSG,(receiver,dict(id=f'impersonation:{receiver}',sender=0,e=e,t_obs=2.,blocked=False,conf=.9,genuine=False)))
     result=s.run()
+    assert sum(r['delivered'] for r in result['rows'])==3
+
+
+def test_two_forged_identities_expose_clearance_quorum_limit():
+    from ammarl2.sim import MSG
+    g,_,e=cc2_graph();p=policy();s=cc2_factory(g,cfg(),p,3)
+    for receiver in [1,2]:
+        for sender in [-1,-2]:
+            s.push(3.,MSG,(receiver,dict(id=f'collusion:{receiver}:{sender}',sender=sender,e=e,t_obs=2.,blocked=False,conf=.99,genuine=False)))
+    result=s.run()
     assert sum(r['delivered'] for r in result['rows'])==1
+
+def test_direct_local_clear_overrides_remote_warning():
+    g,_,e=cc2_graph();p=policy();s=cc2_factory(g,cfg(),p,3);cv=s.cv[1];cv.node=2
+    state=p.state(cv);m=dict(id='warning',sender=0,e=e,t_obs=1.,blocked=True,conf=1.)
+    state['anchors'][(e,0)]=m;state['reports'][(e,0)]=m
+    cv.own[e]=(False,3.,1.)
+    probability,uncertainty,weights=p.distribution(s,cv,3.)
+    assert probability[e]==0. and uncertainty[e]==0.
+
+
+def test_exogenous_mixed_spoof_stream_is_independent_of_routing_policy():
+    from run_adaptive_experiments import MixedSpoofSim,config
+    from ammarl2.reviewer import original_graph,m4_sensing
+    from ammarl2.policies import Policy
+    from ammarl2.sim import MSG
+    g=original_graph();c=config('delayed-spoof')
+    a=MixedSpoofSim(g,c,Policy('NC'),19,m4_sensing(g,True))
+    b=MixedSpoofSim(g,c,policy(),19,m4_sensing(g,True))
+    a.active[0]=(0.,50.);b.active[0]=(0.,50.)
+    for t in [1.,2.,3.]:a.do_spoof(t);b.do_spoof(t)
+    # Filter before unpacking: SPOOF scheduler events have an empty payload.
+    packets=lambda s:[(t,payload[0],payload[1]) for t,k,typ,payload in s.ev if typ==MSG]
+    assert packets(a)==packets(b)
+
+
+def test_adaptive_actor_preserves_weights_and_local_feature_contract():
+    import torch
+    from ammarl2.learn import LearnedPolicy
+    from adaptive_actor import AdaptiveActor
+    g,_,e=cc2_graph();fitted=LearnedPolicy('dqn',algo='dqn',comm='all',train=False,seed=1)
+    p=AdaptiveActor.from_fitted(fitted,{'min_value':.02,'risk_aversion':0.,'age_scale':2.})
+    s=cc2_factory(g,cfg(),p,3);cv=s.cv[1];cv.node=2
+    cv.inbox=[dict(id='true-warning',sender=0,e=e,t_obs=1.,blocked=True,conf=1.,genuine=True)]
+    weights={k:v.clone() for k,v in p.net.state_dict().items()};p.decide(s,cv,2.)
+    assert e in cv.peer and cv.peer[e][0] is True
+    assert all(torch.equal(v,weights[k]) for k,v in p.net.state_dict().items())
+    assert len(s.trace)==1 and s.decisions[-1]['selector'].startswith('frozen dqn')

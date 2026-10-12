@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "source_hash": "4da5ccebf13143b860c2705362bb1263e1e4906c45190a4fc8260629fe405c6c",
+  "actor_source_sha256": "bf7ab517e8bcf2b41ad6833b8331dbe2e2f6a3d27d925cc91126c1aab9bea637",
+  "runner_sha256": "853392d4e6e5fbba38323bb3208be96bb733dc380ddab0db82b1be02d3e03d33",
+  "episodes": 7200,
+  "new_offline_training_episodes": 0,
+  "scope": "original topology, frozen weights, reference-planner gate proxy; no actor-specific value learning",
+  "checks": [
+    "network weights unchanged",
+    "same episode schedules across modes"
+  ]
+}

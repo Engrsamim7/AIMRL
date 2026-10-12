@@ -1,0 +1,16 @@
+case,method,delivery_rate,nominal_delivered_mean,realized_delivered_mean
+one-legitimate-clear,COMM-ALL,1.0,7.0,7.913333333333334
+one-legitimate-clear,FRC,1.0,7.0,7.913333333333334
+one-legitimate-clear,NC,1.0,7.0,7.913333333333334
+one-legitimate-clear,SOFT-ALL,1.0,7.0,7.913333333333334
+one-legitimate-clear,VALUE-GATE,1.0,7.266666666666667,8.129333333333333
+two-forged-clear,COMM-ALL,0.3333333333333332,7.4,8.15
+two-forged-clear,FRC,0.3333333333333332,7.4,8.15
+two-forged-clear,NC,0.3333333333333332,7.4,8.15
+two-forged-clear,SOFT-ALL,0.3333333333333332,7.4,8.15
+two-forged-clear,VALUE-GATE,0.3333333333333332,7.4,8.15
+two-legitimate-clear,COMM-ALL,1.0,7.0,7.913333333333334
+two-legitimate-clear,FRC,1.0,7.0,7.913333333333334
+two-legitimate-clear,NC,1.0,7.0,7.913333333333334
+two-legitimate-clear,SOFT-ALL,1.0,7.0,7.913333333333334
+two-legitimate-clear,VALUE-GATE,1.0,7.0,7.913333333333334

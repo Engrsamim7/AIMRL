@@ -1,7 +1,7 @@
 scope,method,interventions,helpful,harmful,unchanged,changed_paths
-network,COMM-ALL,97,0,0,97,1
-network,SOFT-ALL,98,0,0,98,0
-network,VALUE-GATE,98,0,0,98,0
+network,COMM-ALL,99,0,0,99,0
+network,SOFT-ALL,99,0,0,99,0
+network,VALUE-GATE,99,0,0,99,0
 controlled,COMM-ALL,50,10,20,20,30
 controlled,SOFT-ALL,50,20,10,20,30
-controlled,VALUE-GATE,50,20,10,20,30
+controlled,VALUE-GATE,50,30,0,20,30

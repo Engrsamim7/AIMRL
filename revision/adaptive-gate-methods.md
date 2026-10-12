@@ -18,6 +18,12 @@ For a candidate message, the policy temporarily recomputes the optimal route und
 
 Agreement updates use only later local observations within eight units, once per packet, with `exp(-age/8)` weight. Changes in hazards between observation times can cause disagreement even for an honest source. The score is observed short-window agreement, not authentication or a dishonesty verdict. Rejected valid packets can still supply later feedback, reducing admission-based feedback bias.
 
+## Conservative clearance safeguard
+
+V2 adds a risk floor for uncorroborated clear reports. One unverified clear packet cannot lower an unknown edge below its prior risk or erase a fresh warning anchor, even if it claims the same sender as that warning. Direct local sensing overrides the safeguard. Two fresh clear reports from different claimed identities, with confidence at least .6 and sender agreement at least .6, can release it. Pending valid received clear reports count toward corroboration even when not yet admitted, avoiding a deadlock. Positive warning anchors expire at the outer TTL. Their decayed positive-only risk is a conservative floor, not a claim that the warning is certainly true.
+
+This safeguard can delay legitimate clearance and maintain false warnings until sensing, corroboration or expiry resolves them. Multiple forged identities can defeat it; the tests include that failure. Claimed-source quorum is not cryptographic authentication. The safeguard affects VALUE-GATE; matched SOFT-ALL and SOFT-FRC retain the probabilistic estimator without this extra guard. The NO-CLEARANCE-GUARD ablation isolates its contribution.
+
 ## Baselines and ablations
 
 - **NC / COMM-ALL / FRC / FRC-v2:** existing binary-belief routing with identical response strength 12; fixed FRC thresholds are respectively eta=1/confidence=.6 and eta=1/confidence=.4.
@@ -34,9 +40,9 @@ Improvement over binary COMM-ALL alone cannot establish that value filtering cau
 
 Validation evaluates 27 parameter combinations: risk aversion 0/.25/.5, age scale 2/4/8, minimum value .02/.1/.3. It uses the original topology and one separate validation graph each at 39 and 51 nodes, with ten episode schedules in each of four regimes. Candidates must admit at least 5% of processed genuine reports in aggregate validation. Ranking first maximizes mean delivery, then minimizes delivered-only elapsed time and admitted packets, with deterministic parameter tie order. Thresholds are frozen before held-out evaluation. Delivered-only time is not mission completion time.
 
-Regimes are prespecified: reliable communication (delay 1, no packet loss/spoofing); delayed spoofing (delay 4, loss .2, spoof rate 2); heavy spoofing (delay 4, loss .2, spoof rate 8); and reactive/targeted spoofing (delay 4, loss .2, spoof rate 2). Attacks use rate .5, duration 15–30, budget 5 and blocked-entry destruction probability .7. Three convoys, hub capacity two, service time one, reveal delay five, congestion factor .15 and horizon 300 are fixed. These are model units and synthetic mechanisms.
+Regimes are prespecified: reliable communication (delay 1, no packet loss/spoofing); delayed spoofing (delay 4, loss .2, spoof rate 2); heavy spoofing (delay 4, loss .2, spoof rate 8); and reactive/targeted spoofing (delay 4, loss .2, spoof rate 2). Attacks use rate .5, duration 15–30, budget 5 and blocked-entry destruction probability .7. Three convoys, hub capacity two, service time one, reveal delay five, congestion factor .15 and horizon 300 are fixed. V2 spoofing mixes 60% forged clear reports about adversary-known active interdictions and 40% forged block reports about other edges. Fake claimed confidence has the same .85/.1 distribution as genuine confidence. Heavy/reactive regimes impersonate an existing convoy identifier with probability .25; the other regime uses a stable adversarial identifier. The policy never sees an authenticity label. Random-attack spoof locations depend only on the adversary's own exogenous interdictions, not future convoy paths, so controlled replay remains possible there. These are model units and synthetic mechanisms.
 
-Held-out evaluation uses the original topology plus ten fresh graphs each at 39 and 51 nodes, twenty episode schedules per topology/regime. Sensor coverage is explicitly mixed: scout two-hop sensing, follower one-hop sensing with topology-determined gaps. Comparators share exact convoy schedules. Validation graph seeds start at 8200+size; test graph seeds at 9200+size. Validation episodes use `8000000 + graph_id*1000 + regime_index*100 + episode`; tests use `9000000 + graph_id*1000 + regime_index*100 + episode`. They are distinct from earlier studies and baseline training.
+V2 held-out evaluation uses the original topology plus ten fresh graphs each at 39 and 51 nodes, thirty episode schedules per topology/regime. Sensor coverage is explicitly mixed: scout two-hop sensing, follower one-hop sensing with topology-determined gaps. Comparators share exact convoy schedules. V2 validation graph seeds start at 18200+size; test graph seeds at 19200+size. Validation episodes use `13000000 + graph_id*1000 + regime_index*100 + episode`; tests use `14000000 + graph_id*1000 + regime_index*100 + episode`. They are distinct from earlier studies and baseline training.
 
 The 24 primary delivery contrasts are VALUE-GATE versus COMM-ALL and SOFT-ALL across three topology families and four regimes. Paired hierarchical graph/episode bootstrap intervals are Bonferroni-adjusted across those 24 comparisons. Original-topology intervals condition on that one graph. Supplementary fixed-gate/ablation contrasts are exploratory and are labeled separately. Tests estimate performance over the stated synthetic distributions, not universal superiority or operational validity.
 
@@ -53,9 +59,27 @@ After `bash setup_local.sh`, activate `.venv` and run from `simulator/`:
 ```bash
 python -m pytest -q tests_core.py tests_revision.py tests_manuscript_gate.py tests_reviewer_model.py tests_adaptive_gate.py
 python run_adaptive_experiments.py --output out/my-adaptive-run
+python run_clearance_stress.py --input out/my-adaptive-run
+python run_adaptive_actor_eval.py --input out/my-adaptive-run
 python report_adaptive_results.py --input out/my-adaptive-run --output ../revision/my-adaptive-results
 ```
 
 The runner needs the existing baseline weights at `out/reviewer-revision-v2/models/`; the adaptive package includes them and their original training records. It creates a fresh output directory and locks source/topology fingerprints. Reports audit raw outcomes, packet ages, integer counts, path-cost bounds and elapsed-time decomposition before plotting. Large raw packet/decision CSVs may also be distributed as lossless `.csv.gz`; pandas reads them directly and the report supports either form.
 
 Possible claim wording must follow the executed effects and simultaneous intervals. Identify the baseline, sensor assumptions, graph family and communication regime for any supported superiority claim. If only uncertain fusion improves outcomes while VALUE-GATE matches SOFT-ALL, attribute the gain to the full fusion/planning method rather than value filtering. If neither improves reliably, report that and revise the mechanism without selecting favorable test settings.
+
+## Preserved prototype and changes before v2 testing
+
+The first prototype evaluated 21,680 held-out episodes and 5,600 controlled episodes. Its 24 corrected primary comparisons supported no delivery superiority. It matched SOFT-ALL in delivery and failed against a single spoofed scout identity in the controlled fixture. Its exact source and results are preserved under `out/adaptive-gate-v1/executed_source` and `revision/adaptive-gate-v1-results`.
+
+The v2 design was changed after that diagnosis: clearance safeguards, a mixed false-block/false-clear channel, identity spoofing in two regimes, thirty episode schedules per test topology/regime, and completely new validation/test graph and episode seeds. V2 settings are reselected only on its new validation data. This is an iterative experimental development process, not a retrospective declaration that v1 succeeded.
+
+## Integration with frozen neural actors
+
+`adaptive_actor.py` runs the admission/clearance mechanism before the existing actor. It projects admitted hazard statements into the original binary belief/age/confidence features, preserves warning anchors until corroboration or expiry, and gives fresher local observations priority. It does not feed untrained continuous-probability features into the old network. MAPPO privileged critic values are never used by the gate. The value proxy remains a public reference risk planner, not the actor's learned action value. Actor-specific message-value learning remains future work.
+
+`run_adaptive_actor_eval.py` evaluates 7,200 new original-topology episodes: twenty existing models, four regimes, thirty schedules, three communication modes. Network weights remain fixed. Thirty-two exploratory algorithm/regime/baseline contrasts use crossed training-seed/episode bootstrap intervals with Bonferroni correction within that secondary family; they are not primary evidence of broad superiority.
+
+The additional 750 clearance-stress episodes inject external-observer confirmation messages; platform motion for these observers is not modeled. They expose the detour from withholding one legitimate clearance, release after two confirmations, and failure against two forged identities. These are mechanism probes, not operational prevalence estimates.
+
+Actual delivery and blocked-entry counts are the primary comparable outcomes. Unexpected-entry counts use each method's belief convention (probability threshold for the soft planner versus binary warning flags for the legacy/frozen actors), so they must not be interpreted as a common calibrated knowledge metric across those representations.
