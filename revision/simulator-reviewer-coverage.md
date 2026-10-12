@@ -2,7 +2,9 @@
 
 Source: `simulator/`. Submitted PDF and reviewer letter were read as reference material. The submitted manuscript is not yet rewritten, and no final scientific performance claims are made here.
 
-The complete executable workflow, 300-episode training protocol, raw artifacts,
+The current original-topology revision is documented in [code changes and protocol](reviewer-code-changes.md) and [executed results](reviewer-revision-results/README.md). It adds declared sensing roles and an active hazard pathway, 43 tests, fresh five-seed models, matched frozen-weight communication contrasts and raw-data plots. The original submission code is preserved and its evidence provenance is audited separately.
+
+The historical complete executable workflow, 300-episode training protocol, raw artifacts,
 offline report and portable delivery are described in
 [complete model](complete-model.md) and [protocol](complete-protocol.md).
 The [executed report](complete-visualisations/README.md) retains positive,
@@ -30,7 +32,7 @@ from resolving every scientific or manuscript revision concern.
 1. Tune only on separate validation graphs; assess training convergence and sensitivity with adequate seeds and matched environment interaction budgets. The 300-episode, three-seed run extends the earlier smoke runs but does not presume convergence or sufficient retraining replication.
 2. Run the full held-out comparison with documented uncertainty, fair survivor conditioning, larger graphs, congestion/delay/loss/confidence sweeps and clean/adversarial training comparisons.
 3. Evaluate single-message FIR with sufficient independent episodes. Controlled replay excludes endogenous reactive/targeted attack schedules; analyze those scenarios as total policy effects with explicit causal assumptions.
-4. Supply the original 19-node topology/source if exact original-model reconstruction is required. The shipped ZIP contains a different synthetic layered simulator; it cannot establish reproducibility of the submitted numbers.
+4. Original source and its 19-node/64-edge topology have now been supplied, preserved and adapted. Exact submitted numerical reproduction remains unverified: its presentation pipeline constructs curves and fixes headline values, while its M4 runner has no connected hazard source. Current replacement results come only from executed simulations.
 5. Update manuscript equations, units, tables, figures and claims and prepare point-by-point responses. Highlight the changes and cite original paper IoT-66126-2026 when resubmitting as the editor requests.
 
 The original manuscript asserts strong gated superiority. The archived README reports mixed gate results. Neither is taken as evidence of superiority for the reconstructed version; new results must decide the claim.

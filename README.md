@@ -1,6 +1,36 @@
 # AIMRL
 
-## Complete simulator, code and results
+## Current reviewer revision using the original submission topology
+
+The supplied pre-submission code has been audited and preserved. The current
+revision uses its recovered 19-node, 64-edge network, explicit scout/follower
+sensing, genuine delayed hazard reports, matched filtering/response comparisons,
+and newly trained DQN/PPO/IPPO/MAPPO models.
+
+- [Download current complete code, models and results](deliverables/AIMRL-reviewer-revision.zip).
+- [Current results and nine figures](revision/reviewer-revision-results/README.md).
+- [Combined PDF](revision/reviewer-revision-results/reviewer_revision_report.pdf).
+- [Offline HTML](revision/reviewer-revision-results/index.html): download and open locally.
+- [Changes, protocol and reproduction commands](revision/reviewer-code-changes.md).
+- [Original code audit](revision/submission-code-audit/README.md).
+- [Current raw CSVs and fresh models](simulator/out/reviewer-revision-v2).
+
+```bash
+bash setup_local.sh
+source .venv/bin/activate
+cd simulator
+python -m pytest -q tests_core.py tests_revision.py tests_manuscript_gate.py tests_reviewer_model.py
+python run_reviewer_revision.py --output out/my-reviewer-run
+python run_gate_fixtures.py --output out/my-reviewer-run/gate-fixtures
+python report_reviewer_revision.py --input out/my-reviewer-run --output ../revision/my-reviewer-results
+```
+
+Current weights compare communication modes with frozen fitted routing models.
+These experiments do not establish universal gate superiority or convergence.
+Historical runs below require their archived source and weights; the current
+sensor contract has a new source/observation version.
+
+## Historical complete reconstruction
 
 The `reviewer-complete-model-20261012` branch delivers the reconstructed model
 and the longer 300-episode-per-model experiment suite together:
@@ -21,7 +51,6 @@ bash setup_local.sh
 source .venv/bin/activate
 cd simulator
 python -m pytest -q tests_core.py tests_revision.py
-python validate_results.py out/complete-model-v1
 python run_complete.py --output out/my-new-run --figures ../revision/my-new-figures
 ```
 

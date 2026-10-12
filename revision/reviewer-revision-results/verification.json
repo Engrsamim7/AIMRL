@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "training_episodes": 6000,
+  "models": 20,
+  "heldout_episodes": 13000,
+  "convoy_records": 39000,
+  "processed_messages": 124304,
+  "cc2_episodes": 900,
+  "ablation_episodes": 2400,
+  "m4_packet_interventions": 158,
+  "cc2_packet_interventions": 40,
+  "controlled_filtering_episodes": 450,
+  "controlled_packet_interventions": 80,
+  "checks": [
+    "raw/summary agreement",
+    "integer counts and exhaustive outcome categories",
+    "Dijkstra bound",
+    "time decomposition",
+    "packet timestamp/TTL validity",
+    "matched common-survivor schedules",
+    "illustrative route raw-record match"
+  ],
+  "source_hash": "7a8678dcbf68ad1e091bd8971edbe70ef1f8bb632d228ae960707b3f95996358"
+}

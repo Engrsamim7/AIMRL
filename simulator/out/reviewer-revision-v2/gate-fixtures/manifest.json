@@ -1,0 +1,48 @@
+{
+  "status": "completed",
+  "source_hash": "7a8678dcbf68ad1e091bd8971edbe70ef1f8bb632d228ae960707b3f95996358",
+  "fixture_source_sha256": "18de7c9b15561db06b9445aab17a98a950b35ef21a905790deefe24568117890",
+  "episodes": 450,
+  "replay_interventions": 80,
+  "config": {
+    "n_convoys": 3,
+    "stagger": 0,
+    "hub_cap": 2,
+    "hub_service": 0.25,
+    "tau_reveal": 0,
+    "tau_msg": 1,
+    "tau_stale": 8.0,
+    "p_loss": 0.0,
+    "spoof_rate": 0.0,
+    "obs_radius": 1,
+    "adv": "random",
+    "attack_rate": 0,
+    "attack_dur": [
+      15.0,
+      30.0
+    ],
+    "budget": 0,
+    "p_kill": 1,
+    "blocked_slow": 2.0,
+    "react_delay": 2.0,
+    "react_eps": 0.2,
+    "react_halflife": 10.0,
+    "horizon": 2000.0,
+    "conf_mu": 1.0,
+    "spoof_mode": "exogenous",
+    "congestion_factor": 0.2,
+    "conf_sd": 0.0,
+    "allow_base_transit": false
+  },
+  "cases": [
+    "accurate warnings only",
+    "fresh low-confidence misleading clear reports",
+    "fresh high-confidence misleading clear reports"
+  ],
+  "notes": [
+    "Fixed .6 confidence threshold, independent of M4-selected threshold",
+    "Constructed mechanisms, not sampled operational threat distributions",
+    "Warning truthful at t=1.25; forged clear sent at t=2 and received at t=3",
+    "Wrong report location follows prespecified episode hot branch; actor does not inspect ground-truth label"
+  ]
+}

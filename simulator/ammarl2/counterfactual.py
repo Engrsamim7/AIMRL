@@ -12,7 +12,7 @@ import pandas as pd
 from .sim import Sim, DEPART
 
 
-def single_message_effects(graph, cfg, policy, seed, max_messages=None):
+def single_message_effects(graph, cfg, policy, seed, max_messages=None, simulator_factory=None):
     if policy.comm not in ('all', 'gate'):
         raise ValueError('FIR requires a communicating policy')
     if getattr(policy, 'train', False):
@@ -43,7 +43,7 @@ def single_message_effects(graph, cfg, policy, seed, max_messages=None):
         snapshots.append((shadow, cv.id, t, messages))
         selected += len(messages)
 
-    factual = Sim(graph, cfg, copy.deepcopy(policy), seed)
+    factual = (simulator_factory or Sim)(graph, cfg, copy.deepcopy(policy), seed)
     factual.before_decision = capture
     result = factual.run()
     factual.before_decision = None

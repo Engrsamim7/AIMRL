@@ -1,0 +1,19 @@
+{
+  "eta": 1.0,
+  "kappa": 0.4,
+  "criterion": "mean actual delivery subject to >=5% genuine admission in validation; ties smaller eta then kappa",
+  "minimum_genuine_admission": 0.05,
+  "actual_validation_admission": 0.11627906976744186,
+  "validation_seeds": [
+    2100000,
+    2100001,
+    2100002,
+    2100003,
+    2100004,
+    2100005,
+    2100006,
+    2100007,
+    2100008,
+    2100009
+  ]
+}

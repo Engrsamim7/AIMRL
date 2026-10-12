@@ -1,0 +1,10 @@
+case,mode,delivery_rate
+accurate-only,all,1.0
+accurate-only,gate,1.0
+accurate-only,none,0.6666666666666665
+high-confidence-false-clear,all,0.6666666666666665
+high-confidence-false-clear,gate,0.6666666666666665
+high-confidence-false-clear,none,0.6666666666666665
+low-confidence-false-clear,all,0.6666666666666665
+low-confidence-false-clear,gate,1.0
+low-confidence-false-clear,none,0.6666666666666665

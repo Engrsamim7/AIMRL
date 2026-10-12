@@ -24,6 +24,7 @@ class Policy:
     noise: float = 0.0
     response_strength: float = 12.0  # additive cost for believed blocked edges
     response_mode: str = 'penalty'   # penalty | avoid (explicit legacy-style comparator)
+    relevance_scope: str = 'route'   # route | reachable (all possible future routes)
 
     def __post_init__(self):
         if self.comm not in ('none', 'all', 'gate', 'oracle'):
@@ -32,6 +33,8 @@ class Policy:
             raise ValueError('Unknown freshness rule')
         if self.response_mode not in ('penalty', 'avoid'):
             raise ValueError('Unknown hazard response')
+        if self.relevance_scope not in ('route', 'reachable'):
+            raise ValueError('Unknown relevance scope')
         if self.response_strength < 0 or self.eta <= 0 or not 0 <= self.kappa_min <= 1:
             raise ValueError('Invalid policy parameters')
 
@@ -57,6 +60,13 @@ class Policy:
             result[list(blocked)] += self.response_strength
         return result
 
+    def relevant(self, sim, cv, e, plan):
+        if self.relevance_scope == 'route':
+            return e in plan
+        # Public topology only; covers alternatives a learned actor may choose.
+        return (dijkstra(sim.g, cv.node, int(sim.g.src[e]), sim.g.c) is not None
+                and dijkstra(sim.g, int(sim.g.dst[e]), cv.target, sim.g.c) is not None)
+
     def decide(self, sim, cv, t):
         g, cfg = sim.g, sim.cfg
         w = self.w(g)
@@ -70,7 +80,7 @@ class Policy:
             return self._route(g, cv, w, ban)
         if self.use_obs:
             newly = []
-            for e in sim.edges_in_radius(cv.node):
+            for e in sim.observation_edges(cv):
                 blocked = sim.observable(e, t)
                 prev = cv.own.get(e)
                 cv.own[e] = (blocked, t, 1.0)
@@ -107,7 +117,7 @@ class Policy:
                         reason = 'freshness'
                     elif self.gate_conf and m['conf'] < self.kappa_min:
                         reason = 'confidence'
-                    elif self.gate_rel and m['blocked'] and e not in plan:
+                    elif self.gate_rel and m['blocked'] and not self.relevant(sim, cv, e, plan):
                         reason = 'relevance'
                 sim.message_audit.append(dict(id=m.get('id'), convoy=cv.id, edge=e,
                                              decision_t=t, t_obs=m['t_obs'], age=age,

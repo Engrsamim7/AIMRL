@@ -14,7 +14,7 @@ from torch import nn
 import torch.nn.functional as F
 from .policies import Policy
 
-OBSERVATION_VERSION = 'local-belief-v2'
+OBSERVATION_VERSION = 'local-belief-v3-declared-sensors'
 FN, FE, FG = 10, 9, 4
 _GC = {}
 
@@ -70,7 +70,7 @@ class Ctx:
 def build_ctx(sim, cv, ban, merged, t, tau_stale):
     g = sim.g
     A, rd, scale = gctx(g); distances = rd[cv.target]
-    visible_edges = set(sim.edges_in_radius(cv.node))
+    visible_edges = set(sim.observation_edges(cv))
     visible_nodes = {cv.node} | {int(g.src[e]) for e in visible_edges}
     # A radius-1 report is outgoing-edge sensing, not live telemetry at its head.
     X = np.zeros((g.n, FN), np.float32)

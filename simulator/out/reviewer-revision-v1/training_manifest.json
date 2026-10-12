@@ -1,0 +1,142 @@
+[
+  {
+    "algo": "dqn",
+    "seed": 1,
+    "episodes": 300,
+    "updates": 498,
+    "seconds": 8.193103534998954
+  },
+  {
+    "algo": "dqn",
+    "seed": 2,
+    "episodes": 300,
+    "updates": 534,
+    "seconds": 8.568931270005123
+  },
+  {
+    "algo": "dqn",
+    "seed": 3,
+    "episodes": 300,
+    "updates": 559,
+    "seconds": 8.813252827996621
+  },
+  {
+    "algo": "dqn",
+    "seed": 0,
+    "episodes": 300,
+    "updates": 760,
+    "seconds": 11.84993353599566
+  },
+  {
+    "algo": "ppo",
+    "seed": 1,
+    "episodes": 300,
+    "updates": 1204,
+    "seconds": 10.09994888700021
+  },
+  {
+    "algo": "ppo",
+    "seed": 0,
+    "episodes": 300,
+    "updates": 1232,
+    "seconds": 11.388888499997847
+  },
+  {
+    "algo": "dqn",
+    "seed": 4,
+    "episodes": 300,
+    "updates": 849,
+    "seconds": 12.928337465004006
+  },
+  {
+    "algo": "ppo",
+    "seed": 2,
+    "episodes": 300,
+    "updates": 1208,
+    "seconds": 10.464361929996812
+  },
+  {
+    "algo": "ppo",
+    "seed": 3,
+    "episodes": 300,
+    "updates": 1216,
+    "seconds": 11.343356639998092
+  },
+  {
+    "algo": "ppo",
+    "seed": 4,
+    "episodes": 300,
+    "updates": 1216,
+    "seconds": 12.5966308989955
+  },
+  {
+    "algo": "ippo",
+    "seed": 1,
+    "episodes": 300,
+    "updates": 3604,
+    "seconds": 14.774775730998954
+  },
+  {
+    "algo": "ippo",
+    "seed": 0,
+    "episodes": 300,
+    "updates": 3600,
+    "seconds": 17.140111490996787
+  },
+  {
+    "algo": "ippo",
+    "seed": 2,
+    "episodes": 300,
+    "updates": 3600,
+    "seconds": 15.106866890993842
+  },
+  {
+    "algo": "ippo",
+    "seed": 3,
+    "episodes": 300,
+    "updates": 3604,
+    "seconds": 15.386453094994067
+  },
+  {
+    "algo": "mappo",
+    "seed": 0,
+    "episodes": 300,
+    "updates": 1248,
+    "seconds": 13.292241468996508
+  },
+  {
+    "algo": "mappo",
+    "seed": 1,
+    "episodes": 300,
+    "updates": 1200,
+    "seconds": 11.060790563999035
+  },
+  {
+    "algo": "mappo",
+    "seed": 2,
+    "episodes": 300,
+    "updates": 1208,
+    "seconds": 11.0570200880029
+  },
+  {
+    "algo": "mappo",
+    "seed": 3,
+    "episodes": 300,
+    "updates": 1228,
+    "seconds": 11.76136957599374
+  },
+  {
+    "algo": "ippo",
+    "seed": 4,
+    "episodes": 300,
+    "updates": 3656,
+    "seconds": 29.401958398004354
+  },
+  {
+    "algo": "mappo",
+    "seed": 4,
+    "episodes": 300,
+    "updates": 1248,
+    "seconds": 14.533583937998628
+  }
+]

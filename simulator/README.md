@@ -1,3 +1,7 @@
+# Current reviewer follow-up
+
+Use `run_reviewer_revision.py` for the original-topology, declared-sensor experiments and `report_reviewer_revision.py` for audited raw-data plots. See [changes and protocol](../revision/reviewer-code-changes.md), [current results](../revision/reviewer-revision-results/README.md), and `tests_reviewer_model.py`. Prior checkpoints are incompatible with the new sensor contract; their archived packages remain historical artifacts.
+
 # Reconstructed AMMARL simulator
 
 ## Complete current delivery

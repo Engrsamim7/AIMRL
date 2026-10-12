@@ -1,0 +1,21 @@
+scenario,group,difference_pp,lower_pp,upper_pp,uncertainty
+uniform-clean,heuristic,0.0,0.0,0.0,paired episode and training-seed bootstrap; fixed original topology
+uniform-clean,dqn,0.0,0.0,0.0,paired episode and training-seed bootstrap; fixed original topology
+uniform-clean,ppo,0.0,0.0,0.0,paired episode and training-seed bootstrap; fixed original topology
+uniform-clean,ippo,0.0,0.0,0.0,paired episode and training-seed bootstrap; fixed original topology
+uniform-clean,mappo,0.0,0.0,0.0,paired episode and training-seed bootstrap; fixed original topology
+uniform-disrupted,heuristic,0.0,0.0,0.0,paired episode and training-seed bootstrap; fixed original topology
+uniform-disrupted,dqn,-2.2204460492503132e-17,-0.8,0.670000000000012,paired episode and training-seed bootstrap; fixed original topology
+uniform-disrupted,ppo,-0.2666666666666667,-1.2,0.0,paired episode and training-seed bootstrap; fixed original topology
+uniform-disrupted,ippo,-0.4,-1.2,0.0,paired episode and training-seed bootstrap; fixed original topology
+uniform-disrupted,mappo,-2.2204460492503132e-17,-0.5333333333333334,0.5333333333333333,paired episode and training-seed bootstrap; fixed original topology
+mixed-disrupted,heuristic,0.0,0.0,0.0,paired episode and training-seed bootstrap; fixed original topology
+mixed-disrupted,dqn,-0.13333333333333336,-0.8,0.0,paired episode and training-seed bootstrap; fixed original topology
+mixed-disrupted,ppo,-2.2204460492503132e-17,-0.5333333333333334,0.5333333333333333,paired episode and training-seed bootstrap; fixed original topology
+mixed-disrupted,ippo,-2.2204460492503132e-17,-0.8,0.8,paired episode and training-seed bootstrap; fixed original topology
+mixed-disrupted,mappo,-0.4,-1.6,0.0,paired episode and training-seed bootstrap; fixed original topology
+mixed-reactive,heuristic,0.6666666666666667,-1.3333333333333335,3.3333333333333335,paired episode and training-seed bootstrap; fixed original topology
+mixed-reactive,dqn,0.0,0.0,0.0,paired episode and training-seed bootstrap; fixed original topology
+mixed-reactive,ppo,-0.13333333333333336,-0.6699999999999989,0.0,paired episode and training-seed bootstrap; fixed original topology
+mixed-reactive,ippo,-0.13333333333333336,-0.8,0.0,paired episode and training-seed bootstrap; fixed original topology
+mixed-reactive,mappo,0.0,0.0,0.0,paired episode and training-seed bootstrap; fixed original topology

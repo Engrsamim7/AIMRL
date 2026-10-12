@@ -1,0 +1,82 @@
+[
+  {
+    "episode": 0,
+    "method": "GATE-reachable",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 18,
+    "processed_messages": 18,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 0,
+    "method": "ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 18,
+    "processed_messages": 18,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 1,
+    "method": "GATE-reachable",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 21,
+    "processed_messages": 21,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 1,
+    "method": "ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 21,
+    "processed_messages": 21,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 2,
+    "method": "GATE-reachable",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 17,
+    "processed_messages": 17,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 2,
+    "method": "ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 17,
+    "processed_messages": 17,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 3,
+    "method": "GATE-reachable",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 23,
+    "processed_messages": 23,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  },
+  {
+    "episode": 3,
+    "method": "ALL",
+    "intervention": "one delivered message suppressed before receiver decision",
+    "selected_messages": 23,
+    "processed_messages": 23,
+    "selection": "all",
+    "fir_delivery": 1.0,
+    "fir_route": 1.0
+  }
+]

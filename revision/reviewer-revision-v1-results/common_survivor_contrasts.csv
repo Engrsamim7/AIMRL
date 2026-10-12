@@ -1,0 +1,21 @@
+scenario,comparison,common_delivered,nominal_difference,realized_difference
+uniform-clean,GATE-reachable minus ALL,147,0.0,0.0
+uniform-clean,DQN-gate minus DQN-all,697,0.0,0.0
+uniform-clean,PPO-gate minus PPO-all,689,0.0,0.0
+uniform-clean,IPPO-gate minus IPPO-all,629,0.0,0.0
+uniform-clean,MAPPO-gate minus MAPPO-all,702,0.0,0.0
+uniform-disrupted,GATE-reachable minus ALL,147,0.0,0.0
+uniform-disrupted,DQN-gate minus DQN-all,694,-0.02118155619596543,-0.027813040345821338
+uniform-disrupted,PPO-gate minus PPO-all,682,-0.009824046920821086,-0.033264662756598194
+uniform-disrupted,IPPO-gate minus IPPO-all,619,-0.020953150242326322,-0.029614701130856184
+uniform-disrupted,MAPPO-gate minus MAPPO-all,701,-0.007118402282453641,-0.011391940085592023
+mixed-disrupted,GATE-reachable minus ALL,146,-0.10164383561643835,-0.14418493150684938
+mixed-disrupted,DQN-gate minus DQN-all,693,-0.004531024531024539,-0.003463924963924968
+mixed-disrupted,PPO-gate minus PPO-all,685,-0.0011970802919707723,-0.007397810218978067
+mixed-disrupted,IPPO-gate minus IPPO-all,625,0.0005760000000000304,-0.010746399999999942
+mixed-disrupted,MAPPO-gate minus MAPPO-all,701,-0.000870185449358054,0.000763552068473611
+mixed-reactive,GATE-reachable minus ALL,142,-0.9135915492957744,-1.1618080985915495
+mixed-reactive,DQN-gate minus DQN-all,579,-0.0009153713298791039,-0.0009153713298791039
+mixed-reactive,PPO-gate minus PPO-all,564,0.004663120567375904,0.0017393617021276876
+mixed-reactive,IPPO-gate minus IPPO-all,563,0.006163410301953833,0.005418738898756672
+mixed-reactive,MAPPO-gate minus MAPPO-all,580,-0.02637931034482759,-0.024895689655172384

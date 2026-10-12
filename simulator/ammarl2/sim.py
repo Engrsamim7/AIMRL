@@ -45,6 +45,7 @@ class Cfg:
     spoof_mode: str = "exogenous" # exogenous permits controlled single-message replay; targeted adapts to policy
     congestion_factor: float = 0.2
     conf_sd: float = 0.0
+    allow_base_transit: bool = False  # original bidirectional graph has multiple bases
 
 
     def __post_init__(self):
@@ -138,6 +139,10 @@ class Sim:
         a = self.active.get(e)
         return a is not None and t >= a[0] + self.cfg.tau_reveal
 
+    def observation_edges(self, cv):
+        """Declared sensor coverage; missing edges remain unknown, not known-open."""
+        return self.edges_in_radius(cv.node)
+
     def edges_in_radius(self, node):
         seen, fr, out = {node}, [node], []
         for _ in range(self.cfg.obs_radius):
@@ -155,7 +160,7 @@ class Sim:
     def estimated_travel_times(self, cv):
         """Only locally visible flow is available; remote flow is unknown (nominal estimate)."""
         times = self.g.c.copy()
-        edges = self.edges_in_radius(cv.node)
+        edges = self.observation_edges(cv)
         if edges:
             times[edges] *= 1 + self.cfg.congestion_factor * self.flow[edges] / self.g.q[edges]
         return times
@@ -241,7 +246,8 @@ class Sim:
     # ---- movement
     def enter_edge(self, cv, e, t):
         g, c = self.g, self.cfg
-        if e not in g.out[cv.node] or (int(g.dst[e]) in g.targets and int(g.dst[e]) != cv.target):
+        if e not in g.out[cv.node] or (not c.allow_base_transit and
+                                      int(g.dst[e]) in g.targets and int(g.dst[e]) != cv.target):
             raise ValueError("Policy selected an invalid next-hop edge")
         T = g.c[e] * (1 + c.congestion_factor * self.flow[e] / g.q[e])
         self.flow[e] += 1
