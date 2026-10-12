@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "source_hash": "48515b25f8c781ecdf4bd037a4885935ad2ec0acef1f6c34f8de12776b54158f",
+  "evaluation_episodes": 92610,
+  "convoys": 463050,
+  "processed_packets": 2169406,
+  "fresh_actor_training_episodes": 3600,
+  "reused_actor_training_episodes": 0,
+  "causal_generation_episodes": 700,
+  "reused_causal_generation_episodes": 0,
+  "primary_tests": 81,
+  "correction_tests": 198,
+  "supported_positive": 4,
+  "supported_adverse": 3,
+  "figures": 8,
+  "schedules_matched": true,
+  "integer_delivery_counts_verified": true
+}

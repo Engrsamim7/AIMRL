@@ -1,6 +1,27 @@
 # AIMRL
 
-## Latest: why the adaptive results were equivalent
+## Fresh study: physical communication opportunities and learned message value
+
+This study introduces randomized multi-fork layouts with physically leading
+scouts, fresh DQN/MAPPO training, and actor-specific utility models learned from
+complete-episode message interventions. ALL and FRC use the same actor weights
+and shared report interpreter as VALUE; FRC is tuned on validation data. Nine
+predeclared cases include favorable conditions and counterexamples, alongside an
+original-topology transfer check. Results support only the named conditions and
+baselines shown in the corrected comparisons.
+
+- [Latest frozen neural cover-traffic stress and four figures](revision/cover-traffic-results/README.md).
+- [Latest neural stress PDF](revision/cover-traffic-results/cover_traffic_report.pdf).
+- [All 20 research figures in one PDF](deliverables/AIMRL-research-figures.pdf).
+- [Guarded gate results and eight visualizations](revision/guarded-research-results/README.md).
+- [Download combined figure PDF](revision/guarded-research-results/research_opportunity_report.pdf).
+- [Offline figure report](revision/guarded-research-results/index.html).
+- [Preserved unconstrained learned gate and its failures](revision/research-opportunity-results/README.md).
+- [Complete fresh-study code, weights, data and figures ZIP](deliverables/AIMRL-research-opportunity-study.zip).
+- [Mechanisms, physical cases, assumptions and reproducibility](revision/research-opportunity-methods.md).
+- [Draft replacement manuscript claim and evidence limits](revision/research-manuscript-claim-draft.md).
+
+## Earlier audit: why the adaptive results were equivalent
 
 The communication opportunity audit replays the existing frozen schedules with
 diagnostic logging, isolated decision probes and complete-episode interventions.

@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "source_hash": "874d03240eee7167636c1fe37c52318519e7258b3258c4fd3ec847210d32467b",
+  "evaluation_episodes": 28000,
+  "convoys": 140000,
+  "new_training_episodes": 0,
+  "primary_tests": 36,
+  "correction_tests": 198,
+  "bootstrap_draws": 200000,
+  "supported_positive": 15,
+  "supported_adverse": 0,
+  "figures": 4,
+  "matched_schedules": true,
+  "integer_counts_verified": true
+}
