@@ -1,0 +1,407 @@
+[
+  {
+    "file": "ammarl_gated_eval.py",
+    "sha256": "37451e0d6d710d9faf415e40330dd59c7e48a8805382fdc701148374b514a6c1",
+    "bytes": 51877,
+    "syntax": "valid",
+    "imports": [
+      "import sys, os, copy, time, random, io",
+      "import numpy as np",
+      "import matplotlib",
+      "import matplotlib.pyplot as plt",
+      "import matplotlib.gridspec as gridspec",
+      "from collections import defaultdict",
+      "from scipy import stats as sp_stats",
+      "from ammarl_sim_core import ContestedRoutingSim, Convoy, make_network",
+      "from sim_v1_sc9_sc10_sc11 import EVALUATION_MATRIX",
+      "from cc2_scenario import run_cc2_episode, CC2Sim, make_cc2_map, N_EVAL as CC2_N_EVAL, DANGER_T, SEEDS as CC2_SEEDS",
+      "from eval_marl import run_marl_episode, N_TRAIN, N_EVAL, N_AG"
+    ],
+    "definitions": [
+      "savep",
+      "GatedQAgent",
+      "run_gated_episode",
+      "train_eval_gated",
+      "run_classical",
+      "train_eval_iql",
+      "run_cc2_gated",
+      "NoGateQAgent",
+      "train_eval_nogate",
+      "MAPPOAgent",
+      "train_eval_mappo",
+      "ms",
+      "ttest",
+      "convergence_ep",
+      "_sig_tag",
+      "_barh"
+    ]
+  },
+  {
+    "file": "ammarl_tuning_best.csv",
+    "sha256": "35c00b9161fa76a7691b9c619bfb478d113a1fc1a9c766769ac6a5d8a16b5e12",
+    "bytes": 9956
+  },
+  {
+    "file": "ammarl_tuning_report.txt",
+    "sha256": "1b753d05b16c776c240ef7989ab602e051fdd12ff10a6c7fb19b23bcffaf1be5",
+    "bytes": 9811
+  },
+  {
+    "file": "cc2_scenario.py",
+    "sha256": "f723a0c6cc699c54b3aa84864a8aa0063e1b6447786cfdbafa0879598887cfa0",
+    "bytes": 24482,
+    "syntax": "valid",
+    "imports": [
+      "import sys, os, copy, heapq, random, io",
+      "import numpy as np",
+      "import networkx as nx",
+      "from collections import defaultdict",
+      "from scipy import stats as sp_stats",
+      "from ammarl_sim_core import ContestedRoutingSim, Convoy, Event, CONVOY_DEPART, CONVOY_ARRIVE, RED_ATTACK, RED_REVEAL, MSG_DELIVER"
+    ],
+    "definitions": [
+      "savep",
+      "make_cc2_map",
+      "CC2Sim",
+      "run_cc2_episode",
+      "validate_cc2",
+      "run_full_eval",
+      "evaluate_gates",
+      "make_cc2_figures"
+    ]
+  },
+  {
+    "file": "Core.py",
+    "sha256": "aabffe1be95b54e2bc51ebdbb315d707fd6cdab1f9804aefe4d97dad97586d73",
+    "bytes": 34340,
+    "syntax": "valid",
+    "imports": [
+      "import sys, os, copy, random",
+      "import numpy as np",
+      "import networkx as nx",
+      "from collections import defaultdict",
+      "from sim_v1 import ContestedRoutingSim, Convoy, make_network, CONVOY_DEPART, CONVOY_ARRIVE, RED_ATTACK, RED_REVEAL, MSG_DELIVER"
+    ],
+    "definitions": [
+      "save",
+      "TracingSimulator",
+      "run_trace",
+      "make_cs_map",
+      "make_cc_map",
+      "CCRedAgent"
+    ]
+  },
+  {
+    "file": "env.py",
+    "sha256": "480094cac83c282ebbc52b2c712e82abcd384754b24f77fa05e6a16ecc1d70c4",
+    "bytes": 52182,
+    "syntax": "valid",
+    "imports": [
+      "import heapq",
+      "import numpy as np",
+      "import networkx as nx",
+      "import matplotlib",
+      "import matplotlib.pyplot as plt",
+      "import random, os, copy",
+      "from collections import defaultdict",
+      "from dataclasses import dataclass, field",
+      "from typing import Optional, List, Tuple, Dict, Any"
+    ],
+    "definitions": [
+      "save",
+      "Event",
+      "Convoy",
+      "ContestedRoutingSim",
+      "make_network",
+      "run_sanity_checks",
+      "run_validation_experiment"
+    ]
+  },
+  {
+    "file": "environment.py",
+    "sha256": "591314d5f4b6e8269c3e8e54323e905d4262c7550c427313d016d9a9bdc7231f",
+    "bytes": 38018,
+    "syntax": "valid",
+    "imports": [
+      "import numpy as np",
+      "import networkx as nx",
+      "import matplotlib.pyplot as plt",
+      "import matplotlib.patches as mpatches",
+      "from matplotlib.gridspec import GridSpec",
+      "import random",
+      "import os",
+      "from collections import defaultdict",
+      "import matplotlib.cm as cm",
+      "from matplotlib.patches import FancyArrowPatch"
+    ],
+    "definitions": [
+      "save",
+      "MilitaryEnv",
+      "RedAgent",
+      "BlueAgent",
+      "run_random",
+      "run_greedy",
+      "run_shortest_path",
+      "smooth",
+      "ep_range",
+      "normalize",
+      "get_scores"
+    ]
+  },
+  {
+    "file": "ammarl_sim_core.py",
+    "sha256": "d112b5d3dadeebaeadd63c429003cc9f6edf86aa4c93af90ee23fe65646e3f8d",
+    "bytes": 51113,
+    "syntax": "valid",
+    "imports": [
+      "import heapq",
+      "import numpy as np",
+      "import networkx as nx",
+      "import matplotlib",
+      "import matplotlib.pyplot as plt",
+      "import random, os, copy",
+      "from collections import defaultdict",
+      "from dataclasses import dataclass, field",
+      "from typing import Optional, List, Tuple, Dict, Any"
+    ],
+    "definitions": [
+      "save",
+      "Event",
+      "Convoy",
+      "ContestedRoutingSim",
+      "make_network",
+      "run_sanity_checks",
+      "run_validation_experiment"
+    ]
+  },
+  {
+    "file": "environment.ini",
+    "sha256": "98082ff89f368e263f27ab790037ff9fd030201791b15474196b9631b639b77f",
+    "bytes": 17744
+  },
+  {
+    "file": "Environment1.py",
+    "sha256": "051c61503a7ab855a5ad6c873b7d533ceae8602110ca45024352327782701439",
+    "bytes": 54966,
+    "syntax": "valid",
+    "imports": [
+      "import numpy as np",
+      "import networkx as nx",
+      "import matplotlib",
+      "import matplotlib.pyplot as plt",
+      "import matplotlib.patches as mpatches",
+      "from matplotlib.gridspec import GridSpec",
+      "import random, os",
+      "from collections import defaultdict",
+      "from copy import deepcopy"
+    ],
+    "definitions": [
+      "save",
+      "make_random_map",
+      "ContestEnv",
+      "b1_least_cost",
+      "b2_threat_aware",
+      "b3_dynamic_replan",
+      "b4_pi_hub",
+      "oracle_minimax",
+      "agg_results",
+      "MARLAgent",
+      "VDNAgent",
+      "QMIXAgent",
+      "IQLAgent",
+      "MAPPOAgent",
+      "run_marl_episode",
+      "smooth",
+      "epr"
+    ]
+  },
+  {
+    "file": "eval_b123.py",
+    "sha256": "80086f56275500fa9edf45a341216c4a281e5da2808dc37713e6a3695673b8a3",
+    "bytes": 30832,
+    "syntax": "valid",
+    "imports": [
+      "import sys, os, copy, time",
+      "import numpy as np",
+      "import networkx as nx",
+      "import matplotlib",
+      "import matplotlib.pyplot as plt",
+      "import matplotlib.gridspec as gridspec",
+      "from collections import defaultdict",
+      "from scipy import stats as scipy_stats",
+      "from ammarl_sim_core import ContestedRoutingSim, Convoy, make_network",
+      "from sim_v1_sc9_sc10_sc11 import make_threat_gradient_map, make_midroute_attack_map, make_bottleneck_congestion_map, EVALUATION_MATRIX"
+    ],
+    "definitions": [
+      "save",
+      "run_cell",
+      "sweep",
+      "agg_key",
+      "near_monotone_decrease",
+      "near_monotone_increase",
+      "table_row",
+      "ci"
+    ]
+  },
+  {
+    "file": "final_pipeline.py",
+    "sha256": "4c6028b1a0a19ac66ea1feaa51c814661fb9385024013bbff222a5651114c12a",
+    "bytes": 70169,
+    "syntax": "valid",
+    "imports": [
+      "import os, csv, warnings",
+      "import numpy as np",
+      "import matplotlib",
+      "import matplotlib.pyplot as plt",
+      "import matplotlib.gridspec as gridspec",
+      "import matplotlib.patches as mpatches",
+      "from matplotlib.lines import Line2D",
+      "from matplotlib.colors import LinearSegmentedColormap",
+      "from scipy.ndimage import uniform_filter1d",
+      "from scipy import stats as spst"
+    ],
+    "definitions": [
+      "fp",
+      "open_csv",
+      "sigmoid_ramp",
+      "gen_traj",
+      "ms",
+      "smooth",
+      "pval",
+      "sig",
+      "make_legend",
+      "draw_curve",
+      "vs_A",
+      "draw_net",
+      "to_radar",
+      "scale_iter",
+      "smooth_trend"
+    ]
+  },
+  {
+    "file": "eval_marl.py",
+    "sha256": "a7c9fc0c134170d56f62586689c48b1ebe31813ad4ccd2c419a84bf84008c964",
+    "bytes": 33225,
+    "syntax": "valid",
+    "imports": [
+      "import sys, os, copy, time, random",
+      "import numpy as np",
+      "import matplotlib",
+      "import matplotlib.pyplot as plt",
+      "from collections import defaultdict",
+      "from scipy import stats as scipy_stats",
+      "from ammarl_sim_core import ContestedRoutingSim, Convoy, make_network",
+      "from sim_v1_sc9_sc10_sc11 import make_threat_gradient_map, make_midroute_attack_map, make_bottleneck_congestion_map, EVALUATION_MATRIX"
+    ],
+    "definitions": [
+      "save",
+      "QAgent",
+      "run_marl_episode",
+      "train_and_eval",
+      "print_row",
+      "ci_list",
+      "smooth",
+      "epr"
+    ]
+  },
+  {
+    "file": "sim_v1.py",
+    "sha256": "a983a58c524226ec18fee083ce525f62c61104a3d414faf10e190c9fad26a3ee",
+    "bytes": 31388,
+    "syntax": "valid",
+    "imports": [
+      "import sys, os, copy, time",
+      "import numpy as np",
+      "import networkx as nx",
+      "import matplotlib",
+      "import matplotlib.pyplot as plt",
+      "import matplotlib.gridspec as gridspec",
+      "from collections import defaultdict",
+      "from scipy import stats as scipy_stats",
+      "from sim_v1 import ContestedRoutingSim, Convoy, make_network",
+      "from sim_v1_sc9_sc10_sc11 import make_threat_gradient_map, make_midroute_attack_map, make_bottleneck_congestion_map, EVALUATION_MATRIX"
+    ],
+    "definitions": [
+      "save",
+      "run_cell",
+      "sweep",
+      "agg_key",
+      "near_monotone_decrease",
+      "near_monotone_increase",
+      "table_row",
+      "ci"
+    ]
+  },
+  {
+    "file": "scenario_design.py",
+    "sha256": "e842bf61ed37afe93dc23a6a9afb0d37c7c1632bd6de9d8a05eb4aa870490d24",
+    "bytes": 33676,
+    "syntax": "valid",
+    "imports": [
+      "import sys, io",
+      "import sys, os, copy, random",
+      "import numpy as np",
+      "import networkx as nx",
+      "from collections import defaultdict",
+      "from ammarl_sim_core import ContestedRoutingSim, Convoy, make_network, CONVOY_DEPART, CONVOY_ARRIVE, RED_ATTACK, RED_REVEAL, MSG_DELIVER"
+    ],
+    "definitions": [
+      "save",
+      "TracingSimulator",
+      "run_trace",
+      "make_cs_map",
+      "make_cc_map",
+      "CCRedAgent"
+    ]
+  },
+  {
+    "file": "Untitled-1.py",
+    "sha256": "d853058d109f9eef8b8dca9f194e32e308e5fcdde0b5a19203ea8e11ce1156e3",
+    "bytes": 33716,
+    "syntax": "valid",
+    "imports": [
+      "import sys, os, copy, heapq",
+      "import numpy as np",
+      "import networkx as nx",
+      "import random",
+      "from collections import defaultdict",
+      "from dataclasses import dataclass, field",
+      "from typing import Optional, List, Dict, Any, Tuple",
+      "from sim_v1 import ContestedRoutingSim, Convoy, Event, CONVOY_DEPART, CONVOY_ARRIVE, RED_ATTACK, RED_REVEAL, MSG_DELIVER, make_network"
+    ],
+    "definitions": [
+      "make_threat_gradient_map",
+      "make_midroute_attack_map",
+      "make_bottleneck_congestion_map",
+      "run_sc9",
+      "run_sc10",
+      "run_sc11",
+      "run_separability_probe"
+    ]
+  },
+  {
+    "file": "sim_v1_sc9_sc10_sc11.py",
+    "sha256": "5ce8eec372c369b797573e36ca22f5273434e16273192a7e104e1f07086e1726",
+    "bytes": 32984,
+    "syntax": "valid",
+    "imports": [
+      "import sys, os, copy, heapq",
+      "import numpy as np",
+      "import networkx as nx",
+      "import random",
+      "from collections import defaultdict",
+      "from dataclasses import dataclass, field",
+      "from typing import Optional, List, Dict, Any, Tuple",
+      "from ammarl_sim_core import ContestedRoutingSim, Convoy, Event, CONVOY_DEPART, CONVOY_ARRIVE, RED_ATTACK, RED_REVEAL, MSG_DELIVER, make_network"
+    ],
+    "definitions": [
+      "make_threat_gradient_map",
+      "make_midroute_attack_map",
+      "make_bottleneck_congestion_map",
+      "run_sc9",
+      "run_sc10",
+      "run_sc11",
+      "run_separability_probe"
+    ]
+  }
+]

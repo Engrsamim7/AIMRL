@@ -1,0 +1,404 @@
+AMMARL TUNING REPORT
+========================================================================
+All tested settings are listed below. This is not a cherry-picked hidden run.
+Top settings are ordered by a transparent score that favors matched-DR CC gains and M4 competitiveness.
+
+Rank 1
+  cc_tau_reveal: 8.0
+  cc_hub_cap: 2
+  m4_red_budget: 1
+  m4_tau_reveal: 5.0
+  n_train: 300
+  score: 2.110616620264441
+  cc_amm_surv: 0.90335
+  cc_nc_surv: 0.9037166666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.09990124346667
+  cc_nc_cost: 38.95965466653333
+  m4_amm_surv: 0.8469979722222222
+  m4_iql_surv: 0.8524582777777778
+  m4_amm_cost: 56.559467100000006
+  m4_iql_cost: 55.27959773333333
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 2
+  cc_tau_reveal: 12.0
+  cc_hub_cap: 2
+  m4_red_budget: 1
+  m4_tau_reveal: 5.0
+  n_train: 300
+  score: 2.110616620264441
+  cc_amm_surv: 0.90335
+  cc_nc_surv: 0.9037166666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.09990124346667
+  cc_nc_cost: 38.95965466653333
+  m4_amm_surv: 0.8469979722222222
+  m4_iql_surv: 0.8524582777777778
+  m4_amm_cost: 56.559467100000006
+  m4_iql_cost: 55.27959773333333
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 3
+  cc_tau_reveal: 8.0
+  cc_hub_cap: 2
+  m4_red_budget: 2
+  m4_tau_reveal: 8.0
+  n_train: 300
+  score: 2.0587527769311054
+  cc_amm_surv: 0.90335
+  cc_nc_surv: 0.9037166666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.09990124346667
+  cc_nc_cost: 38.95965466653333
+  m4_amm_surv: 0.8462405277777778
+  m4_iql_surv: 0.8525813333333335
+  m4_amm_cost: 57.101482055555564
+  m4_iql_cost: 55.544215300000005
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 4
+  cc_tau_reveal: 12.0
+  cc_hub_cap: 2
+  m4_red_budget: 2
+  m4_tau_reveal: 8.0
+  n_train: 300
+  score: 2.0587527769311054
+  cc_amm_surv: 0.90335
+  cc_nc_surv: 0.9037166666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.09990124346667
+  cc_nc_cost: 38.95965466653333
+  m4_amm_surv: 0.8462405277777778
+  m4_iql_surv: 0.8525813333333335
+  m4_amm_cost: 57.101482055555564
+  m4_iql_cost: 55.544215300000005
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 5
+  cc_tau_reveal: 8.0
+  cc_hub_cap: 2
+  m4_red_budget: 2
+  m4_tau_reveal: 5.0
+  n_train: 300
+  score: 1.9560582880739652
+  cc_amm_surv: 0.90335
+  cc_nc_surv: 0.9037166666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.09990124346667
+  cc_nc_cost: 38.95965466653333
+  m4_amm_surv: 0.8469979722222222
+  m4_iql_surv: 0.8570226230158731
+  m4_amm_cost: 56.559467100000006
+  m4_iql_cost: 55.746522355555555
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 6
+  cc_tau_reveal: 12.0
+  cc_hub_cap: 2
+  m4_red_budget: 2
+  m4_tau_reveal: 5.0
+  n_train: 300
+  score: 1.9560582880739652
+  cc_amm_surv: 0.90335
+  cc_nc_surv: 0.9037166666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.09990124346667
+  cc_nc_cost: 38.95965466653333
+  m4_amm_surv: 0.8469979722222222
+  m4_iql_surv: 0.8570226230158731
+  m4_amm_cost: 56.559467100000006
+  m4_iql_cost: 55.746522355555555
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 7
+  cc_tau_reveal: 5.0
+  cc_hub_cap: 2
+  m4_red_budget: 1
+  m4_tau_reveal: 5.0
+  n_train: 300
+  score: 1.91270486895777
+  cc_amm_surv: 0.90335
+  cc_nc_surv: 0.9037166666666667
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.09990124346667
+  cc_nc_cost: 35.0014196404
+  m4_amm_surv: 0.8469979722222222
+  m4_iql_surv: 0.8524582777777778
+  m4_amm_cost: 56.559467100000006
+  m4_iql_cost: 55.27959773333333
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 8
+  cc_tau_reveal: 8.0
+  cc_hub_cap: 2
+  m4_red_budget: 1
+  m4_tau_reveal: 8.0
+  n_train: 300
+  score: 1.8882451282961972
+  cc_amm_surv: 0.90335
+  cc_nc_surv: 0.9037166666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.09990124346667
+  cc_nc_cost: 38.95965466653333
+  m4_amm_surv: 0.8459476111111112
+  m4_iql_surv: 0.8568946230158729
+  m4_amm_cost: 57.24212705555556
+  m4_iql_cost: 55.913870388888895
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 9
+  cc_tau_reveal: 12.0
+  cc_hub_cap: 2
+  m4_red_budget: 1
+  m4_tau_reveal: 8.0
+  n_train: 300
+  score: 1.8882451282961972
+  cc_amm_surv: 0.90335
+  cc_nc_surv: 0.9037166666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.09990124346667
+  cc_nc_cost: 38.95965466653333
+  m4_amm_surv: 0.8459476111111112
+  m4_iql_surv: 0.8568946230158729
+  m4_amm_cost: 57.24212705555556
+  m4_iql_cost: 55.913870388888895
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 10
+  cc_tau_reveal: 5.0
+  cc_hub_cap: 2
+  m4_red_budget: 2
+  m4_tau_reveal: 8.0
+  n_train: 300
+  score: 1.8608410256244343
+  cc_amm_surv: 0.90335
+  cc_nc_surv: 0.9037166666666667
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.09990124346667
+  cc_nc_cost: 35.0014196404
+  m4_amm_surv: 0.8462405277777778
+  m4_iql_surv: 0.8525813333333335
+  m4_amm_cost: 57.101482055555564
+  m4_iql_cost: 55.544215300000005
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 11
+  cc_tau_reveal: 5.0
+  cc_hub_cap: 2
+  m4_red_budget: 2
+  m4_tau_reveal: 5.0
+  n_train: 300
+  score: 1.7581465367672937
+  cc_amm_surv: 0.90335
+  cc_nc_surv: 0.9037166666666667
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.09990124346667
+  cc_nc_cost: 35.0014196404
+  m4_amm_surv: 0.8469979722222222
+  m4_iql_surv: 0.8570226230158731
+  m4_amm_cost: 56.559467100000006
+  m4_iql_cost: 55.746522355555555
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 12
+  cc_tau_reveal: 5.0
+  cc_hub_cap: 3
+  m4_red_budget: 1
+  m4_tau_reveal: 5.0
+  n_train: 300
+  score: 1.7198404556311084
+  cc_amm_surv: 0.9038999999999999
+  cc_nc_surv: 0.9042666666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 27.929304979733324
+  cc_nc_cost: 30.973535110133337
+  m4_amm_surv: 0.8469979722222222
+  m4_iql_surv: 0.8524582777777778
+  m4_amm_cost: 56.559467100000006
+  m4_iql_cost: 55.27959773333333
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 13
+  cc_tau_reveal: 8.0
+  cc_hub_cap: 3
+  m4_red_budget: 1
+  m4_tau_reveal: 5.0
+  n_train: 300
+  score: 1.7198404556311084
+  cc_amm_surv: 0.9038999999999999
+  cc_nc_surv: 0.9042666666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 27.929304979733324
+  cc_nc_cost: 30.973535110133337
+  m4_amm_surv: 0.8469979722222222
+  m4_iql_surv: 0.8524582777777778
+  m4_amm_cost: 56.559467100000006
+  m4_iql_cost: 55.27959773333333
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 14
+  cc_tau_reveal: 12.0
+  cc_hub_cap: 3
+  m4_red_budget: 1
+  m4_tau_reveal: 5.0
+  n_train: 300
+  score: 1.7198404556311084
+  cc_amm_surv: 0.9038999999999999
+  cc_nc_surv: 0.9042666666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 27.929304979733324
+  cc_nc_cost: 30.973535110133337
+  m4_amm_surv: 0.8469979722222222
+  m4_iql_surv: 0.8524582777777778
+  m4_amm_cost: 56.559467100000006
+  m4_iql_cost: 55.27959773333333
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 15
+  cc_tau_reveal: 5.0
+  cc_hub_cap: 5
+  m4_red_budget: 1
+  m4_tau_reveal: 5.0
+  n_train: 300
+  score: 1.7140574498111114
+  cc_amm_surv: 0.9040833333333333
+  cc_nc_surv: 0.9042666666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.429921537866665
+  cc_nc_cost: 31.211824885199995
+  m4_amm_surv: 0.8469979722222222
+  m4_iql_surv: 0.8524582777777778
+  m4_amm_cost: 56.559467100000006
+  m4_iql_cost: 55.27959773333333
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 16
+  cc_tau_reveal: 8.0
+  cc_hub_cap: 5
+  m4_red_budget: 1
+  m4_tau_reveal: 5.0
+  n_train: 300
+  score: 1.7140574498111114
+  cc_amm_surv: 0.9040833333333333
+  cc_nc_surv: 0.9042666666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.429921537866665
+  cc_nc_cost: 31.211824885199995
+  m4_amm_surv: 0.8469979722222222
+  m4_iql_surv: 0.8524582777777778
+  m4_amm_cost: 56.559467100000006
+  m4_iql_cost: 55.27959773333333
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 17
+  cc_tau_reveal: 12.0
+  cc_hub_cap: 5
+  m4_red_budget: 1
+  m4_tau_reveal: 5.0
+  n_train: 300
+  score: 1.7140574498111114
+  cc_amm_surv: 0.9040833333333333
+  cc_nc_surv: 0.9042666666666666
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 28.429921537866665
+  cc_nc_cost: 31.211824885199995
+  m4_amm_surv: 0.8469979722222222
+  m4_iql_surv: 0.8524582777777778
+  m4_amm_cost: 56.559467100000006
+  m4_iql_cost: 55.27959773333333
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 18
+  cc_tau_reveal: 5.0
+  cc_hub_cap: 2
+  m4_red_budget: 2
+  m4_tau_reveal: 5.0
+  n_train: 500
+  score: 1.7078345706044447
+  cc_amm_surv: 0.9032583333333333
+  cc_nc_surv: 0.90335
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 15.065233616666669
+  cc_nc_cost: 22.3256623532
+  m4_amm_surv: 0.845075388888889
+  m4_iql_surv: 0.8548496944444445
+  m4_amm_cost: 58.06547631111111
+  m4_iql_cost: 56.07717668888889
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 19
+  cc_tau_reveal: 8.0
+  cc_hub_cap: 2
+  m4_red_budget: 2
+  m4_tau_reveal: 5.0
+  n_train: 500
+  score: 1.7078345706044447
+  cc_amm_surv: 0.9032583333333333
+  cc_nc_surv: 0.90335
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 15.065233616666669
+  cc_nc_cost: 22.3256623532
+  m4_amm_surv: 0.845075388888889
+  m4_iql_surv: 0.8548496944444445
+  m4_amm_cost: 58.06547631111111
+  m4_iql_cost: 56.07717668888889
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0
+
+Rank 20
+  cc_tau_reveal: 12.0
+  cc_hub_cap: 2
+  m4_red_budget: 2
+  m4_tau_reveal: 5.0
+  n_train: 500
+  score: 1.7078345706044447
+  cc_amm_surv: 0.9032583333333333
+  cc_nc_surv: 0.90335
+  cc_amm_blk: 0.0
+  cc_nc_blk: 0.0
+  cc_amm_cost: 15.065233616666669
+  cc_nc_cost: 22.3256623532
+  m4_amm_surv: 0.845075388888889
+  m4_iql_surv: 0.8548496944444445
+  m4_amm_cost: 58.06547631111111
+  m4_iql_cost: 56.07717668888889
+  m4_amm_dr: 1.0
+  m4_iql_dr: 1.0

@@ -1,0 +1,739 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "active": true
+    },
+    {
+      "id": 1,
+      "active": true
+    },
+    {
+      "id": 2,
+      "active": true
+    },
+    {
+      "id": 3,
+      "active": true
+    },
+    {
+      "id": 4,
+      "active": true
+    },
+    {
+      "id": 5,
+      "active": true
+    },
+    {
+      "id": 6,
+      "active": true
+    },
+    {
+      "id": 7,
+      "active": true
+    },
+    {
+      "id": 8,
+      "active": true
+    },
+    {
+      "id": 9,
+      "active": true
+    },
+    {
+      "id": 10,
+      "active": true
+    },
+    {
+      "id": 11,
+      "active": true
+    },
+    {
+      "id": 12,
+      "active": true
+    },
+    {
+      "id": 13,
+      "active": true
+    },
+    {
+      "id": 14,
+      "active": true
+    },
+    {
+      "id": 15,
+      "active": true
+    },
+    {
+      "id": 16,
+      "active": true
+    },
+    {
+      "id": 17,
+      "active": true
+    },
+    {
+      "id": 18,
+      "active": true
+    }
+  ],
+  "edges": [
+    {
+      "source": 0,
+      "target": 1,
+      "travel_cost": 3.46,
+      "threat_level": 0.06,
+      "congestion": 0.11,
+      "capacity": 3,
+      "base_threat": 0.06,
+      "corridor": -1
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "travel_cost": 2.31,
+      "threat_level": 0.55,
+      "congestion": 0.066,
+      "capacity": 2,
+      "base_threat": 0.55,
+      "corridor": -1
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "travel_cost": 2.12,
+      "threat_level": 0.06,
+      "congestion": 0.137,
+      "capacity": 2,
+      "base_threat": 0.06,
+      "corridor": -1
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "travel_cost": 3.2,
+      "threat_level": 0.55,
+      "congestion": 0.121,
+      "capacity": 2,
+      "base_threat": 0.55,
+      "corridor": -1
+    },
+    {
+      "source": 1,
+      "target": 0,
+      "travel_cost": 3.46,
+      "threat_level": 0.06,
+      "congestion": 0.11,
+      "capacity": 3,
+      "base_threat": 0.06,
+      "corridor": -1
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "travel_cost": 2.55,
+      "threat_level": 0.08,
+      "congestion": 0.195,
+      "capacity": 2,
+      "base_threat": 0.08,
+      "corridor": 0
+    },
+    {
+      "source": 1,
+      "target": 6,
+      "travel_cost": 5.5,
+      "threat_level": 0.3,
+      "congestion": 0.132,
+      "capacity": 3,
+      "base_threat": 0.3,
+      "corridor": 0
+    },
+    {
+      "source": 2,
+      "target": 0,
+      "travel_cost": 2.31,
+      "threat_level": 0.55,
+      "congestion": 0.066,
+      "capacity": 2,
+      "base_threat": 0.55,
+      "corridor": -1
+    },
+    {
+      "source": 2,
+      "target": 6,
+      "travel_cost": 2.95,
+      "threat_level": 0.58,
+      "congestion": 0.078,
+      "capacity": 2,
+      "base_threat": 0.58,
+      "corridor": 1
+    },
+    {
+      "source": 2,
+      "target": 7,
+      "travel_cost": 3.91,
+      "threat_level": 0.3,
+      "congestion": 0.179,
+      "capacity": 2,
+      "base_threat": 0.3,
+      "corridor": 1
+    },
+    {
+      "source": 3,
+      "target": 0,
+      "travel_cost": 2.12,
+      "threat_level": 0.06,
+      "congestion": 0.137,
+      "capacity": 2,
+      "base_threat": 0.06,
+      "corridor": -1
+    },
+    {
+      "source": 3,
+      "target": 7,
+      "travel_cost": 3.58,
+      "threat_level": 0.08,
+      "congestion": 0.094,
+      "capacity": 2,
+      "base_threat": 0.08,
+      "corridor": 2
+    },
+    {
+      "source": 3,
+      "target": 8,
+      "travel_cost": 4.84,
+      "threat_level": 0.3,
+      "congestion": 0.121,
+      "capacity": 2,
+      "base_threat": 0.3,
+      "corridor": 2
+    },
+    {
+      "source": 4,
+      "target": 0,
+      "travel_cost": 3.2,
+      "threat_level": 0.55,
+      "congestion": 0.121,
+      "capacity": 2,
+      "base_threat": 0.55,
+      "corridor": -1
+    },
+    {
+      "source": 4,
+      "target": 8,
+      "travel_cost": 3.23,
+      "threat_level": 0.58,
+      "congestion": 0.105,
+      "capacity": 2,
+      "base_threat": 0.58,
+      "corridor": 3
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "travel_cost": 4.37,
+      "threat_level": 0.3,
+      "congestion": 0.218,
+      "capacity": 3,
+      "base_threat": 0.3,
+      "corridor": 3
+    },
+    {
+      "source": 5,
+      "target": 1,
+      "travel_cost": 2.55,
+      "threat_level": 0.08,
+      "congestion": 0.195,
+      "capacity": 2,
+      "base_threat": 0.08,
+      "corridor": 0
+    },
+    {
+      "source": 5,
+      "target": 4,
+      "travel_cost": 4.37,
+      "threat_level": 0.3,
+      "congestion": 0.218,
+      "capacity": 3,
+      "base_threat": 0.3,
+      "corridor": 3
+    },
+    {
+      "source": 5,
+      "target": 9,
+      "travel_cost": 3.0,
+      "threat_level": 0.08,
+      "congestion": 0.127,
+      "capacity": 2,
+      "base_threat": 0.08,
+      "corridor": 0
+    },
+    {
+      "source": 5,
+      "target": 10,
+      "travel_cost": 4.78,
+      "threat_level": 0.28,
+      "congestion": 0.107,
+      "capacity": 3,
+      "base_threat": 0.28,
+      "corridor": 0
+    },
+    {
+      "source": 6,
+      "target": 1,
+      "travel_cost": 5.5,
+      "threat_level": 0.3,
+      "congestion": 0.132,
+      "capacity": 3,
+      "base_threat": 0.3,
+      "corridor": 0
+    },
+    {
+      "source": 6,
+      "target": 2,
+      "travel_cost": 2.95,
+      "threat_level": 0.58,
+      "congestion": 0.078,
+      "capacity": 2,
+      "base_threat": 0.58,
+      "corridor": 1
+    },
+    {
+      "source": 6,
+      "target": 10,
+      "travel_cost": 4.02,
+      "threat_level": 0.55,
+      "congestion": 0.076,
+      "capacity": 2,
+      "base_threat": 0.55,
+      "corridor": 1
+    },
+    {
+      "source": 6,
+      "target": 11,
+      "travel_cost": 3.2,
+      "threat_level": 0.28,
+      "congestion": 0.242,
+      "capacity": 3,
+      "base_threat": 0.28,
+      "corridor": 1
+    },
+    {
+      "source": 7,
+      "target": 2,
+      "travel_cost": 3.91,
+      "threat_level": 0.3,
+      "congestion": 0.179,
+      "capacity": 2,
+      "base_threat": 0.3,
+      "corridor": 1
+    },
+    {
+      "source": 7,
+      "target": 3,
+      "travel_cost": 3.58,
+      "threat_level": 0.08,
+      "congestion": 0.094,
+      "capacity": 2,
+      "base_threat": 0.08,
+      "corridor": 2
+    },
+    {
+      "source": 7,
+      "target": 11,
+      "travel_cost": 4.91,
+      "threat_level": 0.08,
+      "congestion": 0.171,
+      "capacity": 2,
+      "base_threat": 0.08,
+      "corridor": 2
+    },
+    {
+      "source": 7,
+      "target": 12,
+      "travel_cost": 3.91,
+      "threat_level": 0.28,
+      "congestion": 0.115,
+      "capacity": 2,
+      "base_threat": 0.28,
+      "corridor": 2
+    },
+    {
+      "source": 8,
+      "target": 3,
+      "travel_cost": 4.84,
+      "threat_level": 0.3,
+      "congestion": 0.121,
+      "capacity": 2,
+      "base_threat": 0.3,
+      "corridor": 2
+    },
+    {
+      "source": 8,
+      "target": 4,
+      "travel_cost": 3.23,
+      "threat_level": 0.58,
+      "congestion": 0.105,
+      "capacity": 2,
+      "base_threat": 0.58,
+      "corridor": 3
+    },
+    {
+      "source": 8,
+      "target": 12,
+      "travel_cost": 4.21,
+      "threat_level": 0.55,
+      "congestion": 0.116,
+      "capacity": 3,
+      "base_threat": 0.55,
+      "corridor": 3
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "travel_cost": 3.37,
+      "threat_level": 0.28,
+      "congestion": 0.174,
+      "capacity": 3,
+      "base_threat": 0.28,
+      "corridor": 3
+    },
+    {
+      "source": 9,
+      "target": 5,
+      "travel_cost": 3.0,
+      "threat_level": 0.08,
+      "congestion": 0.127,
+      "capacity": 2,
+      "base_threat": 0.08,
+      "corridor": 0
+    },
+    {
+      "source": 9,
+      "target": 8,
+      "travel_cost": 3.37,
+      "threat_level": 0.28,
+      "congestion": 0.174,
+      "capacity": 3,
+      "base_threat": 0.28,
+      "corridor": 3
+    },
+    {
+      "source": 9,
+      "target": 13,
+      "travel_cost": 3.32,
+      "threat_level": 0.104,
+      "congestion": 0.076,
+      "capacity": 3,
+      "base_threat": 0.104,
+      "corridor": 0
+    },
+    {
+      "source": 9,
+      "target": 16,
+      "travel_cost": 2.78,
+      "threat_level": 0.274,
+      "congestion": 0.113,
+      "capacity": 2,
+      "base_threat": 0.274,
+      "corridor": 0
+    },
+    {
+      "source": 9,
+      "target": 17,
+      "travel_cost": 2.21,
+      "threat_level": 0.199,
+      "congestion": 0.078,
+      "capacity": 2,
+      "base_threat": 0.199,
+      "corridor": 0
+    },
+    {
+      "source": 10,
+      "target": 5,
+      "travel_cost": 4.78,
+      "threat_level": 0.28,
+      "congestion": 0.107,
+      "capacity": 3,
+      "base_threat": 0.28,
+      "corridor": 0
+    },
+    {
+      "source": 10,
+      "target": 6,
+      "travel_cost": 4.02,
+      "threat_level": 0.55,
+      "congestion": 0.076,
+      "capacity": 2,
+      "base_threat": 0.55,
+      "corridor": 1
+    },
+    {
+      "source": 10,
+      "target": 13,
+      "travel_cost": 3.33,
+      "threat_level": 0.254,
+      "congestion": 0.117,
+      "capacity": 2,
+      "base_threat": 0.254,
+      "corridor": 1
+    },
+    {
+      "source": 10,
+      "target": 14,
+      "travel_cost": 2.59,
+      "threat_level": 0.162,
+      "congestion": 0.068,
+      "capacity": 3,
+      "base_threat": 0.162,
+      "corridor": 1
+    },
+    {
+      "source": 10,
+      "target": 17,
+      "travel_cost": 3.09,
+      "threat_level": 0.349,
+      "congestion": 0.097,
+      "capacity": 3,
+      "base_threat": 0.349,
+      "corridor": 1
+    },
+    {
+      "source": 10,
+      "target": 18,
+      "travel_cost": 1.65,
+      "threat_level": 0.196,
+      "congestion": 0.149,
+      "capacity": 3,
+      "base_threat": 0.196,
+      "corridor": 1
+    },
+    {
+      "source": 11,
+      "target": 6,
+      "travel_cost": 3.2,
+      "threat_level": 0.28,
+      "congestion": 0.242,
+      "capacity": 3,
+      "base_threat": 0.28,
+      "corridor": 1
+    },
+    {
+      "source": 11,
+      "target": 7,
+      "travel_cost": 4.91,
+      "threat_level": 0.08,
+      "congestion": 0.171,
+      "capacity": 2,
+      "base_threat": 0.08,
+      "corridor": 2
+    },
+    {
+      "source": 11,
+      "target": 14,
+      "travel_cost": 3.94,
+      "threat_level": 0.312,
+      "congestion": 0.173,
+      "capacity": 2,
+      "base_threat": 0.312,
+      "corridor": 2
+    },
+    {
+      "source": 11,
+      "target": 15,
+      "travel_cost": 3.29,
+      "threat_level": 0.213,
+      "congestion": 0.11,
+      "capacity": 2,
+      "base_threat": 0.213,
+      "corridor": 2
+    },
+    {
+      "source": 11,
+      "target": 18,
+      "travel_cost": 3.54,
+      "threat_level": 0.346,
+      "congestion": 0.104,
+      "capacity": 3,
+      "base_threat": 0.346,
+      "corridor": 2
+    },
+    {
+      "source": 12,
+      "target": 7,
+      "travel_cost": 3.91,
+      "threat_level": 0.28,
+      "congestion": 0.115,
+      "capacity": 2,
+      "base_threat": 0.28,
+      "corridor": 2
+    },
+    {
+      "source": 12,
+      "target": 8,
+      "travel_cost": 4.21,
+      "threat_level": 0.55,
+      "congestion": 0.116,
+      "capacity": 3,
+      "base_threat": 0.55,
+      "corridor": 3
+    },
+    {
+      "source": 12,
+      "target": 15,
+      "travel_cost": 3.84,
+      "threat_level": 0.363,
+      "congestion": 0.091,
+      "capacity": 3,
+      "base_threat": 0.363,
+      "corridor": 3
+    },
+    {
+      "source": 12,
+      "target": 16,
+      "travel_cost": 1.59,
+      "threat_level": 0.124,
+      "congestion": 0.083,
+      "capacity": 3,
+      "base_threat": 0.124,
+      "corridor": 3
+    },
+    {
+      "source": 13,
+      "target": 9,
+      "travel_cost": 3.32,
+      "threat_level": 0.104,
+      "congestion": 0.076,
+      "capacity": 3,
+      "base_threat": 0.104,
+      "corridor": 0
+    },
+    {
+      "source": 13,
+      "target": 10,
+      "travel_cost": 3.33,
+      "threat_level": 0.254,
+      "congestion": 0.117,
+      "capacity": 2,
+      "base_threat": 0.254,
+      "corridor": 1
+    },
+    {
+      "source": 14,
+      "target": 10,
+      "travel_cost": 2.59,
+      "threat_level": 0.162,
+      "congestion": 0.068,
+      "capacity": 3,
+      "base_threat": 0.162,
+      "corridor": 1
+    },
+    {
+      "source": 14,
+      "target": 11,
+      "travel_cost": 3.94,
+      "threat_level": 0.312,
+      "congestion": 0.173,
+      "capacity": 2,
+      "base_threat": 0.312,
+      "corridor": 2
+    },
+    {
+      "source": 15,
+      "target": 11,
+      "travel_cost": 3.29,
+      "threat_level": 0.213,
+      "congestion": 0.11,
+      "capacity": 2,
+      "base_threat": 0.213,
+      "corridor": 2
+    },
+    {
+      "source": 15,
+      "target": 12,
+      "travel_cost": 3.84,
+      "threat_level": 0.363,
+      "congestion": 0.091,
+      "capacity": 3,
+      "base_threat": 0.363,
+      "corridor": 3
+    },
+    {
+      "source": 16,
+      "target": 12,
+      "travel_cost": 1.59,
+      "threat_level": 0.124,
+      "congestion": 0.083,
+      "capacity": 3,
+      "base_threat": 0.124,
+      "corridor": 3
+    },
+    {
+      "source": 16,
+      "target": 9,
+      "travel_cost": 2.78,
+      "threat_level": 0.274,
+      "congestion": 0.113,
+      "capacity": 2,
+      "base_threat": 0.274,
+      "corridor": 0
+    },
+    {
+      "source": 17,
+      "target": 9,
+      "travel_cost": 2.21,
+      "threat_level": 0.199,
+      "congestion": 0.078,
+      "capacity": 2,
+      "base_threat": 0.199,
+      "corridor": 0
+    },
+    {
+      "source": 17,
+      "target": 10,
+      "travel_cost": 3.09,
+      "threat_level": 0.349,
+      "congestion": 0.097,
+      "capacity": 3,
+      "base_threat": 0.349,
+      "corridor": 1
+    },
+    {
+      "source": 18,
+      "target": 10,
+      "travel_cost": 1.65,
+      "threat_level": 0.196,
+      "congestion": 0.149,
+      "capacity": 3,
+      "base_threat": 0.196,
+      "corridor": 1
+    },
+    {
+      "source": 18,
+      "target": 11,
+      "travel_cost": 3.54,
+      "threat_level": 0.346,
+      "congestion": 0.104,
+      "capacity": 3,
+      "base_threat": 0.346,
+      "corridor": 2
+    }
+  ],
+  "metadata": {
+    "depot": 0,
+    "targets": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "n_nodes": 19,
+    "hot_nodes": [
+      2,
+      4
+    ],
+    "n_hubs": 12
+  }
+}
