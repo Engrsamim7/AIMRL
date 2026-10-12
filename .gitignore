@@ -5,3 +5,5 @@ simulator/out/
 simulator/figs/
 revision/manuscript.txt
 .venv/
+
+revision/submission-code/__pycache__/
