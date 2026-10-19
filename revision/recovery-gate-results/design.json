@@ -1,0 +1,418 @@
+{
+  "status": "specified_before_training_and_test",
+  "algorithms": [
+    "dqn",
+    "mappo"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "methods": [
+    "ALL",
+    "SAFE",
+    "KEEP",
+    "AGE",
+    "LEARN"
+  ],
+  "warmup_episodes": 300,
+  "adaptation_episodes": 300,
+  "warmup_gate": "SAFE",
+  "label_episodes_initial": 64,
+  "label_episodes_refresh": 64,
+  "label_fit_episodes_each": 56,
+  "label_holdout_episodes_each": 8,
+  "label_selection": "uniform without replacement within public strata per episode: 4 clear-against-warning, 2 warnings, 2 other; no borrowing unused slots; full chronological episode reservoir, never outcome/origin selected",
+  "label_context": "one eligible packet forced accepted versus rejected; retain full current inbox and all future messages; actual factual branch must reproduce every convoy outcome",
+  "label_target": "receiver complete-episode utility acceptance minus rejection; delivery head predicts receiver delivery difference -1,0,+1",
+  "model": "3 bootstrap two-layer 48-Tanh hurdle networks; impact abs(delta utility)>.1; conditional utility scale80; three-class delivery head; 100 Adam .003 steps; head risk and .5 bootstrap disagreement heuristic, not calibrated",
+  "refresh": "after150 LEARN adaptation episodes collect64 fresh episodes with frozen current actor; refit on initial56+refresh56 episodes; holdouts never fitted; refresh conflates more data and actor transport",
+  "gate": "SAFE fallback; both acceptance and rejection authority on publicly reachable edges; estimated abs(mean)-.5std > margin; estimated adverse delivery head <= risk limit; at most2 overrides per receiver per episode; outer timestamp/TTL/own precedence unchanged",
+  "fairness": "600 routing episodes per final actor; deepcopy identical SAFE-warmup optimizer/replay/RNG; paired adaptation tapes; auxiliary data and compute extra for learned gate, not equal FLOPs",
+  "validation": "8 fresh layouts,8 training conditions,2 episodes each per seed; select pooled frozen-actor utility, delivery >= SAFE-1pp; if no eligible option choose highest delivery then utility; no test retuning",
+  "validation_candidates": {
+    "LEARN": [
+      {
+        "risk_limit": 0.05,
+        "margin": 0.0
+      },
+      {
+        "risk_limit": 0.05,
+        "margin": 1.0
+      },
+      {
+        "risk_limit": 0.15,
+        "margin": 0.0
+      },
+      {
+        "risk_limit": 0.15,
+        "margin": 1.0
+      },
+      {
+        "risk_limit": 0.3,
+        "margin": 0.0
+      },
+      {
+        "risk_limit": 0.3,
+        "margin": 1.0
+      }
+    ],
+    "AGE": [
+      {
+        "age_limit": 1.0,
+        "confidence": 0.4
+      },
+      {
+        "age_limit": 1.0,
+        "confidence": 0.6
+      },
+      {
+        "age_limit": 1.0,
+        "confidence": 0.8
+      },
+      {
+        "age_limit": 2.0,
+        "confidence": 0.4
+      },
+      {
+        "age_limit": 2.0,
+        "confidence": 0.6
+      },
+      {
+        "age_limit": 2.0,
+        "confidence": 0.8
+      },
+      {
+        "age_limit": 4.0,
+        "confidence": 0.4
+      },
+      {
+        "age_limit": 4.0,
+        "confidence": 0.6
+      },
+      {
+        "age_limit": 4.0,
+        "confidence": 0.8
+      },
+      {
+        "age_limit": 8.0,
+        "confidence": 0.4
+      },
+      {
+        "age_limit": 8.0,
+        "confidence": 0.6
+      },
+      {
+        "age_limit": 8.0,
+        "confidence": 0.8
+      }
+    ]
+  },
+  "training_settings": {
+    "risk_limit": 0.15,
+    "margin": 0.25,
+    "age_limit": 4.0,
+    "confidence": 0.6
+  },
+  "primary": "LEARN minus SAFE/KEEP/AGE, equal-case pooled mission utility and delivery separately per algorithm:12 contrasts",
+  "success": "for a named baseline/algorithm utility corrected lower bound>0 AND delivery lower bound>-1 percentage point; this engineering noninferiority tolerance is not an operational safety guarantee",
+  "secondary": "LEARN minus ALL/SAFE/KEEP/AGE,8 cases,2 algorithms,utility and delivery:128 contrasts",
+  "correction": "140 new contrasts plus248 previously tested comparisons=388; two-sided Bonferroni intervals,200000 crossed seed/layout/episode bootstrap draws; historical intervals unchanged",
+  "endpoints": "mission utility=40 delivered-40 destroyed-40 censored-elapsed per convoy, averaged over all5; delivery all5; no conditioning primary on survival",
+  "layouts": {
+    "train": "80000..80079,2/3 forks",
+    "labels_initial": "81000..81063,2/3",
+    "labels_refresh": "81100..81163,2/3",
+    "validation": "82000..82007,2/3",
+    "test": "83000..83015,3/4;4-fork size held out",
+    "mechanism": "84000..84003,3/4"
+  },
+  "tapes": {
+    "warmup": 70000000,
+    "adaptation": 71000000,
+    "labels_initial": 72000000,
+    "labels_refresh": 73000000,
+    "validation": 74000000,
+    "test": 75000000,
+    "mechanism": 76000000
+  },
+  "physics": "one initially blocked cheap branch per stage; independent recovery coin; expiry earliest nominal arrival at approach + uniform1.2..3.5 if temporary,35..50 otherwise; scouts physically observe changes; no injected honest reports; hidden schedule never a feature; graph expensive bypass scale uniform1..1.5 train,1..2 test",
+  "forgery": "public corridor targets uniform; blocked payload faircoin independent of truth; honest confidence distribution;90percent claimed identity impersonation; only honest channel subject to loss",
+  "train_cases": [
+    {
+      "name": "train-persistent",
+      "lead": 4.0,
+      "delay": 1.0,
+      "loss": 0.1,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 0.0,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "train-mix25",
+      "lead": 4.0,
+      "delay": 1.0,
+      "loss": 0.1,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 0.25,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "train-mix75",
+      "lead": 4.0,
+      "delay": 1.0,
+      "loss": 0.1,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 0.75,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "train-recovery",
+      "lead": 4.0,
+      "delay": 1.0,
+      "loss": 0.1,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 1.0,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "train-loss",
+      "lead": 4.0,
+      "delay": 1.0,
+      "loss": 0.2,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 0.75,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "train-delay",
+      "lead": 4.0,
+      "delay": 2.0,
+      "loss": 0.1,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 0.75,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "train-late",
+      "lead": 0.0,
+      "delay": 8.0,
+      "loss": 0.1,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 0.5,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "train-no-hazard",
+      "lead": 4.0,
+      "delay": 1.0,
+      "loss": 0.1,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": true,
+      "impersonation": 0.9,
+      "recovery": 0.5,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    }
+  ],
+  "test_cases": [
+    {
+      "name": "persistent",
+      "lead": 4.0,
+      "delay": 1.0,
+      "loss": 0.1,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 0.0,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "mixed-recovery",
+      "lead": 4.0,
+      "delay": 1.0,
+      "loss": 0.1,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 0.5,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "rapid-recovery",
+      "lead": 4.0,
+      "delay": 1.0,
+      "loss": 0.1,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 1.0,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "unseen-loss",
+      "lead": 4.0,
+      "delay": 1.0,
+      "loss": 0.35,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 0.5,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "unseen-delay",
+      "lead": 4.0,
+      "delay": 3.0,
+      "loss": 0.1,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 0.5,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "unseen-corruption",
+      "lead": 4.0,
+      "delay": 1.0,
+      "loss": 0.2,
+      "spoof": 4.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 0.5,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "late-control",
+      "lead": 0.0,
+      "delay": 8.0,
+      "loss": 0.1,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": false,
+      "impersonation": 0.9,
+      "recovery": 0.5,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    },
+    {
+      "name": "no-hazard-control",
+      "lead": 4.0,
+      "delay": 1.0,
+      "loss": 0.1,
+      "spoof": 2.0,
+      "full_sensing": false,
+      "short_lived": false,
+      "no_hazards": true,
+      "impersonation": 0.9,
+      "recovery": 0.5,
+      "recovery_window": [
+        1.2,
+        3.5
+      ]
+    }
+  ],
+  "test_episodes": 102400,
+  "mechanism": "LEARN trained actor swapped among LEARN,REJECT_ONLY,INITIAL_MODEL on4 fresh layouts,5 episodes/case; descriptive only; initial-vs-refreshed conflates data quantity and actor change",
+  "limitations": [
+    "constructed fork topology, not realistic operational validation",
+    "8 paired training seeds per algorithm; convoy count not replication",
+    "receiver filtering does not reduce transmitted bandwidth",
+    "validation tunes inference settings of default-trained actors",
+    "all cases and failures retained",
+    "no assumed win or universal superiority"
+  ],
+  "source_hash": "6ed046af6b6a1fefada3c51491f9356182549f94baacc9d22d024389e45976e7"
+}
