@@ -1,5 +1,5 @@
 {
-  "status": "local_validation_passed_publication_pending",
+  "status": "passed_including_public_github_downloads",
   "source_hash": "6ed046af6b6a1fefada3c51491f9356182549f94baacc9d22d024389e45976e7",
   "archive_sha256": "03f202d1915656c28599fa3833dcf37dbf7801b2bd6beff1d8644bc7f015c369",
   "archive_bytes": 27365497,
@@ -22,5 +22,26 @@
     "validation_selection.csv"
   ],
   "table_comparison": "exact parsed DataFrame equality; README,HTML,verification byte-identical",
-  "historical_fingerprints_unchanged": true
+  "historical_fingerprints_unchanged": true,
+  "published_artifact_commit": "e74a6c3f4b68de161990cba755d95bdea4bb6242",
+  "public_downloads": [
+    {
+      "file": "deliverables/AIMRL-recovery-gate-study.zip",
+      "bytes": 27365497,
+      "sha256": "03f202d1915656c28599fa3833dcf37dbf7801b2bd6beff1d8644bc7f015c369",
+      "public_download_matches": true
+    },
+    {
+      "file": "deliverables/AIMRL-recovery-gate-figures.pdf",
+      "bytes": 78453,
+      "sha256": "caf1caabf6a91971b3e840e9cb465d2a2371dd097a84353be6522df72646f9aa",
+      "public_download_matches": true
+    },
+    {
+      "file": "revision/recovery-gate-findings.md",
+      "bytes": 10124,
+      "sha256": "a57bbed15988996f3c62add66b76ee470155975811b2cf8f456aef674fccbcbd",
+      "public_download_matches": true
+    }
+  ]
 }
