@@ -100,3 +100,25 @@ def test_hub_queue_wait_ages_retained_reports_before_actual_decision():
  late=next(r for r in s.decisions if r['convoy']==4)
  assert early['peer_reports']>0 and late['t']>=5 and late['peer_reports']==0
  assert rows[4]['wait']>0
+
+
+def test_zero_admission_threshold_is_a_matched_priority_only_ablation():
+ a=configured('VALUE');b=configured('VALUE');a.value_threshold=0.;b.value_threshold=.05
+ for s in [a,b]:
+  s.radio_busy=True
+  s.offer(s.units[0],3,False,0.,1.)
+  s.offer(s.units[0],1,True,0.,1.)
+ assert a.stats['value_rejected']==0 and b.stats['value_rejected']>0
+ common={p['id']:p for p in a.radio}
+ assert b.radio and all(common[p['id']]==p for p in b.radio)
+ assert a.model.state()==b.model.state()
+
+
+def test_partial_frame_charges_started_bytes_and_exact_airtime():
+ case=Scenario(n_convoys=1,packet_time=100.,closure_fraction=0.,hub_service=0.,perfect_sensors=True)
+ s=TimedNetwork(diamond(),case,'AGE_ALL',44,calibration(),record=True)
+ before=s.model.state();stats,rows=s.run()
+ assert stats['tx_started']==1 and stats['transmitted']==0
+ assert stats['attempted_tx_bytes']==64 and stats['tx_bytes']==0
+ assert math.isclose(stats['radio_airtime'],rows[0]['elapsed'])
+ assert before==s.model.state()

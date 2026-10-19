@@ -1,5 +1,20 @@
 # AIMRL
 
+## Implemented timed-network revision and full development surface
+
+The new model includes consequential closures/inspections, deadlines, local noisy
+observations, training-fitted report validity and a real finite broadcast channel.
+The study executes 63,072 method episodes across 19/51/131-node networks, with
+864 response-surface cells and a matched admission ablation. VALUE saves about
+76% of transmission bytes but loses on-time delivery to stronger scheduling
+baselines. This is a planning development study, not confirmed MARL superiority.
+
+- [Implemented changes, actual findings and remaining research gaps](revision/timed-network-findings.md).
+- [Eight-figure PDF](deliverables/AIMRL-timed-network-figures.pdf).
+- [Code, fitted interpreter, raw primary results and figures ZIP](deliverables/AIMRL-timed-network-study.zip).
+- [All tables and reproduction commands](revision/timed-network-results/README.md).
+- Full packet/decision trace archives are listed in the ZIP's TRACE_DOWNLOADS.json; the included fetch helper verifies and extracts them.
+
 ## Critical journal-readiness assessment
 
 The present results do **not** support submitting the existing superiority claim.

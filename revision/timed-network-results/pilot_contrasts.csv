@@ -1,0 +1,11 @@
+method,baseline,endpoint,difference,lower,upper,scope
+VALUE,RAW_ALL,on_time,-0.39866255144032925,-0.9902263374485597,0.15432098765432098,descriptive paired graph/environment bootstrap;10000draws;not confirmatory
+VALUE,AGE_ALL,on_time,0.32150205761316875,0.051440329218107,0.668724279835391,descriptive paired graph/environment bootstrap;10000draws;not confirmatory
+VALUE,LATEST,on_time,0.30864197530864196,0.038580246913580245,0.668724279835391,descriptive paired graph/environment bootstrap;10000draws;not confirmatory
+VALUE,WARN_PRIORITY,on_time,0.09002057613168725,-0.205761316872428,0.39866255144032925,descriptive paired graph/environment bootstrap;10000draws;not confirmatory
+VALUE,VALUE_PRIORITY,on_time,0.07716049382716049,-0.102880658436214,0.2957818930041152,descriptive paired graph/environment bootstrap;10000draws;not confirmatory
+VALUE,RAW_ALL,attempted_tx_bytes,-3705.349794238683,-4777.957201646091,-2754.41975308642,descriptive paired graph/environment bootstrap;10000draws;not confirmatory
+VALUE,AGE_ALL,attempted_tx_bytes,-3850.9958847736625,-5008.474074074074,-2789.3251028806585,descriptive paired graph/environment bootstrap;10000draws;not confirmatory
+VALUE,LATEST,attempted_tx_bytes,-3847.8353909465022,-5010.581069958848,-2781.935802469136,descriptive paired graph/environment bootstrap;10000draws;not confirmatory
+VALUE,WARN_PRIORITY,attempted_tx_bytes,-3855.0123456790125,-5016.1053497942385,-2790.7818930041153,descriptive paired graph/environment bootstrap;10000draws;not confirmatory
+VALUE,VALUE_PRIORITY,attempted_tx_bytes,-3854.485596707819,-5017.623045267489,-2788.936625514403,descriptive paired graph/environment bootstrap;10000draws;not confirmatory

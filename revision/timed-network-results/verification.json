@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "scope": "network development and sensitivity; not confirmed MARL superiority",
+  "pilot": {
+    "episodes": 6804,
+    "convoys": 54432,
+    "decisions": 662191,
+    "blocked_option_decisions": 214593,
+    "completed_packets": 382187
+  },
+  "surface": {
+    "episodes": 48384,
+    "convoys": 387072,
+    "decisions": 8547696,
+    "blocked_option_decisions": 5800669,
+    "completed_packets": 3441111
+  },
+  "pilot_ablation": {
+    "episodes": 972,
+    "convoys": 7776,
+    "decisions": 94196,
+    "blocked_option_decisions": 30223,
+    "completed_packets": 73639
+  },
+  "surface_ablation": {
+    "episodes": 6912,
+    "convoys": 55296,
+    "decisions": 1214105,
+    "blocked_option_decisions": 821270,
+    "completed_packets": 657697
+  },
+  "total_method_episodes": 63072,
+  "total_convoys": 504576,
+  "ablation_hash": "391000a3d96a5a1cf7d6408cee4aa320cd41993f003bdb19a69dcbcc85d75ea5",
+  "source_hash": "33dfe22b204a18b587090603113ee2976191ebf6d8b01aa7714789a3fd9c3505",
+  "surface_hash": "e8141a7f9d46a6667ede3050e4749b02d5ab799771749a24cdf1f8377ec33635",
+  "report_hash": "be02472ece4469862b426b0ee8338744248aa15b6d0f828febfb8acc226e87dd",
+  "value_threshold": 0.05,
+  "all_surface_cells": 864,
+  "calibration_probe_rows": 23040,
+  "common_probe_brier": {
+    "age_aware": 0.05845660485816497,
+    "age_ignorant": 0.058150621654717155,
+    "prior": 0.0851893646343603
+  },
+  "figures": 8
+}
