@@ -54,3 +54,24 @@ def test_replays_match_factual_branch_and_probed_next_actions():
  assert rows and len(rows)<=8 and s['oracle_sampled_gain']>=0
  assert all(np.isfinite(r['flip_utility']) and -.999<=r['flip_delivery']<=.999 for r in rows)
  assert len(raw)==5
+
+def test_calibration_excludes_high_utility_setting_with_delivery_loss():
+ import pandas as pd
+ from run_actor_aware_development import select_settings,GRID,MODELS
+ rows=[]
+ for algo in ['dqn','mappo']:
+  rows.append(dict(algo=algo,method='SAFE',config=0,delivery_rate=.8,utility_mean=0.))
+  for method in MODELS:
+   for config,d,u in [(0,.8,0.),(1,.7,10.),(2,.8,1.)]:rows.append(dict(algo=algo,method=method,config=config,delivery_rate=d,utility_mean=u))
+ settings,_=select_settings(pd.DataFrame(rows))
+ assert all(settings[a][m]==GRID[1] for a in settings for m in MODELS)
+
+def test_calibration_prefers_safe_abstention_on_exact_utility_tie():
+ import pandas as pd
+ from run_actor_aware_development import select_settings,MODELS
+ rows=[]
+ for algo in ['dqn','mappo']:
+  rows.append(dict(algo=algo,method='SAFE',config=0,delivery_rate=.8,utility_mean=0.))
+  for method in MODELS:
+   for config in [0,1]:rows.append(dict(algo=algo,method=method,config=config,delivery_rate=.8,utility_mean=0.))
+ settings,_=select_settings(pd.DataFrame(rows));assert all(settings[a][m]==dict(abstain=True) for a in settings for m in MODELS)
