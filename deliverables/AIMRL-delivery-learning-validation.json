@@ -1,5 +1,5 @@
 {
-  "status": "portable_verification_passed",
+  "status": "portable_and_public_verification_passed",
   "archive": "AIMRL-delivery-learning-study.zip",
   "bytes": 40160028,
   "sha256": "331a806d6b1132ff641aa7ea58afbbdfa94ffe637e453e70280d24ab8113346a",
@@ -21,7 +21,7 @@
       "status": "stopped_before_test_for_zero_time_sensor_loop"
     }
   },
-  "public_downloads_verified": false,
+  "public_downloads_verified": true,
   "matched_regenerated_files": [
     "01_routing_training.png",
     "02_heldout_delivery.png",
@@ -50,5 +50,50 @@
   ],
   "pdf_bytes_compared": false,
   "pdf_note": "PDF creation metadata may change; all seven rendered PNG figures match byte-for-byte.",
-  "report_hash": "766a06b9824a82f80252ad9aed46752022a2e0706ef23a919b30c15f2aa17f13"
+  "report_hash": "766a06b9824a82f80252ad9aed46752022a2e0706ef23a919b30c15f2aa17f13",
+  "public_commit": "db03240563f334c39edcdcee81a6df7c0c4f7c0b",
+  "public_artifacts": [
+    {
+      "path": "deliverables/AIMRL-delivery-learning-study.zip",
+      "url": "https://raw.githubusercontent.com/Engrsamim7/AIMRL/db03240563f334c39edcdcee81a6df7c0c4f7c0b/deliverables/AIMRL-delivery-learning-study.zip",
+      "bytes": 40160028,
+      "sha256": "331a806d6b1132ff641aa7ea58afbbdfa94ffe637e453e70280d24ab8113346a",
+      "status": "public_download_verified"
+    },
+    {
+      "path": "deliverables/AIMRL-delivery-learning-figures.pdf",
+      "url": "https://raw.githubusercontent.com/Engrsamim7/AIMRL/db03240563f334c39edcdcee81a6df7c0c4f7c0b/deliverables/AIMRL-delivery-learning-figures.pdf",
+      "bytes": 77829,
+      "sha256": "7e6290dae62fc2c37815ab5932b1c5202f183ad714867055d6186ad4401fdf5e",
+      "status": "public_download_verified"
+    },
+    {
+      "path": "deliverables/AIMRL-delivery-learning-study.zip.sha256",
+      "url": "https://raw.githubusercontent.com/Engrsamim7/AIMRL/db03240563f334c39edcdcee81a6df7c0c4f7c0b/deliverables/AIMRL-delivery-learning-study.zip.sha256",
+      "bytes": 100,
+      "sha256": "a1c8cf39e08d2f5891d0c56133b5255ad7be14c2cc4b7107fbca3652e35f675a",
+      "status": "public_download_verified"
+    },
+    {
+      "path": "revision/delivery-learning-findings.md",
+      "url": "https://raw.githubusercontent.com/Engrsamim7/AIMRL/db03240563f334c39edcdcee81a6df7c0c4f7c0b/revision/delivery-learning-findings.md",
+      "bytes": 9417,
+      "sha256": "856fea234764c0d7661ac5ec1197ca8b04970f3c6be6c50da41537e7101a660c",
+      "status": "public_download_verified"
+    },
+    {
+      "path": "revision/delivery-learning-results/README.md",
+      "url": "https://raw.githubusercontent.com/Engrsamim7/AIMRL/db03240563f334c39edcdcee81a6df7c0c4f7c0b/revision/delivery-learning-results/README.md",
+      "bytes": 4139,
+      "sha256": "a1556edc6481f2fb21e634efc96480280750a069ef709570b0de28325a3ea6e9",
+      "status": "public_download_verified"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/Engrsamim7/AIMRL/db03240563f334c39edcdcee81a6df7c0c4f7c0b/README.md",
+      "bytes": 15527,
+      "sha256": "b0dffcd93fe7783cf8eb53311f4e73d47942c56e711ec8c7166f45c24194a3c3",
+      "status": "public_download_verified"
+    }
+  ]
 }
