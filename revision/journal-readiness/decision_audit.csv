@@ -1,0 +1,9 @@
+sensing,mode,decisions,after_first_wave,blocked_options,chosen_blocked,report_candidates,eligible_candidates,peer_score_applications,all_frc_changes,all_none_changes,q_gap_larger_than_max_penalty,median_q_gap
+mixed,ALL,64800,300,0,0,37724,26456,26456,0,0,58320,19.46268895332701
+mixed,FRC,64800,300,0,0,37724,26456,7024,0,0,58320,19.886439184442004
+mixed,NONE,64800,240,0,0,36582,26083,0,0,0,58320,20.102163403736228
+mixed,TRAVEL,64800,240,0,0,36582,26083,0,0,0,58320,20.102163403736228
+uniform,ALL,64800,360,0,0,152,0,0,0,0,56160,18.640578252304188
+uniform,FRC,64800,360,0,0,152,0,0,0,0,56160,18.640578252304188
+uniform,NONE,64800,360,0,0,152,0,0,0,0,56160,18.640578252304188
+uniform,TRAVEL,64800,360,0,0,152,0,0,0,0,56160,18.640578252304188

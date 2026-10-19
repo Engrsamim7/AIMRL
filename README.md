@@ -1,5 +1,18 @@
 # AIMRL
 
+## Critical journal-readiness assessment
+
+The present results do **not** support submitting the existing superiority claim.
+A read-only audit of 518,400 routing decisions finds zero ALL/FRC/NONE next-hop
+changes on the same frozen policies and zero blocked outgoing options offered.
+An exact decision reference shows when freshness filtering helps, hurts or ties;
+it is model validation, not a new network-performance result.
+
+- [Scientific assessment and reviewer blockers](revision/journal-readiness-assessment.md).
+- [Four diagnostic figures](deliverables/AIMRL-journal-readiness-figures.pdf).
+- [Complete audit, code, parent models and raw-data ZIP](deliverables/AIMRL-journal-readiness.zip).
+- [Tables](revision/journal-readiness/README.md), [protocol](revision/journal-readiness-protocol.md), and [next network acceptance contract](revision/journal-network-acceptance-contract.md).
+
 ## Original tabular AMMARL reproduction and repairs
 
 The latest study returns to the submitted tabular Q-learning and fixed FRC gate.

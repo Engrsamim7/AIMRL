@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "scope": "diagnostic and exact model validation; not submission-ready network superiority evidence",
+  "audit_episodes": 43200,
+  "decisions": 518400,
+  "all_frc_action_changes": 0,
+  "all_none_action_changes": 0,
+  "decisions_at_or_after_first_wave": 2520,
+  "decisions_with_blocked_option": 0,
+  "decisions_q_gap_exceeds_any_penalty": 457920,
+  "exact_cells": 432,
+  "exact_branches": 3456,
+  "exact_cell_counts": {
+    "FRC_lower_cost": 29,
+    "FRC_higher_cost": 37,
+    "equal": 366
+  },
+  "original_sources_or_models_changed": false,
+  "figures": 4,
+  "code_hashes": {
+    "audit_tabular_decisions.py": "e4620941ab6e10609946121239a96408db4efc7699982ad8da7f6ee89dc63835",
+    "information_value_reference.py": "4c49de2c4e7c3268e30cf490505fee4b5dbc49db315b2238386ca0d07cabfec7",
+    "report_journal_readiness.py": "276dfae232d015492761b125316775b5f3a9a8a97816eadbcd9b0757533a4474"
+  }
+}
