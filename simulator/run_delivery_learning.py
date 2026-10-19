@@ -115,11 +115,11 @@ def test_job(task):
 
 
 def main():
- ap=argparse.ArgumentParser();ap.add_argument('--output',default='simulator/out/delivery-learning');ap.add_argument('--workers',type=int,default=4);ap.add_argument('--train-episodes',type=int,default=500);ap.add_argument('--label-attempts',type=int,default=400);args=ap.parse_args();out=Path(args.output).resolve();out.mkdir(parents=True,exist_ok=False)
+ ap=argparse.ArgumentParser();ap.add_argument('--output',default='simulator/out/delivery-learning-v2');ap.add_argument('--workers',type=int,default=4);ap.add_argument('--train-episodes',type=int,default=500);ap.add_argument('--label-attempts',type=int,default=400);args=ap.parse_args();out=Path(args.output).resolve();out.mkdir(parents=True,exist_ok=False)
  for name in ['actors','actor_candidates','training','labels','gates']:(out/name).mkdir()
  initial=fingerprint();start=time.perf_counter();calibration=ROOT/'out/timed-network-development-v2/calibration.json';(out/'calibration.json').write_bytes(calibration.read_bytes())
  design=dict(status='specified_before_training',source_hash=initial,primary='fleet on-time delivery; no bandwidth reward or efficiency substitution',routing_seeds=SEEDS,train_episodes=args.train_episodes,label_attempts=args.label_attempts,actor_features=FEATURES,gate_features=GATE_FEATURES,cases=[asdict(c) for c in TEST],arms=ARMS+['PLANNER_WARN','PLANNER_RAW'],
-  architecture='parameter-sharing independent Double-DQN with edge-scoring MLP, planning prior, replay, masked next-action Double-DQN and gamma1 finite-horizon team reward; potential shaping telescopes to team return plus an action-independent initial constant',
+  architecture='parameter-sharing independent Double-DQN with edge-scoring MLP, planning prior, common state-value head, bounded .05tanh action residual, replay, masked next-action Double-DQN, .5episodic-return anchoring, valid-return target clipping and gamma1 finite-horizon team reward; potential shaping telescopes to team return plus an action-independent initial constant',
   actor_selection='episode0/midpoint/final on20 separate validation episodes; choose on-time then later checkpoint; report any selected0 explicitly',
   gate='96 ExtraTrees trained on actor-specific admit-minus-reject complete-fleet branches; reject only if estimated harmful admission with uncertainty/risk filters; at most one rejection per fleet; default ALL',
   labels='up to3 isolated packet interventions per training episode after index1/1/1/2/3/5;10%no-change controls excluded from fit;all factual branches must reproduce uninterrupted fleet outcomes; no labels from validation/test',
@@ -128,6 +128,7 @@ def main():
   test='6 new graphs19/51/131,12conditions,6schedules,8frozen common routing actors;6receiver methods plus2planner controls run once per environment,21600method episodes172800convoys',
   inference='20000 paired actor/graph/environment bootstrap draws;three primary LEARN-minus-ALL/KEEP/PLANNER_RAW contrasts;Bonferroni3; practical target1percentage point mean and positive corrected lower bound',
   limits=['frozen common routing policies isolate online receiver effect; not independently optimized routing under each gate','one shared fleet rejection token is a public coordination constraint','tree dispersion is heuristic,not calibrated safety','inference checkpoints are not full optimizer/replay resume snapshots','episode0 may be selected;fixed budget is not convergence evidence','no operational adversary or combat survival claim'])
+ design['development_revision']='v1 training validation selected episode0 for all8seeds;stopped during label collection before test. v2changes value architecture and anchors to observed episodic return;primary objective/test namespace unchanged and still untouched.'
  write(out/'design.json',design);write(out/'pipeline.json',dict(status='routing_training',source_hash=initial))
  with ProcessPoolExecutor(max_workers=args.workers) as pool:
   list(pool.map(train_job,[(s,args.train_episodes,str(out)) for s in SEEDS]));write(out/'pipeline.json',dict(status='causal_labeling',source_hash=initial))

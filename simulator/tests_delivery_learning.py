@@ -51,7 +51,7 @@ def test_actor_and_gate_features_do_not_read_remote_truth_or_future_flow():
 def test_team_potential_shaping_preserves_delivery_objective():
     s=fixture();x=np.zeros((2,len(FEATURES)),np.float32)
     s.history[0]=[dict(x=x,chosen=0,phi=-1.,t=0.),dict(x=x,chosen=1,phi=-.4,t=1.)]
-    samples=s.transitions(.625);assert np.isclose(sum(r for _,r,_ in samples),.625+1.)
+    samples=s.transitions(.625);assert np.isclose(sum(b[1] for b in samples),.625+1.)
     assert len(samples[-1][2])==0
 
 

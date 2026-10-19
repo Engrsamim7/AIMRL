@@ -15,17 +15,19 @@ import torch
 from torch import nn
 from timed_network import TimedNetwork,path,uniform
 
-FEATURES=['wait','cost','nominal_tail','expected_tail','closure_probability','own_known','own_blocked','own_age','own_confidence','peer_known','peer_blocked','peer_age','peer_confidence','own_peer_conflict','remaining_deadline','elapsed_fraction','local_flow','encounters','reverse_edge','planner_action','remaining_time_ratio','peer_previous_blocked','peer_changes']
+FEATURES=['wait','cost','nominal_tail','expected_tail','closure_probability','own_known','own_blocked','own_age','own_confidence','peer_known','peer_blocked','peer_age','peer_confidence','own_peer_conflict','remaining_deadline','elapsed_fraction','local_flow','encounters','reverse_edge','planner_action','remaining_time_ratio','peer_previous_blocked','peer_changes','state_nominal_remaining','state_expected_remaining','state_closure_summary']
 GATE_FEATURES=['blocked','confidence','age','own_known','own_blocked','own_age','peer_known','peer_blocked','peer_age','own_conflict','peer_conflict','actor_action_change','before_margin','after_margin','edge_at_node','edge_reachable','distance_to_edge','public_demand','public_detour','remaining_deadline','travelling','pending','old_peer_confidence','posterior_change']
 
 
 class EdgeQ(nn.Module):
     def __init__(self):
         super().__init__();self.body=nn.Sequential(nn.Linear(len(FEATURES),64),nn.Tanh(),nn.Linear(64,32),nn.Tanh(),nn.Linear(32,1))
-        nn.init.zeros_(self.body[-1].weight);nn.init.zeros_(self.body[-1].bias)
+        self.state_value=nn.Sequential(nn.Linear(6,32),nn.Tanh(),nn.Linear(32,1))
+        for head in [self.body,self.state_value]:nn.init.zeros_(head[-1].weight);nn.init.zeros_(head[-1].bias)
     def forward(self,x):
         # Transparent planning prior, refined by learned return residuals.
-        return self.body(x).squeeze(-1)-.1*x[...,3]
+        state=x[...,[14,15,17,23,24,25]]
+        return self.state_value(state).squeeze(-1)+x[...,23]-.1*x[...,3]+.05*torch.tanh(self.body(x).squeeze(-1))
 
 
 class Actor:
@@ -53,8 +55,9 @@ class Actor:
                 if lengths[i]:nxt[i,:lengths[i]]=b[2];mask[i,:lengths[i]]=True
             z=torch.tensor(nxt);valid=torch.tensor(mask)
             with torch.no_grad():
-                online=self.net(z).masked_fill(~valid,-1e9);selected=online.argmax(1);future=self.target(z).gather(1,selected[:,None]).squeeze(1);future[~valid.any(1)]=0.;target=r+future
-            loss=nn.functional.smooth_l1_loss(self.net(x),target);self.opt.zero_grad();loss.backward();nn.utils.clip_grad_norm_(self.net.parameters(),5.);self.opt.step();losses.append(float(loss.detach()))
+                online=self.net(z).masked_fill(~valid,-1e9);selected=online.argmax(1);future=self.target(z).gather(1,selected[:,None]).squeeze(1);lower=torch.tensor([b[4] if len(b)>4 else 0. for b in batch],dtype=torch.float32);future=torch.maximum(lower,torch.minimum(lower+1.,future));future[~valid.any(1)]=0.;target=r+future
+            prediction=self.net(x);mc=torch.tensor([b[3] if len(b)>3 else b[1] for b in batch],dtype=torch.float32)
+            loss=nn.functional.smooth_l1_loss(prediction,target)+.5*nn.functional.smooth_l1_loss(prediction,mc);self.opt.zero_grad();loss.backward();nn.utils.clip_grad_norm_(self.net.parameters(),5.);self.opt.step();losses.append(float(loss.detach()))
             self.updates+=1
             if self.updates%100==0:self.target.load_state_dict(self.net.state_dict())
         return losses
@@ -112,9 +115,11 @@ class DeliveryNetwork(TimedNetwork):
             actions.append(int(e));features.append(np.clip(f,-10,10))
         # WAIT is a declared action and consumes actual half-edge-scale time.
         nominal=path(g,u.node,u.target,g.c);distance=sum(g.c[e] for e in nominal or [])
-        wait=np.zeros(len(FEATURES));wait[0]=1.;wait[2]=distance/self.reference;wait[3]=(min(f[3] for f in features)+.5*self.scale/self.reference) if features else (distance+.5*self.scale)/self.reference;wait[4]=float(np.mean(probs[g.out[u.node]])) if g.out[u.node] else 0.;wait[14]=np.clip(remaining,-4,4);wait[15]=(self.t-u.depart)/self.reference;wait[17]=min(u.encounters/10.,5.);wait[19]=float(planner is None);wait[20]=distance/max(u.deadline-self.t,self.scale*.1)
+        wait=np.zeros(23);wait[0]=1.;wait[2]=distance/self.reference;wait[3]=(min(f[3] for f in features)+.5*self.scale/self.reference) if features else (distance+.5*self.scale)/self.reference;wait[4]=float(np.mean(probs[g.out[u.node]])) if g.out[u.node] else 0.;wait[14]=np.clip(remaining,-4,4);wait[15]=(self.t-u.depart)/self.reference;wait[17]=min(u.encounters/10.,5.);wait[19]=float(planner is None);wait[20]=distance/max(u.deadline-self.t,self.scale*.1)
         actions.append(None);features.append(np.clip(wait,-10,10))
-        return actions,np.asarray(features,np.float32),-distance/self.reference
+        x=np.asarray(features,np.float32);shared=np.array([distance/self.reference,float(x[:,3].min()),float(np.mean(probs[g.out[u.node]])) if g.out[u.node] else 0.],np.float32)
+        x=np.concatenate([x,np.tile(shared,(len(x),1))],axis=1)
+        return actions,x,-distance/self.reference
     def choose(self,u,own_only=False):
         if self.actor is None:return super().choose(u,own_only)
         actions,x,phi=self.candidate_features(u,own_only)
@@ -221,7 +226,7 @@ class DeliveryNetwork(TimedNetwork):
             for i,item in enumerate(trajectory):
                 terminal=i==len(trajectory)-1;following=trajectory[i+1] if not terminal else None
                 reward=(team_return if terminal else following['phi'])-item['phi']
-                samples.append((item['x'][item['chosen']],float(reward),np.empty((0,len(FEATURES)),np.float32) if terminal else following['x']))
+                samples.append((item['x'][item['chosen']],float(reward),np.empty((0,len(FEATURES)),np.float32) if terminal else following['x'],float(team_return-item['phi']),0. if terminal else float(-following['phi'])))
         return samples
 
 
