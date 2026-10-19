@@ -1,5 +1,5 @@
 {
-  "status": "portable_validation_passed",
+  "status": "passed",
   "manifest_files": 287,
   "core": {
     "name": "AIMRL-timed-network-study.zip",
@@ -77,12 +77,65 @@
     "surface_summary.csv",
     "validation_selection.csv"
   ],
-  "public_downloads_verified": false,
+  "public_downloads_verified": true,
   "regenerated_readme_index_graphs_verification_exact": true,
   "trace_fetch_helper_verified_with_local_archive_cache": true,
   "pdf": {
     "name": "AIMRL-timed-network-figures.pdf",
     "bytes": 66440,
     "sha256": "ba06c386f1373211dc876ae38ac8b826ddab7d25c29cd779e5bd8f90c1ab2d34"
-  }
+  },
+  "public_downloads": [
+    {
+      "name": "AIMRL-timed-network-study.zip",
+      "bytes": 13850234,
+      "sha256": "8edb32d6dd76a60a93d6c6848f38a1071a0066f4a94f1108af3cdd960d7deeab"
+    },
+    {
+      "name": "AIMRL-timed-network-traces-01.zip",
+      "bytes": 26076952,
+      "sha256": "1738c2089bcf6653817c4e97f4705fe5b5fce8dd5d37f2da4b0a8793880d4f2a"
+    },
+    {
+      "name": "AIMRL-timed-network-traces-02.zip",
+      "bytes": 42619182,
+      "sha256": "af1ccff9d04d5c716d1e13c1f2b5b35e01fa0fab6c81df28d4848d73b48a52f3"
+    },
+    {
+      "name": "AIMRL-timed-network-traces-03.zip",
+      "bytes": 43995202,
+      "sha256": "eb375f67115fa255704c1d967bc7b70e9a8633ab8b2b83f05f43ff2df1a71dae"
+    },
+    {
+      "name": "AIMRL-timed-network-traces-04.zip",
+      "bytes": 43958038,
+      "sha256": "49ad721364bcc637f133bbe83098df0d9900cdc04e602bc67520ed8ef04bc8ce"
+    },
+    {
+      "name": "AIMRL-timed-network-traces-05.zip",
+      "bytes": 42122306,
+      "sha256": "67b0353d85254182e21a75231eb5b7a507188b83f4ee17bebf209183b4866c20"
+    },
+    {
+      "name": "AIMRL-timed-network-traces-06.zip",
+      "bytes": 42686857,
+      "sha256": "4d4be9f28c1922354e89264bbc3420069f3cf970c8f5806479f4c37005a89110"
+    },
+    {
+      "name": "AIMRL-timed-network-traces-07.zip",
+      "bytes": 40776769,
+      "sha256": "4d97d91ac360775e63c8dc18252334e1fffbc6baf521d3907706f2e5bb456269"
+    },
+    {
+      "name": "AIMRL-timed-network-traces-08.zip",
+      "bytes": 14851617,
+      "sha256": "5af8bb5af61f17b68a8026c72a758daff65ad0f1b1e7d1958a00ffcc4f9ef354"
+    },
+    {
+      "name": "AIMRL-timed-network-figures.pdf",
+      "bytes": 66440,
+      "sha256": "ba06c386f1373211dc876ae38ac8b826ddab7d25c29cd779e5bd8f90c1ab2d34"
+    }
+  ],
+  "public_findings_verified": true
 }
