@@ -75,3 +75,10 @@ def test_replays_restore_target_decision_without_changing_factual_trajectory():
     effect=effects(b,cid,t,valid[0]['id'])
     assert effect['delta_delivery'] in [-1,0,1] and np.isfinite(effect['delta_utility'])
     assert not b.policy.force and b.policy.force_hits==0
+
+
+def test_intervention_cannot_bypass_outer_expiry_checks():
+    s,cv,e=fixture();s.policy.force={(cv.id,30.,'a'):True}
+    s.policy.decide(s,cv,30.)
+    assert s.policy.force_hits==0
+    assert s.message_audit[-1]['reason']=='stale'
