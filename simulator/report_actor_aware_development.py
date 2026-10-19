@@ -58,6 +58,10 @@ def main():
  assert np.allclose(joined.utility_mean_factual,joined.utility_mean_evaluation) and np.array_equal(joined.n_delivered_factual,joined.n_delivered_evaluation)
  pd.DataFrame(quality).to_csv(out/'prediction_quality.csv',index=False);pd.DataFrame(proposal).to_csv(out/'sampled_proposal_quality.csv',index=False)
  opportunity=factual.groupby(['algo','split','case']).agg(episodes=('episode','size'),eligible=('eligible','sum'),action_candidates=('action_candidates','sum'),sampled=('sampled','sum'),mean_sampled_oracle_gain=('oracle_sampled_gain','mean'),oracle_delivery_gain_pp=('oracle_delivery_gain',lambda x:100*x.mean()),positive_oracle_episodes=('oracle_sampled_gain',lambda x:int((x>0).sum()))).reset_index();opportunity.to_csv(out/'sampled_opportunity.csv',index=False)
+ relevant=labels[labels.reachable.gt(.5)&labels.probe_action_change.gt(.5)].copy();relevant['positive_gain']=relevant.flip_utility.clip(lower=0)
+ cols=['algo','seed','split','graph','case','episode'];eligible_best=relevant.groupby(cols).positive_gain.max().rename('eligible_sampled_gain').reset_index()
+ opportunities=factual.merge(eligible_best,on=cols,how='left',validate='one_to_one');opportunities['eligible_sampled_gain']=opportunities.eligible_sampled_gain.fillna(0.)
+ opportunities.groupby(['algo','split','case']).agg(episodes=('episode','size'),all_sampled_gain=('oracle_sampled_gain','mean'),eligible_action_sampled_gain=('eligible_sampled_gain','mean')).to_csv(out/'opportunity_scope.csv')
  label_summary=labels.assign(relevant=labels.reachable.gt(.5)&labels.probe_action_change.gt(.5),consequential=labels.flip_utility.abs().gt(.1),positive=labels.flip_utility.gt(0),negative=labels.flip_utility.lt(0)).groupby(['algo','split']).agg(labels=('id','size'),relevant=('relevant','sum'),consequential=('consequential','sum'),positive=('positive','sum'),negative=('negative','sum')).reset_index();label_summary.to_csv(out/'label_summary.csv',index=False)
  images=[];plt.rcParams.update({'font.size':10,'figure.dpi':140})
  with PdfPages(out/'actor_aware_development.pdf') as pdf:
@@ -71,7 +75,7 @@ def main():
    fig.suptitle(title+'\nExploratory95% intervals; existing frozen actors; NOT confirmation',fontsize=11);save(fig,'paired_'+endpoint)
   fig,axes=plt.subplots(1,2,figsize=(12,4.8))
   for ax,algo in zip(axes,['dqn','mappo']):
-   z=opportunity[(opportunity.algo==algo)&(opportunity.split=='audit')].set_index('case').reindex(CASES);ax.bar(range(8),z.mean_sampled_oracle_gain);ax.set_xticks(range(8),CASES,rotation=55,ha='right',fontsize=8);ax.set_title(algo.upper());ax.set_ylabel('Best sampled single-flip utility gain per episode')
+   z=opportunities[(opportunities.algo==algo)&(opportunities.split=='audit')].groupby('case')[['oracle_sampled_gain','eligible_sampled_gain']].mean().reindex(CASES);x=np.arange(8);ax.bar(x-.18,z.oracle_sampled_gain,.36,label='all sampled');ax.bar(x+.18,z.eligible_sampled_gain,.36,label='eligible actor-changing');ax.set_xticks(x,CASES,rotation=55,ha='right',fontsize=8);ax.set_title(algo.upper());ax.set_ylabel('Best sampled single-flip utility gain per episode');ax.legend(fontsize=8)
   fig.suptitle('Privileged hindsight opportunity; selected packets only\nNot a deployed gate, global bound or sum of effects',fontsize=11);save(fig,'sampled_opportunity')
   q=pd.DataFrame(quality);fig,axes=plt.subplots(1,2,figsize=(11,4.7))
   for ax,algo in zip(axes,['dqn','mappo']):
