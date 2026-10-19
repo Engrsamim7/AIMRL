@@ -1,0 +1,3 @@
+algo,pairs,next_action_changes,path_changes,actual_delivery_helps,actual_delivery_harms,actual_utility_helps,actual_utility_harms,utility_unchanged,mean_actual_utility_gain
+dqn,106,28,30,7,4,10,20,76,1.3135684127974872
+mappo,48,9,9,2,2,7,2,39,0.2919181213430755

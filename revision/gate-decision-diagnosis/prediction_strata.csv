@@ -1,0 +1,13 @@
+algo,stage,stratum,labels,mae,zero_mae
+dqn,adapted,zero_target,709,2.888793507091726,0.0
+dqn,adapted,nonzero_target,70,44.13906848494196,43.83096080763261
+dqn,adapted,public_action_change,6,63.26010670976887,48.021047475035026
+dqn,warmup,zero_target,739,2.905978988436326,0.0
+dqn,warmup,nonzero_target,62,48.714448179668594,48.199437167640845
+dqn,warmup,public_action_change,5,59.541818965911396,29.845119814476682
+mappo,adapted,zero_target,719,3.618210773976554,0.0
+mappo,adapted,nonzero_target,60,41.45631682481055,42.574673306677134
+mappo,adapted,public_action_change,0,,
+mappo,warmup,zero_target,740,3.5500068010995265,0.0
+mappo,warmup,nonzero_target,71,38.44021269490472,38.89130017293338
+mappo,warmup,public_action_change,7,49.9168970038241,40.403795909729965

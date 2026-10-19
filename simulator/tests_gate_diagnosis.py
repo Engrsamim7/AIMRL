@@ -82,3 +82,15 @@ def test_intervention_cannot_bypass_outer_expiry_checks():
     s.policy.decide(s,cv,30.)
     assert s.policy.force_hits==0
     assert s.message_audit[-1]['reason']=='stale'
+
+
+def test_relevant_selection_uses_only_declared_public_predicate():
+    from audit_gate_relevant_disagreements import selected
+    r=dict(category='disagreement',action_change=0.,peer_blocked=1.,genuine=True,truth_at_decision=True)
+    assert selected(r,True) and not selected(r,False)
+    r.update(genuine=False,truth_at_decision=False)
+    assert selected(r,True)
+    r.update(peer_blocked=0.,action_change=1.)
+    assert selected(r,False)
+    r['category']='agreement'
+    assert not selected(r,True)

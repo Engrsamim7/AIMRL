@@ -1,6 +1,7 @@
 """Mechanism diagnostics: descriptive evidence, no new superiority assertions."""
 import argparse
 import base64
+import hashlib
 import json
 from pathlib import Path
 import matplotlib
@@ -31,9 +32,11 @@ def original_reference(parent,raw):
 
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--run',default='simulator/out/gate-decision-diagnosis');ap.add_argument('--parent',default='simulator/out/matched-gate-study');ap.add_argument('--output',default='revision/gate-decision-diagnosis');args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--run',default='simulator/out/gate-decision-diagnosis');ap.add_argument('--parent',default='simulator/out/matched-gate-study');ap.add_argument('--targeted',default='simulator/out/gate-decision-targeted-audit');ap.add_argument('--output',default='revision/gate-decision-diagnosis');args=ap.parse_args()
     run,parent,out=Path(args.run).resolve(),Path(args.parent).resolve(),Path(args.output).resolve();out.mkdir(parents=True,exist_ok=True)
     meta=json.loads((run/'pipeline.json').read_text());assert meta['status']=='completed' and meta['source_hash']==fingerprint()
+    locked=json.loads((parent/'locked_settings.json').read_text())
+    for name,h in locked['checkpoints'].items():assert hashlib.sha256((parent/'models'/name).read_bytes()).hexdigest()==h
     p,e,ep,raw,d=[read(run,n) for n in ['packets','effects','episodes','convoys','drift_labels']]
     assert len(ep)==1024 and len(raw)==5120
     assert (raw.delivered+raw.destroyed+raw.censored).eq(1).all()
@@ -50,6 +53,8 @@ def main():
         assert a[r.convoy]['delivered']-b[r.convoy]['delivered']==r.delta_delivery
         assert sum(x['delivered'] for x in a)-sum(x['delivered'] for x in b)==r.delta_team_deliveries
     total=p.groupby('algo').agg(eligible=('id','size'),genuine=('genuine','sum'),raw_admit=('raw_accept','sum'),final_admit=('accepted','sum')).reset_index()
+    totals=ep[ep.method.eq('COMBINED')].groupby('algo').agg(processed_messages=('processed_messages','sum'),routing_decisions=('routing_decisions','sum')).reset_index()
+    total=total.merge(totals,on='algo',validate='one_to_one')
     counts=p.groupby(['algo','category']).size().rename('candidates').reset_index()
     selected=full.groupby(['algo','category']).size().rename('selected').reset_index()
     coverage=counts.merge(selected,on=['algo','category'],how='left').fillna({'selected':0});coverage['coverage_pct']=100*coverage.selected/coverage.candidates
@@ -83,6 +88,29 @@ def main():
     static=pd.concat([raw,source[source.method.eq('SAFE')]],ignore_index=True)
     static['utility']=40*static.delivered-40*static.destroyed-40*static.censored-static.elapsed
     summary=static.groupby(['algo','method']).agg(convoys=('convoy','size'),delivery_pct=('delivered',lambda x:100*x.mean()),utility=('utility','mean')).reset_index();summary.to_csv(out/'static_comparison.csv',index=False)
+    # Follow-up is explicitly exploratory and reuses the same trajectories.
+    from audit_gate_relevant_disagreements import fingerprint as targeted_hash
+    targeted_run=Path(args.targeted).resolve();tm=json.loads((targeted_run/'pipeline.json').read_text())
+    assert tm['status']=='completed' and tm['source_hash']==targeted_hash()
+    targeted=read(targeted_run,'effects');original_reference(parent,read(targeted_run,'reference_convoys'))
+    expected=p[p.category.eq('disagreement') & (p.action_change.gt(.5) | (p.peer_blocked.gt(.5)&p.travel_to_source.lt(2.5)))]
+    assert len(targeted)==len(expected)==154
+    assert set(map(tuple,targeted[key].to_numpy()))==set(map(tuple,expected[key].to_numpy()))
+    targeted['actual_delta_delivery']=(2*targeted.accepted.astype(int)-1)*targeted.delta_delivery
+    targeted['actual_delta_utility']=(2*targeted.accepted.astype(int)-1)*targeted.delta_utility
+    overlaps=set(map(tuple,full[key].to_numpy())) & set(map(tuple,targeted[key].to_numpy()))
+    relevant=[]
+    for algo,z in targeted.groupby('algo'):
+        relevant.append(dict(algo=algo,pairs=len(z),next_action_changes=int(z.changed_next_edge.sum()),path_changes=int(z.changed_receiver_path.sum()),
+            actual_delivery_helps=int(z.actual_delta_delivery.gt(0).sum()),actual_delivery_harms=int(z.actual_delta_delivery.lt(0).sum()),
+            actual_utility_helps=int(z.actual_delta_utility.gt(TOL).sum()),actual_utility_harms=int(z.actual_delta_utility.lt(-TOL).sum()),utility_unchanged=int(z.actual_delta_utility.abs().le(TOL).sum()),mean_actual_utility_gain=z.actual_delta_utility.mean()))
+    relevant=pd.DataFrame(relevant);relevant.to_csv(out/'relevant_disagreement_effects.csv',index=False)
+    strata=[]
+    for (algo,stage),z in d.groupby(['algo','stage']):
+        for name,mask in [('zero_target',z.utility_gain.abs().le(TOL)),('nonzero_target',z.utility_gain.abs().gt(TOL)),('public_action_change',z.action_change.gt(.5))]:
+            v=z[mask]
+            strata.append(dict(algo=algo,stage=stage,stratum=name,labels=len(v),mae=(v.predicted_value-v.utility_gain).abs().mean(),zero_mae=v.utility_gain.abs().mean()))
+    pd.DataFrame(strata).to_csv(out/'prediction_strata.csv',index=False)
     opening=[]
     for algo,z in p.groupby('algo'):
         peer_clear=z.blocked_report.eq(False)&z.peer_blocked.gt(.5)
@@ -123,9 +151,16 @@ def main():
             z=masking[masking.algo==algo].set_index('category').reindex(['disagreement','warning_override']).fillna(0);x=np.arange(2)
             ax.bar(x-.18,z.mean_abs_prefix,.36,label='Prefix only');ax.bar(x+.18,z.mean_abs_full,.36,label='Full current inbox');ax.set_xticks(x,['Disagreement','Warning override']);ax.set_title(algo.upper());ax.legend()
         axes[0].set_ylabel('Mean absolute marginal receiver utility');fig.suptitle('Same packet, different credit context; both retain future transmissions');fig.tight_layout();save(fig,'06_credit_context')
+        fig,axes=plt.subplots(1,2,figsize=(11,4),sharey=True)
+        for ax,algo in zip(axes,['dqn','mappo']):
+            z=relevant[relevant.algo==algo].iloc[0]
+            vals=[z.actual_delivery_helps,z.actual_delivery_harms,z.pairs-z.actual_delivery_helps-z.actual_delivery_harms]
+            ax.bar(range(3),vals,color=['tab:green','tab:red','gray']);ax.set_xticks(range(3),['Helps delivery','Harms delivery','No delivery effect']);ax.set_title(algo.upper())
+        axes[0].set_ylabel('Exhaustive relevant-packet replay pairs');fig.suptitle('Exploratory follow-up: all 154 public-state relevant disagreements');fig.tight_layout();save(fig,'07_relevant_disagreements')
     body='# Decision-level gate diagnosis\n\nExploratory diagnosis following the null matched-training primary result. No fitted gate or final routing checkpoint was changed. All figures and tables are descriptive.\n\n'
     body+=f'Exactly reproduced **512 original COMBINED trajectories / 2,560 convoy records**. Audited **{len(p):,} eligible packet candidates** and completed **{len(full):,} full-inbox accept/reject replay pairs** plus **{len(prefix):,} prefix-context pairs**. All sixteen reconstructed warmup actors matched their recorded network hashes.\n\n'
-    for title,table in [('Candidate coverage and selection',coverage),('Selected causal packet effects',causal),('Prediction transport: equal weight per actor seed',macro),('Same actor, simple static comparison',summary),('Actual clearance opportunities',opening),('Credit-context comparison',masking)]:body+='## '+title+'\n\n'+table.to_markdown(index=False)+'\n\n'
+    for title,table in [('Candidate totals and denominators',total),('Candidate coverage and selection',coverage),('Selected causal packet effects',causal),('Exhaustive relevant disagreement follow-up',relevant),('Prediction transport: equal weight per actor seed',macro),('Same actor, simple static comparison',summary),('Actual clearance opportunities',opening),('Credit-context comparison',masking)]:body+='## '+title+'\n\n'+table.to_markdown(index=False)+'\n\n'
+    body+=f'The relevant-packet follow-up replays all **154** publicly action-changing or reachable peer-warning disagreements in the same subset. **{len(overlaps)}** overlap the initial capped sample. These are reused trajectories, not fresh independent trials. Selection was added after inspecting the initial mechanism diagnostics; see [the follow-up specification](../gate-decision-targeted-followup.md). Its effects must not be pooled with the initial sample as independent observations.\n\n'
     body+='## How to interpret these diagnostics\n\n'
     body+='The admission comparison holds earlier packet interpretation fixed: a disagreement is the learned gate changing the safeguards-only decision on the same public prefix. Category selection is chronological and capped per episode; replay frequencies are not unbiased population effect estimates. Packet effects are conditional and cannot be summed into the total gate effect. Each full-inbox branch matching the original choice reproduces the complete factual convoy outcomes. All remaining current-inbox packets and future events are retained, except in the separately identified prefix check.\n\n'
     body+='Warmup/adapted prediction errors use new layouts and tapes, the same original estimator, and the original label-generation routine. The two actors can visit different states and create different packets, so error differences do not isolate staleness as a causal explanation of the null. Compare the model with the zero-value predictor as well as with its own earlier errors. A lower adapted error is evidence against a blanket staleness explanation.\n\n'
@@ -136,7 +171,7 @@ def main():
     html='<!doctype html><html><meta charset="utf-8"><title>Gate decision diagnosis</title><style>body{font:16px system-ui;max-width:1200px;margin:2rem auto;padding:1rem}img{width:100%}</style><h1>Gate decision diagnosis</h1><p>Exploratory mechanism diagnosis. Read README.md for selection, data and limits.</p>'
     for name in images:html+=f'<h2>{name.replace("_"," ")}</h2><img src="data:image/png;base64,{base64.b64encode((out/(name+".png")).read_bytes()).decode()}" alt="{name}">'
     (out/'index.html').write_text(html+'</html>')
-    check=dict(status='passed',source_hash=fingerprint(),original_episodes_reproduced=512,original_convoys_reproduced=2560,eligible_candidates=len(p),full_replay_pairs=len(full),prefix_replay_pairs=len(prefix),warmup_hashes_verified=16,drift_label_samples=len(d),figures=len(images),deployed_models_refitted=False,new_confirmatory_tests=0)
+    check=dict(status='passed',source_hash=fingerprint(),original_episodes_reproduced=512,original_convoys_reproduced=2560,eligible_candidates=len(p),full_replay_pairs=len(full),prefix_replay_pairs=len(prefix),targeted_replay_pairs=len(targeted),targeted_overlap_with_initial_sample=len(overlaps),targeted_source_hash=targeted_hash(),warmup_hashes_verified=16,parent_checkpoint_hashes_verified=len(locked['checkpoints']),drift_label_samples=len(d),figures=len(images),deployed_models_refitted=False,new_confirmatory_tests=0)
     (out/'verification.json').write_text(json.dumps(check,indent=2)+'\n');print(json.dumps(check),flush=True)
 
 if __name__=='__main__':main()

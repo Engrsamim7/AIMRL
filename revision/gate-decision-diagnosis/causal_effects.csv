@@ -1,0 +1,9 @@
+algo,category,pairs,next_action_changes,path_changes,actual_delivery_helps,actual_delivery_harms,actual_utility_helps,actual_utility_harms,utility_unchanged,mean_actual_utility_gain,mean_abs_prediction_error
+dqn,agreement,224,0,16,0,8,8,8,208,-2.4085039722291737,6.127801679466799
+dqn,clearance_override,131,15,27,8,5,14,13,104,1.355774293504922,8.76583470898296
+dqn,disagreement,448,1,1,0,1,0,1,447,-0.17836505595624005,4.513931363893982
+dqn,warning_override,185,0,4,4,0,4,0,181,1.4578489269142665,3.676321694767406
+mappo,agreement,224,0,12,4,2,10,2,212,0.8490281583227043,6.424775082666757
+mappo,clearance_override,186,17,29,7,4,18,11,157,1.0450541382848795,7.714003238336051
+mappo,disagreement,448,0,0,0,0,0,0,448,0.0,4.496048692534144
+mappo,warning_override,195,0,2,2,0,2,0,193,0.7183960682904702,3.473125696482822

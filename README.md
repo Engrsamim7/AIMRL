@@ -1,5 +1,18 @@
 # AIMRL
 
+## Decision-level diagnosis of the learned gate
+
+The follow-up audits actual message decisions, exact accept/reject effects,
+prediction transport, a simple warning-retention rule and genuine clearance
+opportunities. Its findings are exploratory and preserve the matched study's
+null primary result. No deployed gate or original final checkpoint was refitted.
+
+- [What limits the learned gate and what should change next](revision/gate-decision-diagnosis-findings.md).
+- [All diagnostic tables and seven figures](revision/gate-decision-diagnosis/README.md).
+- [Download diagnostic figure PDF](deliverables/AIMRL-gate-decision-diagnosis-figures.pdf).
+- [Complete diagnostic code, models, labels and replay data ZIP](deliverables/AIMRL-gate-decision-diagnosis.zip).
+- [Diagnostic protocol](revision/gate-decision-diagnosis-protocol.md) and [targeted follow-up](revision/gate-decision-targeted-followup.md).
+
 ## Matched-training gate study — 19 October 2026
 
 This follow-up tests whether learned message filtering adds benefit beyond

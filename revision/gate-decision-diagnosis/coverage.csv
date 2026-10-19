@@ -1,0 +1,9 @@
+algo,category,candidates,selected,coverage_pct
+dqn,agreement,9934,224,2.2548822226696195
+dqn,clearance_override,575,131,22.782608695652176
+dqn,disagreement,9927,448,4.512944494812128
+dqn,warning_override,2061,185,8.976225133430374
+mappo,agreement,8636,224,2.5937934228809634
+mappo,clearance_override,811,186,22.934648581997536
+mappo,disagreement,8502,448,5.269348388614444
+mappo,warning_override,2150,195,9.069767441860465

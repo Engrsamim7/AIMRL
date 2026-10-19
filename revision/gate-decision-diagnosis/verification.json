@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "source_hash": "63adeeaa7484faeb257f465c0bd43efadfeb73e6608da766500d941a0b82664b",
+  "original_episodes_reproduced": 512,
+  "original_convoys_reproduced": 2560,
+  "eligible_candidates": 42596,
+  "full_replay_pairs": 2041,
+  "prefix_replay_pairs": 828,
+  "targeted_replay_pairs": 154,
+  "targeted_overlap_with_initial_sample": 6,
+  "targeted_source_hash": "7c11619f8f27860e08e3a7b94a1194031c976950d58b7d90a2003472aa0bc331",
+  "warmup_hashes_verified": 16,
+  "parent_checkpoint_hashes_verified": 64,
+  "drift_label_samples": 3170,
+  "figures": 7,
+  "deployed_models_refitted": false,
+  "new_confirmatory_tests": 0
+}

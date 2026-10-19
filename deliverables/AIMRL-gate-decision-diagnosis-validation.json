@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "source_hash": "63adeeaa7484faeb257f465c0bd43efadfeb73e6608da766500d941a0b82664b",
+  "archive": "AIMRL-gate-decision-diagnosis.zip",
+  "archive_sha256": "a756704f9a985da97e9b6117352b912ed860addc900c9ac5b2ad3dd7c71d6e24",
+  "manifest_files_verified": 323,
+  "tests_passed_from_extracted_package": 92,
+  "tests_failed": 0,
+  "report_regenerated_from_packaged_gzip_data": true,
+  "quantitative_tables_identical": {
+    "candidate_totals.csv": "83ebc11a5d06de6062a8e51604a9aa8a5c8db13990c0b556b01a1b90f98b6651",
+    "causal_effects.csv": "59e58bea002a7a079563dc5de87d898da972ee64fafc53bd5d8583879aaacbd6",
+    "clearance_opportunities.csv": "fe4749b167653134b03ecf595e058f435ef47e00d0f3a9810d77dd3d4ef2da48",
+    "coverage.csv": "1a5c965f34a0df39a9d52cad66db3b2444c56537a7e53c49aee64ef4815939d9",
+    "credit_context.csv": "c16809a07b4a9dd690c2d94b2fca3c4e1b99c5877927ab6d814bacfce2461d8b",
+    "drift_by_seed.csv": "985f958b45e539527fd87d4dcfa07826c5f99ec61006c031a09d2cff2da9acf5",
+    "drift_difference.csv": "c136b037624161217dbbb7609832e5a16b9d3148492b9c58b6476f92dc1b9f0e",
+    "prediction_strata.csv": "22482e870263c315be03d1bf21531fa45a6858b58ade37625a9b6cd8bdeb5637",
+    "prediction_transport.csv": "e212e959fee2c9ff28c269686550f58ad445e4437e48933cf5b73978381f5b76",
+    "relevant_disagreement_effects.csv": "7e8d98d4075961a00d53ce43b5c5dd72b730b42efa78ccbfca58f6bdf4b37461",
+    "static_comparison.csv": "ea342d790e3566a69540c232441555cbf7888f4ac531803e6bcda784cfb841e3"
+  },
+  "pdf_pages": 7
+}
