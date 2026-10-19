@@ -1,5 +1,5 @@
 {
-  "status": "local_validation_passed_publication_pending",
+  "status": "passed_including_public_github_downloads",
   "source_hash": "da481db5ccfe32d632ca23934952b95d21ef9463fcf809f1ef90c72a71c00c0b",
   "manifest_files": 259,
   "archive_bytes": 10402952,
@@ -22,5 +22,26 @@
   ],
   "comparison": "exact parsed table equality; README, HTML and verification byte-identical",
   "final_repack_change": "interpretation document only; executable source and data identical to tested extraction",
-  "historical_recovery_fingerprint_unchanged": true
+  "historical_recovery_fingerprint_unchanged": true,
+  "published_artifact_commit": "aec18a5f7fde23200304372277377ad774be55bd",
+  "public_downloads": [
+    {
+      "file": "deliverables/AIMRL-actor-aware-development.zip",
+      "sha256": "c7e0ca58fa5331e3c535e6922a319b0c76084b7b19a93bc6fe848e98e3c4478a",
+      "bytes": 10402952,
+      "public_download_matches": true
+    },
+    {
+      "file": "deliverables/AIMRL-actor-aware-development-figures.pdf",
+      "sha256": "9cd2cdd78f2fd46dc909d3f33eb5972dde2d3d3f7e762f0e647c44b18c33d626",
+      "bytes": 39222,
+      "public_download_matches": true
+    },
+    {
+      "file": "revision/actor-aware-development-findings.md",
+      "sha256": "f6e8629d7abcdc5106c80328558b81a70554dd1a63dc099e37ed9aafc10d608b",
+      "bytes": 10787,
+      "public_download_matches": true
+    }
+  ]
 }
