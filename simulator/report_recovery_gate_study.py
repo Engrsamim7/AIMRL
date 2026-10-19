@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 import numpy as np
 import pandas as pd
-from recovery_gate import METHODS, TEST
+from recovery_gate import METHODS, TEST, FEATURES, HurdleEnsemble
 from run_recovery_gate_study import fingerprint, SEEDS
 from report_matched_gate_study import crossed_samples, audit, read
 CASES=[c.name for c in TEST]
@@ -70,7 +70,7 @@ def main():
   success.append(dict(algo=algo,baseline=b,utility_difference=u.difference,utility_lower=u.lower,utility_upper=u.upper,delivery_difference_pp=d.difference,delivery_lower_pp=d.lower,delivery_upper_pp=d.upper,utility_superiority=bool(u.lower>0),delivery_noninferiority=bool(d.lower> -1.),joint_success=bool(u.lower>0 and d.lower> -1.)))
  success=pd.DataFrame(success);success.to_csv(out/'primary_decisions.csv',index=False)
  mech.groupby(['algo','case','method']).agg(delivery_pct=('delivery_rate',lambda x:100*x.mean()),utility=('utility_mean','mean'),overrides=('overrides','sum'),accept_overrides=('accept_overrides','sum')).to_csv(out/'fixed_actor_ablation.csv')
- diagnostics=[];labelcounts=[]
+ diagnostics=[];labelcounts=[];prediction_strata=[]
  for p in sorted((run/'value_models').glob('*.json')):
   algo,tail=p.stem.split('_s');seed,stage=tail.split('_');d=json.loads(p.read_text());diagnostics.append(dict(algo=algo,seed=int(seed),stage=stage,**d['diagnostic']))
  for p in sorted((run/'value_models').glob('*_examples.csv.gz')):
@@ -78,7 +78,16 @@ def main():
   for stage,z in data.groupby('stage'):
    clear=z[z.genuine & ~z.blocked_report & z.clear_against_warning.gt(.5)]
    labelcounts.append(dict(algo=algo,seed=seed,stage=stage,examples=len(z),fit_examples=int((z.episode<56).sum()),holdout_examples=int((z.episode>=56).sum()),nonzero_utility=int(z.utility_gain.abs().gt(.1).sum()),delivery_help=int(z.delivery_gain.gt(0).sum()),delivery_harm=int(z.delivery_gain.lt(0).sum()),genuine_clears=int((z.genuine & ~z.blocked_report).sum()),genuine_warning_clears=len(clear),genuine_clear_utility_help=int(clear.utility_gain.gt(.1).sum()),genuine_clear_utility_harm=int(clear.utility_gain.lt(-.1).sum()),genuine_clear_delivery_help=int(clear.delivery_gain.gt(0).sum()),genuine_clear_delivery_harm=int(clear.delivery_gain.lt(0).sum())))
- diagnostics=pd.DataFrame(diagnostics);diagnostics.to_csv(out/'prediction_diagnostics.csv',index=False);pd.DataFrame(labelcounts).to_csv(out/'label_diagnostics.csv',index=False)
+  for modelstage in ['initial','refreshed']:
+   state=json.loads((run/'value_models'/f'{algo}_s{seed}_{modelstage}.json').read_text());model=HurdleEnsemble.load(state['model'])
+   hold=data[data.episode>=56].copy()
+   if modelstage=='initial':hold=hold[hold.stage=='initial'].copy()
+   hold['prediction']=[model.predict(x)[0] for x in hold[FEATURES].to_numpy()]
+   masks={'all':np.ones(len(hold),bool),'effect_gt_point1':hold.utility_gain.abs().gt(.1),'effect_le_point1':hold.utility_gain.abs().le(.1),'clear_against_warning':hold.clear_against_warning.gt(.5),'reference_action_change':hold.reference_action_change.gt(.5)}
+   for name,mask in masks.items():
+    z=hold[mask]
+    if len(z):prediction_strata.append(dict(algo=algo,seed=seed,model_stage=modelstage,stratum=name,labels=len(z),mae=float((z.prediction-z.utility_gain).abs().mean()),zero_mae=float(z.utility_gain.abs().mean()),correct_utility_sign_fraction=float((z.prediction.gt(0)==z.utility_gain.gt(0)).mean()) if name=='effect_gt_point1' else None))
+ diagnostics=pd.DataFrame(diagnostics);diagnostics.to_csv(out/'prediction_diagnostics.csv',index=False);pd.DataFrame(labelcounts).to_csv(out/'label_diagnostics.csv',index=False);pd.DataFrame(prediction_strata).to_csv(out/'prediction_strata.csv',index=False)
  df.groupby(['algo','stages','case','method']).agg(delivery_pct=('delivery_rate',lambda x:100*x.mean()),utility=('utility_mean','mean')).to_csv(out/'topology_size.csv')
  images=[];plt.rcParams.update({'font.size':10,'figure.dpi':140})
  with PdfPages(out/'recovery_gate_report.pdf') as pdf:
