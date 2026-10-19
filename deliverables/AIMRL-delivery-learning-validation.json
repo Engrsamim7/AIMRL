@@ -1,0 +1,54 @@
+{
+  "status": "portable_verification_passed",
+  "archive": "AIMRL-delivery-learning-study.zip",
+  "bytes": 40160028,
+  "sha256": "331a806d6b1132ff641aa7ea58afbbdfa94ffe637e453e70280d24ab8113346a",
+  "manifest_files": 381,
+  "extracted_package_tests": {
+    "passed": 153,
+    "failed": 0,
+    "environment": "Linux/Python3.12; project pinned environment",
+    "command": "python -m pytest -q simulator/tests_*.py"
+  },
+  "report_regeneration_exact": true,
+  "stopped_development_sources": {
+    "v1": {
+      "source_hash": "bec8cdefe6e3a1160ccd79dc972bcdabb827d37497e109c35e8dc2f18d2d2f04",
+      "status": "stopped_before_test_for_training_validation"
+    },
+    "v2": {
+      "source_hash": "769e43f9fcf93c655d671ff701642925920e8408edef5ac4365ab11ab2c75b49",
+      "status": "stopped_before_test_for_zero_time_sensor_loop"
+    }
+  },
+  "public_downloads_verified": false,
+  "matched_regenerated_files": [
+    "01_routing_training.png",
+    "02_heldout_delivery.png",
+    "03_primary_uncertainty.png",
+    "04_all_conditions.png",
+    "05_packet_effects.png",
+    "06_gate_selection_activity.png",
+    "07_network_scale.png",
+    "README.md",
+    "all_conditions.csv",
+    "causal_label_summary.csv",
+    "gate_validation_selection.csv",
+    "heldout_rejection_effects.csv",
+    "heldout_rejection_summary.csv",
+    "identified_packet_effects.csv",
+    "index.html",
+    "label_opportunities.csv",
+    "primary_contrasts.csv",
+    "rejected_packet_predictions.csv",
+    "routing_validation.csv",
+    "sampled_training_opportunity.csv",
+    "selected_routing_models.csv",
+    "summary.csv",
+    "test_environment_manifest.json",
+    "verification.json"
+  ],
+  "pdf_bytes_compared": false,
+  "pdf_note": "PDF creation metadata may change; all seven rendered PNG figures match byte-for-byte.",
+  "report_hash": "766a06b9824a82f80252ad9aed46752022a2e0706ef23a919b30c15f2aa17f13"
+}

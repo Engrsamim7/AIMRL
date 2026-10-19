@@ -1,5 +1,22 @@
 # AIMRL
 
+## Current delivery-primary learned-routing experiment (v3)
+
+Delivery improvement remains the primary objective. The corrected simulator
+trains eight routing runs and causal packet-value gates, then evaluates 21,600
+method episodes. LEARN achieves 67.151% on-time delivery versus 67.278% for the
+same router accepting all reports. The declared superiority target is unmet;
+all three corrected primary intervals include zero. All 153 tests pass.
+
+- [Actual results, implemented changes and remaining gaps](revision/delivery-learning-findings.md).
+- [Seven-figure PDF](deliverables/AIMRL-delivery-learning-figures.pdf).
+- [Complete code, original uploads, checkpoints and raw-data ZIP](deliverables/AIMRL-delivery-learning-study.zip).
+- [All tables and reproduction commands](revision/delivery-learning-results/README.md).
+- [Reviewer coverage](revision/delivery-learning-reviewer-map.md) and [protocol](revision/delivery-learning-protocol.md).
+
+The sections below describe earlier preserved development stages. Their results
+and downloadable archives remain historical evidence.
+
 ## Implemented timed-network revision and full development surface
 
 The new model includes consequential closures/inspections, deadlines, local noisy

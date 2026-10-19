@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "source_hash": "2bd9014a4aea2de6461478e6b1f7da3dcf6c7ef146b083034f71b3374479b6a4",
+  "report_hash": "766a06b9824a82f80252ad9aed46752022a2e0706ef23a919b30c15f2aa17f13",
+  "training_episodes": 4000,
+  "routing_models": 8,
+  "selected_trained_checkpoints": 7,
+  "label_attempts": 3200,
+  "causal_labels": 2784,
+  "active_labels": 2464,
+  "gate_models": 8,
+  "test_episodes": 21600,
+  "test_convoys": 172800,
+  "reconstructed_environments": 432,
+  "heldout_rejections": 1567,
+  "primary_target_supported": false,
+  "gate_setting": {
+    "disabled": false,
+    "beta": 0.0,
+    "margin": 0.0
+  },
+  "figures": 7,
+  "bandwidth_reward": false
+}

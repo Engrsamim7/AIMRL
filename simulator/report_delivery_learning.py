@@ -8,7 +8,7 @@ from matplotlib.backends.backend_pdf import PdfPages
 import numpy as np
 import pandas as pd
 from run_delivery_learning import fingerprint,SEEDS,TEST,SETTINGS,model_for
-from delivery_learning import FEATURES,GATE_FEATURES,DeliveryNetwork
+from delivery_learning import FEATURES,GATE_FEATURES,DeliveryNetwork,ReturnGate
 from timed_network import graph_for
 
 METHODS=['NONE','ALL','FIXED_RX','KEEP_ONE','KEEP','LEARN','PLANNER_WARN','PLANNER_RAW']
@@ -85,13 +85,16 @@ def main():
         assert np.isclose(r.nominal,sum(g.c[e] for e in route),rtol=0,atol=1e-8)
         node=g.depot
         for e in route:assert int(g.src[e])==node;node=int(g.dst[e])
-        depart,deadline,target=departures[(r.graph,r.case,r.episode,r.convoy)];assert np.isclose(deadline,r.deadline) and target==r.target
+        depart,deadline,target=departures[(r.graph,r.case,r.episode,r.convoy)];assert np.isclose(deadline,r.deadline,rtol=0,atol=1e-8) and target==r.target
         assert not r.delivered or node==target
         if abs(r.elapsed+depart-deadline)>1e-9:assert r.on_time==int(bool(r.delivered) and r.elapsed+depart<=deadline)
     assert (raw.delivered+raw.censored).eq(1).all() and (raw.on_time<=raw.delivered).all()
+    assert raw[['elapsed','travel','service','wait','inspection','hold','nominal']].ge(-1e-9).all().all()
+    assert raw.encounters.ge(0).all() and raw.encounters.eq(raw.encounters.round()).all()
     assert np.allclose(raw.elapsed,raw[['travel','service','wait','inspection','hold']].sum(axis=1),rtol=0,atol=1e-7)
     rebuilt=raw.groupby(keys).agg(on_time=('on_time','mean'),delivery=('delivered','mean'),elapsed=('elapsed','mean')).sort_index();recorded=df.set_index(keys).sort_index();assert rebuilt.index.equals(recorded.index)
     for col in rebuilt:assert np.allclose(rebuilt[col],recorded[col],rtol=0,atol=1e-8),col
+    assert raw.groupby(keys).encounters.sum().sort_index().equals(recorded.blocked_attempts.astype('int64'))
     assert df[df.method=='LEARN'].rejections.between(0,1).all() and df[df.method=='KEEP_ONE'].rejections.between(0,1).all()
     assert df[df.method=='ALL'].rejections.eq(0).all()
     summary=df.groupby('method').agg(episodes=('on_time','size'),routing_models=('seed',lambda x:x[x>=0].nunique()),on_time_pct=('on_time',lambda x:100*x.mean()),delivery_pct=('delivery',lambda x:100*x.mean()),elapsed=('elapsed','mean'),mean_rejections=('rejections','mean'),rejections=('rejections','sum'),routing_calls=('routing_calls','sum')).reindex(METHODS);summary.to_csv(out/'summary.csv')
@@ -108,31 +111,37 @@ def main():
     gate=pd.read_csv(run/'gate_decisions.csv.gz');rejected=gate[~gate.accepted]
     assert len(rejected)==len(active) and not rejected.duplicated(['seed','graph','case','episode']).any()
     effects=active.merge(rejected,on=['seed','graph','size','case','episode'],validate='one_to_one');effects[['seed','graph','size','case','episode','packet','t','receiver','difference_pp','effect']].to_csv(out/'identified_packet_effects.csv',index=False)
+    predictions=[];models={s:ReturnGate.load(run/'gates'/f's{s}.npz',**lock['setting']) for s in SEEDS}
+    for r in effects.itertuples(index=False):
+        x=np.array(json.loads(r.features),np.float32);model=models[r.seed];assert not model.admit(x) and x[11]>.5
+        mean,std,benefit,harm=model.predict(x)
+        predictions.append(dict(seed=r.seed,graph=r.graph,size=r.size,case=r.case,episode=r.episode,packet=r.packet,receiver=r.receiver,predicted_admit_minus_reject_pp=100*mean,tree_dispersion_pp=100*std,estimated_admission_benefit_frequency=benefit,estimated_admission_harm_frequency=harm,realized_admit_minus_reject_pp=-r.difference_pp,effect=r.effect))
+    pd.DataFrame(predictions,columns=['seed','graph','size','case','episode','packet','receiver','predicted_admit_minus_reject_pp','tree_dispersion_pp','estimated_admission_benefit_frequency','estimated_admission_harm_frequency','realized_admit_minus_reject_pp','effect']).to_csv(out/'rejected_packet_predictions.csv',index=False)
     figures=[];plt.rcParams.update({'font.size':9})
     with PdfPages(out/'delivery_learning_report.pdf') as pdf:
         def save(fig,name):fig.tight_layout();pdf.savefig(fig);fig.savefig(out/(name+'.png'),dpi=150);plt.close(fig);figures.append(name)
         fig,axes=plt.subplots(1,2,figsize=(12,4.7))
         for s in SEEDS:
             t=training[training.seed==s].sort_values('episode');axes[0].plot(t.episode,100*t.on_time.rolling(25,min_periods=1).mean(),alpha=.55)
-            v=validations[validations.seed==s].groupby('checkpoint').on_time.mean();axes[1].plot(v.index,100*v,marker='o',label=f's{s}, selected{int(selected[selected.seed==s].selected_episode.iloc[0])}')
-        axes[0].set_xlabel('Training episode');axes[0].set_ylabel('Training on-time delivery (%) /25episode smoothing');axes[1].set_xlabel('Checkpoint episode');axes[1].set_ylabel('Separate validation on-time (%)');axes[1].legend(fontsize=7,ncol=2);fig.suptitle('Eight independent routing runs; initial-policy fallback is disclosed\nObserved learning traces, not a convergence proof',fontsize=11);save(fig,'01_routing_training')
-        fig,ax=plt.subplots(figsize=(11,4.6));ax.bar(range(len(METHODS)),summary.on_time_pct);ax.set_xticks(range(len(METHODS)),METHODS,rotation=30,ha='right',fontsize=8);ax.set_ylabel('Held-out fleet on-time delivery (%)');ax.set_ylim(0,105);fig.suptitle('Delivery is primary; no bandwidth reward\nCommon frozen routing actors isolate receiver-gate effects; planners run once per environment',fontsize=11);save(fig,'02_heldout_delivery')
-        fig,ax=plt.subplots(figsize=(10,4.4));y=np.arange(3);ax.errorbar(paired.difference_pp,y,xerr=np.maximum(0,np.vstack([paired.difference_pp-paired.lower_pp,paired.upper_pp-paired.difference_pp])),fmt='o',capsize=4);ax.set_yticks(y,['LEARN - '+m for m in PRIMARY]);ax.axvline(0,color='black');ax.axvline(1,color='gray',ls='--',label='1pp practical mean target');ax.set_xlabel('On-time delivery difference (percentage points)');ax.legend();fig.suptitle('Primary paired contrasts,20000crossed draws /Bonferroni3\nPositive mean alone does not establish superiority',fontsize=11);save(fig,'03_primary_uncertainty')
+            v=validations[validations.seed==s].groupby('checkpoint').on_time.mean();axes[1].plot(v.index,100*v,marker='o',label=f'seed {s}; checkpoint {int(selected[selected.seed==s].selected_episode.iloc[0])}')
+        axes[0].set_xlabel('Training episode');axes[0].set_ylabel('Training on-time delivery (%) / 25-episode mean');axes[1].set_xlabel('Checkpoint episode');axes[1].set_ylabel('Separate validation on-time (%)');axes[1].legend(fontsize=7,ncol=2);fig.suptitle('Eight independent routing runs; initial-policy fallback is disclosed\nObserved learning traces, not a convergence proof',fontsize=11);save(fig,'01_routing_training')
+        fig,ax=plt.subplots(figsize=(11,4.6));bars=ax.bar(range(len(METHODS)),summary.on_time_pct);ax.bar_label(bars,fmt='%.2f%%',padding=3,fontsize=8);ax.set_xticks(range(len(METHODS)),METHODS,rotation=30,ha='right',fontsize=8);ax.set_ylabel('Held-out fleet on-time delivery (%)');ax.set_ylim(0,105);fig.suptitle('Delivery is primary; no bandwidth reward\nCommon frozen routing actors isolate receiver-gate effects; planners run once per environment',fontsize=11);save(fig,'02_heldout_delivery')
+        fig,ax=plt.subplots(figsize=(10,4.4));y=np.arange(3);ax.errorbar(paired.difference_pp,y,xerr=np.maximum(0,np.vstack([paired.difference_pp-paired.lower_pp,paired.upper_pp-paired.difference_pp])),fmt='o',capsize=4);ax.set_yticks(y,['LEARN - '+m for m in PRIMARY]);ax.axvline(0,color='black');ax.axvline(1,color='gray',ls='--',label='1pp practical mean target');ax.set_xlabel('On-time delivery difference (percentage points)');ax.legend();fig.suptitle('Primary contrasts: 20,000 paired crossed bootstrap draws\nBonferroni correction for three delivery comparisons',fontsize=11);save(fig,'03_primary_uncertainty')
         fig,axes=plt.subplots(3,1,figsize=(14,9))
         for ax,baseline in zip(axes,PRIMARY):
             index=['seed','graph','size','case','episode'];l=df[df.method=='LEARN'].set_index(index).on_time
             if baseline.startswith('PLANNER'):
                 b=df[df.method==baseline].set_index(['graph','size','case','episode']).on_time;diff=l.to_frame('learn');diff['baseline']=[b.loc[(g,size,c,e)] for s,g,size,c,e in diff.index]
             else:diff=l.to_frame('learn').join(df[df.method==baseline].set_index(index).on_time.rename('baseline'))
-            diff['value']=100*(diff.learn-diff.baseline);z=diff.reset_index().groupby(['size','case']).value.mean().unstack().reindex(index=[19,51,131],columns=[c.name for c in TEST]);ax.imshow(z,cmap='RdBu',vmin=-10,vmax=10,aspect='auto');ax.set_yticks(range(3),[19,51,131]);ax.set_xticks(range(12),[c.name for c in TEST],rotation=25,ha='right',fontsize=8);ax.set_ylabel('Nodes');ax.set_title('LEARN minus '+baseline+' (pp)')
+            diff['value']=100*(diff.learn-diff.baseline);z=diff.reset_index().groupby(['size','case']).value.mean().unstack().reindex(index=[19,51,131],columns=[c.name for c in TEST]);im=ax.imshow(z,cmap='RdBu',vmin=-20,vmax=20,aspect='auto');fig.colorbar(im,ax=ax,label='Percentage points',fraction=.025,pad=.015);ax.set_yticks(range(3),[19,51,131]);ax.set_xticks(range(12),[c.name for c in TEST],rotation=25,ha='right',fontsize=8);ax.set_ylabel('Nodes');ax.set_title('LEARN minus '+baseline+' (pp)')
             for i in range(3):
-                for j in range(12):ax.text(j,i,f'{z.iloc[i,j]:+.1f}',ha='center',va='center',fontsize=7)
+                for j in range(12):ax.text(j,i,f'{z.iloc[i,j]:+.1f}',ha='center',va='center',fontsize=7,color='white' if abs(z.iloc[i,j])>12 else 'black')
         fig.suptitle('Every declared condition; no favorable-case selection',fontsize=11);save(fig,'04_all_conditions')
-        fig,axes=plt.subplots(1,2,figsize=(12,4.8));z=labels[~labels.control];counts=z.assign(kind=np.where(z.delta<0,'admit_harms',np.where(z.delta>0,'admit_helps','no_delivery_effect'))).groupby(['seed','kind']).size().unstack(fill_value=0).reindex(range(8),fill_value=0);counts.plot.bar(stacked=True,ax=axes[0]);axes[0].set_ylabel('Complete-fleet packet intervention labels');axes[0].set_title('Training labels')
-        if len(activity):activity.reindex(range(8),fill_value=0).plot.bar(stacked=True,ax=axes[1])
+        fig,axes=plt.subplots(1,2,figsize=(12,4.8));z=labels[~labels.control];counts=z.assign(kind=np.where(z.delta<0,'admit_harms',np.where(z.delta>0,'admit_helps','no_delivery_effect'))).groupby(['seed','kind']).size().unstack(fill_value=0).reindex(range(8),fill_value=0);counts.rename(columns={'admit_harms':'Admission harms','admit_helps':'Admission helps','no_delivery_effect':'No delivery effect'}).plot.bar(stacked=True,ax=axes[0]);axes[0].set_ylabel('Complete-fleet packet intervention labels');axes[0].set_title('Training labels')
+        if len(activity):activity.reindex(range(8),fill_value=0).rename(columns={'beneficial_rejection':'Rejection helps','harmful_rejection':'Rejection harms','no_delivery_effect':'No delivery effect'}).plot.bar(stacked=True,ax=axes[1])
         axes[1].set_ylabel('Held-out rejected packets');axes[1].set_title('Actual single-rejection delivery effects');fig.suptitle('Training labels and held-out effects are separate\nZero delivery effect may still change time/cost; no all-transmission FIR claim',fontsize=11);save(fig,'05_packet_effects')
-        fig,axes=plt.subplots(1,2,figsize=(12,4.7));ranking.sort_values('setting').plot.bar(x='setting',y='on_time',ax=axes[0],legend=False);axes[0].set_ylabel('Gate-validation on-time fraction');axes[0].set_title('Setting0 is disabled ALL fallback')
-        df.groupby('method').rejections.mean().reindex(METHODS).plot.bar(ax=axes[1]);axes[1].set_ylabel('Rejected packets per fleet episode');axes[1].set_title('Deployed gate activity');fig.suptitle('Validation locks the gate before held-out testing\nTree dispersion is heuristic uncertainty, not calibrated safety',fontsize=11);save(fig,'06_gate_selection_activity')
+        fig,axes=plt.subplots(1,2,figsize=(12,4.7));ranked=ranking.sort_values('setting');bars=axes[0].bar(ranked.setting,100*ranked.on_time,color=['tab:orange' if v==lock['setting_id'] else 'tab:blue' for v in ranked.setting]);axes[0].bar_label(bars,fmt='%.3f',padding=3,fontsize=7);axes[0].set_ylim(0,65);axes[0].set_ylabel('Gate-validation on-time delivery (%)');axes[0].set_xticks(range(5),['ALL\nfallback','beta 0\nmargin 0','beta 0\nmargin .02','beta 1\nmargin 0','beta 1\nmargin .02'],fontsize=7);axes[0].set_title('Selected setting is orange')
+        activity_means=df.groupby('method').rejections.mean().reindex(METHODS);bars=axes[1].bar(range(len(METHODS)),activity_means);axes[1].set_yscale('symlog',linthresh=1);axes[1].bar_label(bars,labels=[f'{v:.3f}' if v else '0' for v in activity_means],padding=3,fontsize=7);axes[1].set_xticks(range(len(METHODS)),METHODS,rotation=30,ha='right',fontsize=7);axes[1].set_ylabel('Rejected packets per fleet episode (symlog scale)');axes[1].set_ylim(0,500);axes[1].set_title('Actual deployed rejection activity');fig.suptitle(f"Validation locks setting {lock['setting_id']} before testing: beta={lock['setting']['beta']}, margin={lock['setting']['margin']}\nTree dispersion is heuristic; beta=0 omits its penalty",fontsize=11);save(fig,'06_gate_selection_activity')
         fig,axes=plt.subplots(1,2,figsize=(12,4.6))
         for method in METHODS:
             a=df[df.method==method].groupby('size')[['on_time','delivery']].mean();axes[0].plot(a.index,100*a.on_time,marker='o',label=method);axes[1].plot(a.index,100*a.delivery,marker='o',label=method)

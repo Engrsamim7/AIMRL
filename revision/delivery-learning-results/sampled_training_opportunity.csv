@@ -1,0 +1,9 @@
+seed,attempted_episodes,episodes_with_sampled_helpful_rejection,sampled_hindsight_gain_pp
+0,400,3,0.09375
+1,400,11,0.4375
+2,400,4,0.125
+3,400,9,0.34375
+4,400,10,0.375
+5,400,11,0.34375
+6,400,26,0.90625
+7,400,5,0.1875
