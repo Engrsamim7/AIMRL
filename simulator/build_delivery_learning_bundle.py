@@ -15,6 +15,19 @@ def main():
     verify = json.loads((report / 'verification.json').read_text())
     assert verify['status'] == 'passed' and verify['source_hash'] == fingerprint()
     assert json.loads((run / 'pipeline.json').read_text())['status'] == 'completed'
+    stopped = {}
+    for version, folder in [('v1', 'delivery-learning'), ('v2', 'delivery-learning-v2')]:
+        old = ROOT / 'simulator/out' / folder
+        archived = ROOT / 'revision' / f'delivery-learning-{version}-source'
+        h = hashlib.sha256()
+        for name in ['delivery_learning.py', 'run_delivery_learning.py']:
+            h.update((archived / name).read_bytes())
+        for name in ['timed_network.py', 'ammarl2/graph.py', 'ammarl2/reviewer.py', '../revision/submission-code-audit/original_network_seed42.json']:
+            h.update((ROOT / 'simulator' / name).read_bytes())
+        meta = json.loads((old / 'pipeline.json').read_text())
+        assert meta['source_hash'] == h.hexdigest() and meta['status'].startswith('stopped_before_test')
+        assert not (old / 'locked_settings.json').exists() and not (old / 'episodes.csv.gz').exists()
+        stopped[version] = dict(source_hash=h.hexdigest(), status=meta['status'])
     files = []
     for p in (ROOT / 'simulator').rglob('*'):
         if not p.is_file() or any(x in p.parts for x in ['__pycache__', '.pytest_cache']) or p.suffix == '.pyc':
@@ -81,7 +94,7 @@ fully decentralized coordination nor operational validity is established.
     archive.with_suffix('.zip.sha256').write_text(digest + '  ' + archive.name + '\n')
     result = dict(status='archive_integrity_passed', archive=archive.name, bytes=archive.stat().st_size,
                   sha256=digest, manifest_files=len(hashes), extracted_package_tests=None,
-                  report_regeneration_exact=None, public_downloads_verified=False)
+                  report_regeneration_exact=None, stopped_development_sources=stopped, public_downloads_verified=False)
     assert result['bytes'] < 100 * 1024**2, 'Split traces before GitHub delivery if this exceeds its file limit'
     (dest / 'AIMRL-delivery-learning-validation.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result), flush=True)

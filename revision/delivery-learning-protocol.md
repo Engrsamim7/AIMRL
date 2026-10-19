@@ -20,6 +20,8 @@ Test six new graphs (two each at19/51/131nodes),12declared conditions and six pa
 
 Primary comparisons are LEARN minus ALL, KEEP and PLANNER_RAW, pooled equally over the whole declared range. Use20,000paired crossed routing-seed/graph/environment bootstrap draws, with Bonferroni3simultaneous bounds. A practically meaningful superiority target is a mean improvement of at least1percentage point and a positive corrected lower bound over each relevant primary baseline. Report all conditions, adverse outcomes, actual gate activity, selected checkpoint episodes, label opportunities and model limitations. A positive mean alone is insufficient.
 
+Graph instances have independently seeded edge parameters within fixed adjacency families: the submitted 19-node topology and layered 51/131-node templates. They are not six distinct independently sampled topologies. Crossed graph resampling measures variation among these weighted instances, conditional on the chosen families. The 131-node test examines transfer to a greater depth/size of the layered family, not arbitrary topology generalization. The inherited single calibration model remains fixed, so its training uncertainty is not represented by routing-seed resampling.
+
 This controlled study isolates gate effects on common frozen learned policies. It does not establish that each comparator is independently optimized under its own communication method, routing convergence, universal superiority, fully decentralized gate coordination or operational military validity. Those limitations remain explicit even if delivery improves.
 
 ## Training-development correction before test
