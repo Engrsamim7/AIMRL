@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "source_hash": "6ed046af6b6a1fefada3c51491f9356182549f94baacc9d22d024389e45976e7",
+  "seconds": 1522.2435393049964,
+  "checkpoints": 80,
+  "independent_seeds_per_algorithm": 8,
+  "unique_warmup_episodes": 4800,
+  "arm_adaptation_episodes": 24000,
+  "auxiliary_factual_episodes": 2048,
+  "validation_episodes": 43008,
+  "test_episodes": 102400,
+  "mechanism_episodes": 7680
+}

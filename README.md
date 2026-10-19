@@ -1,5 +1,21 @@
 # AIMRL
 
+## Dynamic-recovery gate redesign — completed experiment
+
+The redesigned gate can accept and reject relative to SAFE, with bounded authority,
+complete-inbox causal labels and physical reopening observations. Eight paired
+training seeds per algorithm and five matched-trained methods produce 80 models.
+The 102,400-episode held-out study does **not establish superiority** under the
+predeclared corrected utility and delivery criteria. Read the interpretation
+before using the figures as evidence.
+
+- [What changed, actual results and defensible claim](revision/recovery-gate-findings.md).
+- [All tables and reproduction commands](revision/recovery-gate-results/README.md).
+- [Download eight-figure PDF](deliverables/AIMRL-recovery-gate-figures.pdf).
+- [Download complete code, checkpoints and raw-data ZIP](deliverables/AIMRL-recovery-gate-study.zip).
+- [Offline visual report](revision/recovery-gate-results/index.html).
+- [Prospective protocol](revision/recovery-gate-protocol.md), [exact gate contract](simulator/RECOVERY_GATE_METHODS.md) and [reviewer coverage](revision/recovery-gate-reviewer-map.md).
+
 ## Decision-level diagnosis of the learned gate
 
 The follow-up audits actual message decisions, exact accept/reject effects,

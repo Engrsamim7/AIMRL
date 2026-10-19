@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "source_hash": "6ed046af6b6a1fefada3c51491f9356182549f94baacc9d22d024389e45976e7",
+  "report_sha256": "8b0ce513e7194231d1b8fe877b2d8abc00a87918bf7521bb3c458b7187f07a75",
+  "test_episodes": 102400,
+  "test_convoys": 512000,
+  "mechanism_episodes": 7680,
+  "training_episodes": 28800,
+  "checkpoints": 80,
+  "validation_episodes": 43008,
+  "new_contrasts": 140,
+  "correction": 388,
+  "bootstrap_draws": 200000,
+  "primary_joint_successes": 0,
+  "figures": 8
+}

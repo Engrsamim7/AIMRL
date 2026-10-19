@@ -1,0 +1,26 @@
+{
+  "status": "local_validation_passed_publication_pending",
+  "source_hash": "6ed046af6b6a1fefada3c51491f9356182549f94baacc9d22d024389e45976e7",
+  "archive_sha256": "03f202d1915656c28599fa3833dcf37dbf7801b2bd6beff1d8644bc7f015c369",
+  "archive_bytes": 27365497,
+  "manifest_files": 308,
+  "pdf_sha256": "caf1caabf6a91971b3e840e9cb465d2a2371dd097a84353be6522df72646f9aa",
+  "pdf_bytes": 78453,
+  "pdf_pages": 8,
+  "clean_extraction_tests_passed": 102,
+  "regenerated_tables": [
+    "contrasts.csv",
+    "fixed_actor_ablation.csv",
+    "label_diagnostics.csv",
+    "pooled_means.csv",
+    "prediction_diagnostics.csv",
+    "prediction_strata.csv",
+    "primary_decisions.csv",
+    "primary_seed_effects.csv",
+    "summary.csv",
+    "topology_size.csv",
+    "validation_selection.csv"
+  ],
+  "table_comparison": "exact parsed DataFrame equality; README,HTML,verification byte-identical",
+  "historical_fingerprints_unchanged": true
+}

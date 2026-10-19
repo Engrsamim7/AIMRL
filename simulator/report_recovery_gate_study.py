@@ -110,7 +110,7 @@ def main():
       r=z[(z.algo==algo)&(z.case==CASES[i])&(z.baseline==BASES[j])].iloc[0];mark='*' if r.lower>0 else '!' if r.upper<0 else ''
       ax.text(j,i,f'{v.iloc[i,j]:+.2f}{mark}',ha='center',va='center',fontsize=9,color='white' if abs(v.iloc[i,j])>.6*lim else 'black')
     ax.set_xticks(range(4),BASES);ax.set_yticks(range(8),CASES);ax.set_title(algo.upper());ax.set_xlabel('LEARN minus baseline')
-   fig.colorbar(im,ax=axes.ravel().tolist(),shrink=.6,pad=.03);fig.suptitle(title+'\n* corrected benefit; ! corrected harm; unmarked = unresolved',fontsize=11);fig.subplots_adjust(left=.20,right=.85,top=.88,wspace=.25);pdf.savefig(fig);fig.savefig(out/('case_'+endpoint+'.png'),dpi=150);fig.savefig(out/('case_'+endpoint+'.pdf'));images.append('case_'+endpoint);plt.close(fig)
+   fig.subplots_adjust(left=.20,right=.87,top=.88,wspace=.25);cax=fig.add_axes([.91,.22,.015,.55]);fig.colorbar(im,cax=cax);fig.suptitle(title+'\n* corrected benefit; ! corrected harm; unmarked = unresolved',fontsize=11);pdf.savefig(fig);fig.savefig(out/('case_'+endpoint+'.png'),dpi=150);fig.savefig(out/('case_'+endpoint+'.pdf'));images.append('case_'+endpoint);plt.close(fig)
   fig,axes=plt.subplots(2,2,figsize=(12,8))
   for ri,algo in enumerate(['dqn','mappo']):
    z=summary[summary.algo==algo]
