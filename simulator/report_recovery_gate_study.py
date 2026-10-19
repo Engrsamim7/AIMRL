@@ -28,6 +28,10 @@ def main():
  for folder,key in [('models','checkpoints'),('value_models','estimators')]:
   for name,digest in locked[key].items():assert hashlib.sha256((run/folder/name).read_bytes()).hexdigest()==digest
  df,raw=read(run,'test_episodes'),read(run,'test_convoys');audit(df,raw,102400,METHODS)
+ keys=['graph','algo','seed','case','episode','method']
+ reconstructed=raw.assign(rebuilt_utility=40*raw.delivered-40*raw.destroyed-40*raw.censored-raw.elapsed).groupby(keys).rebuilt_utility.mean().sort_index()
+ recorded=df.set_index(keys).utility_mean.sort_index()
+ assert reconstructed.index.equals(recorded.index) and np.allclose(reconstructed,recorded,rtol=0,atol=1e-10)
  mech,mraw=read(run,'mechanism_episodes'),read(run,'mechanism_convoys');audit(mech,mraw,7680,['LEARN','REJECT_ONLY','INITIAL_MODEL'])
  assert df.overrides.le(10).all() and df.accept_overrides.add(df.reject_overrides).eq(df.overrides).all()
  assert df[df.method!='LEARN'].overrides.eq(0).all()
@@ -71,7 +75,9 @@ def main():
   algo,tail=p.stem.split('_s');seed,stage=tail.split('_');d=json.loads(p.read_text());diagnostics.append(dict(algo=algo,seed=int(seed),stage=stage,**d['diagnostic']))
  for p in sorted((run/'value_models').glob('*_examples.csv.gz')):
   data=pd.read_csv(p);algo,tail=p.name.split('_s');seed=int(tail.split('_')[0]);assert len(data)>50 and data.delivery_gain.isin([-1,0,1]).all()
-  for stage,z in data.groupby('stage'):labelcounts.append(dict(algo=algo,seed=seed,stage=stage,examples=len(z),fit_examples=int((z.episode<56).sum()),holdout_examples=int((z.episode>=56).sum()),nonzero_utility=int(z.utility_gain.abs().gt(.1).sum()),delivery_help=int(z.delivery_gain.gt(0).sum()),delivery_harm=int(z.delivery_gain.lt(0).sum()),genuine_clears=int((z.genuine & ~z.blocked_report).sum())))
+  for stage,z in data.groupby('stage'):
+   clear=z[z.genuine & ~z.blocked_report & z.clear_against_warning.gt(.5)]
+   labelcounts.append(dict(algo=algo,seed=seed,stage=stage,examples=len(z),fit_examples=int((z.episode<56).sum()),holdout_examples=int((z.episode>=56).sum()),nonzero_utility=int(z.utility_gain.abs().gt(.1).sum()),delivery_help=int(z.delivery_gain.gt(0).sum()),delivery_harm=int(z.delivery_gain.lt(0).sum()),genuine_clears=int((z.genuine & ~z.blocked_report).sum()),genuine_warning_clears=len(clear),genuine_clear_utility_help=int(clear.utility_gain.gt(.1).sum()),genuine_clear_utility_harm=int(clear.utility_gain.lt(-.1).sum()),genuine_clear_delivery_help=int(clear.delivery_gain.gt(0).sum()),genuine_clear_delivery_harm=int(clear.delivery_gain.lt(0).sum())))
  diagnostics=pd.DataFrame(diagnostics);diagnostics.to_csv(out/'prediction_diagnostics.csv',index=False);pd.DataFrame(labelcounts).to_csv(out/'label_diagnostics.csv',index=False)
  df.groupby(['algo','stages','case','method']).agg(delivery_pct=('delivery_rate',lambda x:100*x.mean()),utility=('utility_mean','mean')).to_csv(out/'topology_size.csv')
  images=[];plt.rcParams.update({'font.size':10,'figure.dpi':140})
@@ -130,12 +136,12 @@ def main():
  '## All means\n\n'+table(summary[['algo','case','method','delivery_pct','utility']])+'\n\n'
  '## Gate use and genuine clearances\n\n'+table(summary[summary.method=='LEARN'][['algo','case','genuine_clears','genuine_warning_clears','accept_overrides','reject_overrides']])+'\n\n'
  '## Locked validation settings\n\n```json\n'+json.dumps(locked['settings'],indent=2)+'\n```\n\n'
- '## Reproduce\n\nFrom repository root, `bash setup_local.sh`, then `cd simulator` and `../.venv/bin/python run_recovery_gate_study.py --output out/recovery-gate-reproduction --workers 4`. From root regenerate this report with `.venv/bin/python simulator/report_recovery_gate_study.py --run simulator/out/recovery-gate-reproduction`. The runner refuses to overwrite an existing study directory. Model/checkpoint hashes, paired physical schedules and convoy accounting are checked during reporting.\n\n'
+ '## Reproduce\n\nUse Linux/Python3.12; set `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MPLCONFIGDIR=/tmp/aimrl-mpl XDG_CACHE_HOME=/tmp/aimrl-cache` for this CPU workflow. From repository root, `bash setup_local.sh`, then `cd simulator` and `../.venv/bin/python run_recovery_gate_study.py --output out/recovery-gate-reproduction --workers 4`. From root regenerate this report with `.venv/bin/python simulator/report_recovery_gate_study.py --run simulator/out/recovery-gate-reproduction`. The runner refuses to overwrite an existing study directory. Model/checkpoint hashes, paired physical schedules and convoy accounting are checked during reporting.\n\n'
  'Open `recovery_gate_report.pdf` or `index.html` for8 figures. `contrasts.csv` contains all140 intervals, `primary_decisions.csv` the co-required decisions, `summary.csv` every mean, `validation_selection.csv` all selection options, `prediction_diagnostics.csv` internal error, and `fixed_actor_ablation.csv` descriptive swaps. Raw CSV.gz, all80 final neural routing checkpoints, initial/refreshed gate estimators and training/causal labels are in the complete ZIP. No after-test retuning.\n')
  (out/'README.md').write_text(text)
  html='<!doctype html><meta charset="utf-8"><title>AIMRL recovery gate results</title><style>body{font-family:system-ui;max-width:1150px;margin:2em auto;padding:1em}img{width:100%}p{line-height:1.5}</style><h1>Dynamic-recovery gate study</h1><p>'+claim+'</p><p>102,400 final-test episodes;8 paired training seeds per algorithm; all conditions retained. See README and CSV tables for definitions, uncertainty and limitations.</p>'
  for name in images:html+='<h2>'+name.replace('_',' ')+'</h2><img alt="'+name+'" src="data:image/png;base64,'+base64.b64encode((out/(name+'.png')).read_bytes()).decode()+'">'
  (out/'index.html').write_text(html)
- verification=dict(status='passed',source_hash=fingerprint(),test_episodes=len(df),test_convoys=len(raw),mechanism_episodes=len(mech),training_episodes=len(train),checkpoints=len(locked['checkpoints']),validation_episodes=len(val),new_contrasts=len(contrasts),correction=CORRECTION,bootstrap_draws=DRAWS,primary_joint_successes=len(supported),figures=len(images))
+ verification=dict(status='passed',source_hash=fingerprint(),report_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),test_episodes=len(df),test_convoys=len(raw),mechanism_episodes=len(mech),training_episodes=len(train),checkpoints=len(locked['checkpoints']),validation_episodes=len(val),new_contrasts=len(contrasts),correction=CORRECTION,bootstrap_draws=DRAWS,primary_joint_successes=len(supported),figures=len(images))
  (out/'verification.json').write_text(json.dumps(verification,indent=2)+'\n');print(json.dumps(verification))
 if __name__=='__main__':main()

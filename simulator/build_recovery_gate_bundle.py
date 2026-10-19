@@ -19,7 +19,7 @@ def main():
   if rel.parts[0]=='out' and (len(rel.parts)<3 or rel.parts[1]!='recovery-gate-study'):continue
   files.append(p)
  files.extend(p for p in report.rglob('*') if p.is_file())
- for name in ['requirements-lock.txt','setup_local.sh','.gitignore','.gitattributes','revision/submission-code-audit/original_network_seed42.json','revision/recovery-gate-protocol.md','revision/recovery-gate-findings.md','revision/gate-decision-diagnosis-findings.md']:files.append(ROOT/name)
+ for name in ['requirements-lock.txt','setup_local.sh','.gitignore','.gitattributes','revision/submission-code-audit/original_network_seed42.json','revision/recovery-gate-protocol.md','revision/recovery-gate-findings.md','revision/recovery-gate-reviewer-map.md','revision/gate-decision-diagnosis-findings.md']:files.append(ROOT/name)
  dest=ROOT/'deliverables';dest.mkdir(exist_ok=True);shutil.copy2(report/'recovery_gate_report.pdf',dest/'AIMRL-recovery-gate-figures.pdf');files.append(dest/'AIMRL-recovery-gate-figures.pdf')
  start=('# Dynamic-recovery learned gate study\n\n'
  'Read revision/recovery-gate-findings.md for the claim and limitations; revision/recovery-gate-results/README.md for complete tables; open revision/recovery-gate-results/recovery_gate_report.pdf or index.html for eight figures.\n\n'
