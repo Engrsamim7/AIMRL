@@ -1,0 +1,5 @@
+-r requirements-lock.txt
+# Optional development estimator; existing runtime pins remain unchanged.
+scikit-learn==1.7.2
+joblib==1.5.2
+threadpoolctl==3.6.0
