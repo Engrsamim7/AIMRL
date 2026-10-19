@@ -18,5 +18,22 @@
     "repaired_summary.csv"
   ],
   "regenerated_readme_offline_html_verification_exact": true,
-  "public_downloads_verified": false
+  "public_downloads_verified": true,
+  "public_downloads": [
+    {
+      "path": "deliverables/AIMRL-original-tabular-study.zip",
+      "bytes": 4206420,
+      "sha256": "da6de956fca4d769a85c05afd19a62d14cdbb2ddf0d405399d00330c9f281a12"
+    },
+    {
+      "path": "deliverables/AIMRL-original-tabular-figures.pdf",
+      "bytes": 59897,
+      "sha256": "be1ca58e85190e9edf8b5304143e69b0173cbfcddf25fc9da77372f2a0435b1d"
+    },
+    {
+      "path": "revision/original-tabular-findings.md",
+      "bytes": 7866,
+      "sha256": "4c123c23babcd0ff46630e5a52a7390da7e3119c3c7652d8c65a1386cf89660e"
+    }
+  ]
 }
