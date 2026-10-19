@@ -81,6 +81,7 @@ def labels_job(task):
   for admit in episode_labels:
    assert admit[1]==out[1] and admit[0]['on_time']==result['on_time'],'Factual branch must reproduce whole-episode continuation'
   episodes.append(dict(seed=si,episode=ep,captured=bool(captured),control=control,candidate_count=count[0],target_index=target,on_time=result['on_time']))
+  if (ep+1)%50==0:print(f'LABEL PROGRESS seed={si} attempts={ep+1}/{attempts} labels={len(labels)}',flush=True)
  frame=pd.DataFrame(labels);frame.to_csv(folder/'labels'/f's{si}.csv.gz',index=False);pd.DataFrame(episodes).to_csv(folder/'labels'/f's{si}_episodes.csv.gz',index=False)
  selected=frame[~frame.control] if len(frame) else frame
  if len(selected)==0:raise RuntimeError(f'No actor-changing packet labels for seed{si}; the mechanism must be diagnosed before fitting')
@@ -115,7 +116,7 @@ def test_job(task):
 
 
 def main():
- ap=argparse.ArgumentParser();ap.add_argument('--output',default='simulator/out/delivery-learning-v2');ap.add_argument('--workers',type=int,default=4);ap.add_argument('--train-episodes',type=int,default=500);ap.add_argument('--label-attempts',type=int,default=400);args=ap.parse_args();out=Path(args.output).resolve();out.mkdir(parents=True,exist_ok=False)
+ ap=argparse.ArgumentParser();ap.add_argument('--output',default='simulator/out/delivery-learning-v3');ap.add_argument('--workers',type=int,default=4);ap.add_argument('--train-episodes',type=int,default=500);ap.add_argument('--label-attempts',type=int,default=400);args=ap.parse_args();out=Path(args.output).resolve();out.mkdir(parents=True,exist_ok=False)
  for name in ['actors','actor_candidates','training','labels','gates']:(out/name).mkdir()
  initial=fingerprint();start=time.perf_counter();calibration=ROOT/'out/timed-network-development-v2/calibration.json';(out/'calibration.json').write_bytes(calibration.read_bytes())
  design=dict(status='specified_before_training',source_hash=initial,primary='fleet on-time delivery; no bandwidth reward or efficiency substitution',routing_seeds=SEEDS,train_episodes=args.train_episodes,label_attempts=args.label_attempts,actor_features=FEATURES,gate_features=GATE_FEATURES,cases=[asdict(c) for c in TEST],arms=ARMS+['PLANNER_WARN','PLANNER_RAW'],
@@ -128,11 +129,11 @@ def main():
   test='6 new graphs19/51/131,12conditions,6schedules,8frozen common routing actors;6receiver methods plus2planner controls run once per environment,21600method episodes172800convoys',
   inference='20000 paired actor/graph/environment bootstrap draws;three primary LEARN-minus-ALL/KEEP/PLANNER_RAW contrasts;Bonferroni3; practical target1percentage point mean and positive corrected lower bound',
   limits=['frozen common routing policies isolate online receiver effect; not independently optimized routing under each gate','one shared fleet rejection token is a public coordination constraint','tree dispersion is heuristic,not calibrated safety','inference checkpoints are not full optimizer/replay resume snapshots','episode0 may be selected;fixed budget is not convergence evidence','no operational adversary or combat survival claim'])
- design['development_revision']='v1 training validation selected episode0 for all8seeds;stopped during label collection before test. v2changes value architecture and anchors to observed episodic return;primary objective/test namespace unchanged and still untouched.'
+ design['development_revision']='v1 unbounded value learner selected episode0 for all8seeds; stopped before test. v2 stabilized learning but deterministic causal labeling exposed a same-time noisy-scout/zero-inspection nonprogressing cycle; stopped before test. v3 preserves equal-or-more-certain current local evidence against repeated same-time noisy samples, permits later reopening observations, adds a fail-fast zero-time event-cycle guard, and retrains all actors/gates under corrected physics. Prior source/training records remain archived; primary objective/test namespace unchanged and untouched.'
  write(out/'design.json',design);write(out/'pipeline.json',dict(status='routing_training',source_hash=initial))
  with ProcessPoolExecutor(max_workers=args.workers) as pool:
   list(pool.map(train_job,[(s,args.train_episodes,str(out)) for s in SEEDS]));write(out/'pipeline.json',dict(status='causal_labeling',source_hash=initial))
-  list(pool.map(labels_job,[(s,args.label_attempts,str(out)) for s in SEEDS]));validation=[]
+  list(pool.map(labels_job,[(s,args.label_attempts,str(out)) for s in SEEDS]));write(out/'pipeline.json',dict(status='gate_validation',source_hash=initial));validation=[]
   for rows in pool.map(validate_job,[(s,g,str(out)) for s in SEEDS for g in range(2)]):validation.extend(rows)
   val=pd.DataFrame(validation);val.to_csv(out/'validation.csv.gz',index=False);ranking=val.groupby('setting').agg(on_time=('on_time','mean'),rejections=('rejections','mean')).reset_index().sort_values(['on_time','rejections','setting'],ascending=[False,True,True]);chosen=int(ranking.iloc[0].setting)
   lock=dict(status='locked_before_test',source_hash=initial,setting_id=chosen,setting=SETTINGS[chosen],actors={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (out/'actors').glob('*.json')},gates={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (out/'gates').glob('*.npz')});write(out/'locked_settings.json',lock);write(out/'pipeline.json',dict(status='testing',source_hash=initial))

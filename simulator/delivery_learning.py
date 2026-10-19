@@ -72,6 +72,23 @@ class DeliveryNetwork(TimedNetwork):
         super().__init__(*args,**kwargs);self.actor=actor;self.receiver=receiver;self.gate=gate;self.dropout=dropout
         self.history={u.cid:[] for u in self.units};self.peer_history={u.cid:{} for u in self.units};self.decision_index={u.cid:0 for u in self.units}
         self.rejections=0;self.gate_log=[];self.intervention=None;self.capture=None;self.branch_stop=False;self.initialized=False;self.finalized=False
+    def observe(self,u):
+        # A repeated sample at the same sensor/time has the same keyed noise.
+        # It must not erase equally certain direct blocked-entry evidence.
+        # Newer observations may still report a genuine reopening.
+        claimed=1. if self.case.perfect_sensors or u.cid==0 else .85
+        accuracy=max(.5,claimed*self.case.accuracy_scale)
+        timestamp=max(0.,self.t-self.case.detection_delay*self.scale)
+        for e in self.observation_edges(u):
+            previous=u.own.get(e)
+            if previous is not None and previous[1]>=timestamp and previous[2]>=claimed:continue
+            truth=self.schedule.closed(e,timestamp)
+            blocked=truth if uniform(self.seed,813,u.cid,e,float(timestamp).hex())<accuracy else not truth
+            u.own[e]=(bool(blocked),timestamp,claimed);self.stats['observations']+=1
+            if self.record:self.observations.append(dict(convoy=u.cid,t=self.t,edge=e,t_obs=timestamp,blocked=int(blocked),truth_at_observation=int(truth),claimed_confidence=claimed))
+            emitted=u.own_emitted.get(e)
+            if self.method not in ['NONE','ORACLE'] and (emitted is None or blocked!=emitted[0] or timestamp-emitted[1]>=2*self.scale):
+                self.offer(u,e,bool(blocked),timestamp,claimed);u.own_emitted[e]=(bool(blocked),timestamp)
     def offer(self,u,e,blocked,t_obs,confidence):
         # The base number is only a queue tie-break. Loss identity is semantic,
         # so unrelated earlier offers cannot change this observation's loss draw.
@@ -185,8 +202,11 @@ class DeliveryNetwork(TimedNetwork):
         if initialize and not self.initialized:
             for u in self.units:self.push(u.depart,'START',u.cid)
             self.initialized=True
+        previous_time=None;same_time_events=0
         while self.events:
             self.t,_,kind,payload=heapq.heappop(self.events)
+            same_time_events=same_time_events+1 if self.t==previous_time else 1;previous_time=self.t
+            if same_time_events>10000:raise RuntimeError(f'Nonprogressing event cycle seed={self.seed}, time={self.t}, case={self.case.name}')
             if kind=='TX_END':self.finish_radio(payload);continue
             if kind=='MESSAGE':
                 cid,p=payload;self.receive(cid,p)

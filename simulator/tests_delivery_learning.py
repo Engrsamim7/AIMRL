@@ -85,3 +85,24 @@ def test_one_fleet_rejection_authority_is_enforced():
     s.receive(1,dict(id='a',edge=1,blocked=True,t_obs=0.,confidence=1.))
     s.receive(1,dict(id='b',edge=3,blocked=True,t_obs=0.,confidence=1.))
     assert s.rejections==1 and 1 not in s.units[1].peer and 3 in s.units[1].peer
+
+
+def test_same_time_noisy_scout_cannot_erase_direct_blocked_entry_evidence():
+    s=fixture(Actor(91));s.seed=0
+    s.case=replace(s.case,perfect_sensors=False,accuracy_scale=.5,inspection=0.)
+    u=s.units[0];u.node=1;u.own[1]=(True,0.,1.)
+    # This sensor/time's keyed noise reports a false clearance. Physical
+    # encounter evidence at that same instant must survive, without emitting it.
+    s.observe(u);assert u.own[1]==(True,0.,1.)
+    assert all(p['edge']!=1 for p in s.radio) and s.stats['generated']==0
+    actions,_,_=s.candidate_features(u);assert 1 not in actions
+    # A strictly later clear observation may update that evidence.
+    s.case=replace(s.case,perfect_sensors=True,accuracy_scale=1.)
+    s.schedule.intervals={};s.t=1.;s.observe(u);assert u.own[1]==(False,1.,1.)
+
+
+def test_noisy_zero_inspection_fleet_terminates_with_finite_accounted_time():
+    s=fixture(Actor(91));s.seed=0;s.case=replace(s.case,perfect_sensors=False,accuracy_scale=.5,inspection=0.)
+    stats,rows=s.run()
+    assert stats['routing_calls']<500 and all(np.isfinite(r['elapsed']) for r in rows)
+    for row in rows:assert np.isclose(row['elapsed'],sum(row[k] for k in ['travel','service','wait','inspection','hold']))

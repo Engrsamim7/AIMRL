@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    run = ROOT / 'simulator/out/delivery-learning-v2'
+    run = ROOT / 'simulator/out/delivery-learning-v3'
     report = ROOT / 'revision/delivery-learning-results'
     verify = json.loads((report / 'verification.json').read_text())
     assert verify['status'] == 'passed' and verify['source_hash'] == fingerprint()
@@ -22,10 +22,10 @@ def main():
         rel = p.relative_to(ROOT / 'simulator')
         if rel.parts[0] == 'figs':
             continue
-        if rel.parts[0] == 'out' and (len(rel.parts) < 3 or rel.parts[1] not in ['delivery-learning-v2', 'delivery-learning']):
+        if rel.parts[0] == 'out' and (len(rel.parts) < 3 or rel.parts[1] not in ['delivery-learning-v3', 'delivery-learning-v2', 'delivery-learning']):
             continue
         files.append(p)
-    for folder in [report, ROOT / 'revision/submission-code', ROOT / 'revision/delivery-learning-v1-source']:
+    for folder in [report, ROOT / 'revision/submission-code', ROOT / 'revision/delivery-learning-v1-source', ROOT / 'revision/delivery-learning-v2-source']:
         files.extend(p for p in folder.rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix != '.pyc')
     for name in ['requirements-lock.txt', 'requirements-actor-aware.txt', 'setup_local.sh', '.gitignore', '.gitattributes',
                  'revision/submission-code-audit/original_network_seed42.json',
@@ -44,8 +44,8 @@ The package contains complete simulator source, the original submitted code,
 eight selected routing checkpoints and all checkpoint candidates, eight gate
 estimators, all training and validation records, complete paired causal labels,
 locked settings, raw held-out episode/convoy/gate decisions, tables and figures.
-The first unsuccessful training pass and its exact source are retained separately;
-it was stopped before held-out testing. Earlier studies have separate archives.
+Both stopped development passes and their exact source are retained separately;
+neither executed held-out testing. Earlier studies have separate archives.
 
 Install with bash setup_local.sh, followed by
 .venv/bin/python -m pip install -r requirements-actor-aware.txt.
