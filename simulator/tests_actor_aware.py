@@ -5,7 +5,7 @@ import torch
 from ammarl2.learn import LearnedPolicy
 from actor_aware_gate import FEATURES,BASE_FEATURES,policy,LeafForest,SingleAdmission
 from recovery_gate import TRAIN,graph,simulation,policy as old_policy
-from run_actor_aware_development import one_episode
+from run_actor_aware_development import one_episode, encoded_rows
 
 def actor():return LearnedPolicy('test',algo='dqn',train=False,seed=3)
 
@@ -17,7 +17,7 @@ def test_full_inbox_probing_preserves_safe_behavior():
  torch.set_num_threads(1);a=actor();g,h=graph(91000,2)
  x=simulation(g,h,TRAIN[0],old_policy('SAFE',a),800000000).run()
  y=simulation(g,h,TRAIN[0],policy('SAFE',a),800000000).run()
- assert x['rows']==y['rows'] and x['decisions']==y['decisions'] and x['stats']==y['stats']
+ assert encoded_rows(x['rows'])==encoded_rows(y['rows']) and x['decisions']==y['decisions'] and x['stats']==y['stats']
 
 def test_probe_features_exclude_origin_hidden_truth_and_privileged_critic():
  s,cv,e=fixture();b=copy.deepcopy(s);b.active.clear();b.cv[2].inbox[0]['genuine']=False
