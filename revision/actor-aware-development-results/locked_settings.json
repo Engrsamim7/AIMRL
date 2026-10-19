@@ -1,0 +1,82 @@
+{
+  "status": "locked_before_audit",
+  "source_hash": "da481db5ccfe32d632ca23934952b95d21ef9463fcf809f1ef90c72a71c00c0b",
+  "settings": {
+    "dqn": {
+      "TREE_BASE": {
+        "beta": 0.0,
+        "margin": 0.0,
+        "delivery_tolerance": 0.0
+      },
+      "ACTOR_AWARE": {
+        "beta": 0.0,
+        "margin": 0.0,
+        "delivery_tolerance": 0.0
+      }
+    },
+    "mappo": {
+      "TREE_BASE": {
+        "beta": 0.0,
+        "margin": 0.0,
+        "delivery_tolerance": 0.0
+      },
+      "ACTOR_AWARE": {
+        "beta": 0.0,
+        "margin": 0.5,
+        "delivery_tolerance": 0.0
+      }
+    }
+  },
+  "models": {
+    "dqn_s0_ACTOR_AWARE.npz": "8fe1531634857a307c8bfa7edc05b9dbf2896b3d3dcedf5d56e8750deddd13d8",
+    "dqn_s0_TREE_BASE.npz": "95405e37942cbab92dd92ef491a44e9fb8c2e9fd6d44b9f50b46065cf68ed18f",
+    "dqn_s1_ACTOR_AWARE.npz": "890051897662d320f088ecdf0832ebd04b451f690f57f7a397b87425953faa65",
+    "dqn_s1_TREE_BASE.npz": "51f071d33c11bca9fa65a97353493706d91dcb5cbfdd1f97adebfb1ff99d0780",
+    "dqn_s2_ACTOR_AWARE.npz": "76b9b9d22c9031e1580c28f74f5523685b979dda556851aa1b58455535add4d9",
+    "dqn_s2_TREE_BASE.npz": "703e74599581504cadda229f44f8f45e015a0c074cbc7e91fa29fd7df2ed10e2",
+    "dqn_s3_ACTOR_AWARE.npz": "a9b438c93c79432046c257ce0e802ecef0964080634210cd819a3c9686e6353f",
+    "dqn_s3_TREE_BASE.npz": "5442718778d3fe19b1dbd7674b0d8cc9ca07a44fb41374dc8acd474e239f4c08",
+    "dqn_s4_ACTOR_AWARE.npz": "cb2f301f88acbe4c58bd227c2ea4d2a9baddaa32e87821df97b561b1b13b881c",
+    "dqn_s4_TREE_BASE.npz": "927a5da6a3d13ea89a27220e11dfc69e45cdd842aca8987e8f6a66b5fa308a66",
+    "dqn_s5_ACTOR_AWARE.npz": "7d52ba09ffc03a87382580c482ae9d73df9072d10e569d60de9cdeff0c79fdf5",
+    "dqn_s5_TREE_BASE.npz": "f2cd699fb3e62f4b1566505c159a13c9ce64be7524fb64b74827e7af93cb0ee2",
+    "dqn_s6_ACTOR_AWARE.npz": "49b28cad99990297b5aa8729f41c3d6ee43ecbe16324463ff8c9534f5425152d",
+    "dqn_s6_TREE_BASE.npz": "f5d7a1a1c3cb2b01c8f912fcf0037246c27baea755aa9ae76c4425c3e0ce8fc6",
+    "dqn_s7_ACTOR_AWARE.npz": "be7965dd308a83686a62938453fd94463d159a37f2f9b70b0e8360ea0a07d535",
+    "dqn_s7_TREE_BASE.npz": "d6b7bf2cd21d5ee9b0ece9f1fef7068abcf289b77fe174ec80aa35182cdf7008",
+    "mappo_s0_ACTOR_AWARE.npz": "9caf865483d9a9593afe6926d6efdf0dbbb2c7591eefe11a86c24af9d5cf819c",
+    "mappo_s0_TREE_BASE.npz": "0a77475b30116dd36570086df51516993fd6e84f299b7f7246726aa375731fa5",
+    "mappo_s1_ACTOR_AWARE.npz": "8f132b459214f003f6efb3da8369925c2424f42105a26e5c4f3e930307699358",
+    "mappo_s1_TREE_BASE.npz": "f837657d52d0b9340d7762da27e85b443cd9ca634c9b861bf277bf0eed5d569f",
+    "mappo_s2_ACTOR_AWARE.npz": "aaa232e934dc845f70999d1171e232ccdf3be87ca8accda3e0bec50eba608809",
+    "mappo_s2_TREE_BASE.npz": "b8875a293854d44efe75fa69f55b41dea6e97310a99f127fcd8e3332c9cb90ed",
+    "mappo_s3_ACTOR_AWARE.npz": "af885b7393b9167f27f044a2c0b91641ef59b63d627555cd498f726dae82d2e5",
+    "mappo_s3_TREE_BASE.npz": "1f644847ad4ea08bff1240e51961a406c852132606c23ec3a7ccd3cc5908fac9",
+    "mappo_s4_ACTOR_AWARE.npz": "f29a5d94be0ca4af76f5e1544779b146f2e5d48c1b46fdde2c176bc7ee892af7",
+    "mappo_s4_TREE_BASE.npz": "742e204496634b844be911b5c2fc25c94ab523681801e02b5cb63be4334bd242",
+    "mappo_s5_ACTOR_AWARE.npz": "4c0d978bfbc57003030c4fff221cd1a57210ccd7e5b4754e08cc4950698f985e",
+    "mappo_s5_TREE_BASE.npz": "f02ccca081b79c22370e0c78e5d433537d3f70c7971f4f534441b3981b0a82c2",
+    "mappo_s6_ACTOR_AWARE.npz": "0824f84fa19fddddc38be8e6321068af17ab02e052a28ee7c26fe796f1302160",
+    "mappo_s6_TREE_BASE.npz": "1fd4b7d86fe45d2be5740db777da8f4aaedbd0978120f7a254b81e1e927f8f53",
+    "mappo_s7_ACTOR_AWARE.npz": "d7ace28ab2a4ce0fa01ea338093b6394c1eeefb09fa692bd087dfb4d469e5a98",
+    "mappo_s7_TREE_BASE.npz": "844aadfe740989f613bad01e18e40be5fcc5e80a534ecc31d3d53cb1bf1bdfc8"
+  },
+  "routing_models": {
+    "dqn_s0_SAFE.pt": "dbeb605d5f8ea8215758328aea79c7a19d2af6328fd934c76449f3bb5271e2ed",
+    "dqn_s1_SAFE.pt": "1d03a4a279ea39e9a8eb59d61d8c8e21b6d1eb552995874e3cc755d7f01785bc",
+    "dqn_s2_SAFE.pt": "aeb11c48f9f3de70d0b19fb9a20e44f156a59987ed708686d075cde5fb315e48",
+    "dqn_s3_SAFE.pt": "1f05d4b0081b4e9c937997fae5d0f988f6585a9fc89b1ac7975853a191acead2",
+    "dqn_s4_SAFE.pt": "e9dd537a66c5738ea8e68fdf90218a4dbd89bbf4529661701c2af4754a4a381c",
+    "dqn_s5_SAFE.pt": "0223907de4c5c77ab17d3903e3cdd8d3e827dc2d10c21df52292e5a0c905f83a",
+    "dqn_s6_SAFE.pt": "667e644e9d29726c4a655db61b3cec71d1eb47da7f4a99e26506ceabd16c8a4e",
+    "dqn_s7_SAFE.pt": "c59298067f43f87da8b89c24c3d31eca590b8fac555cfc9ef9bcb2ce377fbd01",
+    "mappo_s0_SAFE.pt": "1e22b3f728dec596ba2a112b5b793ebda252f71d5552c98b0f4e800029959f04",
+    "mappo_s1_SAFE.pt": "73beb7377b3e0b3dff3fe072732a7c7417d2d715d2969307a8febca28d0bdc05",
+    "mappo_s2_SAFE.pt": "7fd5deddae2c6a5e1ad17ff16f20c4a24c04ec069560f56234c881dc63da1003",
+    "mappo_s3_SAFE.pt": "65e227b7b92c54ce816c989aaba81ca0e43c2daa0e34b8a5dcca31fa9b2992d7",
+    "mappo_s4_SAFE.pt": "d5e19a4a18864e66374855e45e77d0c5a86840ad729d4b400553daefe7abc70f",
+    "mappo_s5_SAFE.pt": "666033f2f35dec0c954f61338f1c769d7a756b0e8dfb53cbf6d9e162959b874f",
+    "mappo_s6_SAFE.pt": "c05cb303e1a8a11a7eef9b3a798fb61f783cee4aefaecc6d723b267298c1afd1",
+    "mappo_s7_SAFE.pt": "e96248a68cf75c346245d2637dabd68d8972612dcc926fad593cbb7c486b202c"
+  }
+}

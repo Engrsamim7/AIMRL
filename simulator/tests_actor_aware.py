@@ -1,4 +1,5 @@
 import copy
+import json
 from pathlib import Path
 import numpy as np
 import torch
@@ -54,6 +55,11 @@ def test_replays_match_factual_branch_and_probed_next_actions():
  assert rows and len(rows)<=8 and s['oracle_sampled_gain']>=0
  assert all(np.isfinite(r['flip_utility']) and -.999<=r['flip_delivery']<=.999 for r in rows)
  assert len(raw)==5
+ for row in rows:
+  flip=json.loads(row['reject_rows'] if row['accepted'] else row['accept_rows'])
+  value=lambda r:40*r['delivered']-40*r['destroyed']-40*r['censored']-r['elapsed']
+  assert np.isclose(row['flip_utility'],np.mean([value(r) for r in flip])-np.mean([value(r) for r in raw]))
+  assert np.isclose(row['flip_delivery'],np.mean([r['delivered'] for r in flip])-np.mean([r['delivered'] for r in raw]))
 
 def test_calibration_excludes_high_utility_setting_with_delivery_loss():
  import pandas as pd

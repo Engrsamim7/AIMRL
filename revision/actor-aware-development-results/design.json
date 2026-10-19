@@ -1,0 +1,133 @@
+{
+  "status": "specified_before_development_data",
+  "purpose": "algorithm development and go/no-go diagnosis, NOT a new confirmatory superiority study",
+  "parent": "recovery-gate-study SAFE-trained frozen actors, DQN/MAPPO, all8 seeds; no new routing training seeds",
+  "data": "fresh training-distribution layouts and tapes only; original recovery final test never loaded; fit/calibration/audit layouts disjoint; all8 conditions crossed on every graph",
+  "splits": {
+    "fit": 256,
+    "calibration": 64,
+    "audit": 64
+  },
+  "layouts": {
+    "fit": 91000,
+    "calibration": 92000,
+    "audit": 93000
+  },
+  "tapes": {
+    "fit": 800000000,
+    "calibration": 810000000,
+    "audit": 820000000
+  },
+  "label_sampling": "uniform at most6 reachable full-inbox actor-action-changing candidates and2 other candidates per factual SAFE episode; public selection only; no unused-slot borrowing",
+  "causal": "one packet accepted/rejected, full inbox/future SAFE preserved; factual branch and both probed next actions checked; fleet utility/delivery targets",
+  "oracle": "best nonnegative single sampled flip from each factual episode; privileged hindsight opportunity reference, NOT an attainable policy, global bound, summed packet effects or independent confirmation",
+  "learner": "ExtraTrees160 depth8 leaf8 bootstrap80percent max_features80percent; two outputs: fleet utility and delivery gain from flipping SAFE; fit relevant action-changing examples only; fixed defaults, per routing seed",
+  "ablation": "TREE_BASE original30 features vs ACTOR_AWARE original30+23 public full-inbox actor probe features; both same data, trees, relevance restriction, override budget and selection grid",
+  "authority": "SAFE fallback, publicly reachable edge, actual full-inbox reference actor action changes; at most ONE learned override over entire fleet episode; remaining admissions SAFE; heuristic tree dispersion, not calibrated risk",
+  "grid": [
+    {
+      "beta": 0.0,
+      "margin": 0.0,
+      "delivery_tolerance": 0.0
+    },
+    {
+      "beta": 0.0,
+      "margin": 0.0,
+      "delivery_tolerance": 0.01
+    },
+    {
+      "beta": 0.0,
+      "margin": 0.5,
+      "delivery_tolerance": 0.0
+    },
+    {
+      "beta": 0.0,
+      "margin": 0.5,
+      "delivery_tolerance": 0.01
+    },
+    {
+      "beta": 0.0,
+      "margin": 1.0,
+      "delivery_tolerance": 0.0
+    },
+    {
+      "beta": 0.0,
+      "margin": 1.0,
+      "delivery_tolerance": 0.01
+    },
+    {
+      "beta": 0.5,
+      "margin": 0.0,
+      "delivery_tolerance": 0.0
+    },
+    {
+      "beta": 0.5,
+      "margin": 0.0,
+      "delivery_tolerance": 0.01
+    },
+    {
+      "beta": 0.5,
+      "margin": 0.5,
+      "delivery_tolerance": 0.0
+    },
+    {
+      "beta": 0.5,
+      "margin": 0.5,
+      "delivery_tolerance": 0.01
+    },
+    {
+      "beta": 0.5,
+      "margin": 1.0,
+      "delivery_tolerance": 0.0
+    },
+    {
+      "beta": 0.5,
+      "margin": 1.0,
+      "delivery_tolerance": 0.01
+    },
+    {
+      "beta": 1.0,
+      "margin": 0.0,
+      "delivery_tolerance": 0.0
+    },
+    {
+      "beta": 1.0,
+      "margin": 0.0,
+      "delivery_tolerance": 0.01
+    },
+    {
+      "beta": 1.0,
+      "margin": 0.5,
+      "delivery_tolerance": 0.0
+    },
+    {
+      "beta": 1.0,
+      "margin": 0.5,
+      "delivery_tolerance": 0.01
+    },
+    {
+      "beta": 1.0,
+      "margin": 1.0,
+      "delivery_tolerance": 0.0
+    },
+    {
+      "beta": 1.0,
+      "margin": 1.0,
+      "delivery_tolerance": 0.01
+    }
+  ],
+  "selection": "separately per algorithm/model pooled calibration utility, delivery>=SAFE-1pp; if no option eligible deploy SAFE; explicit abstention candidate; ties prefer abstention then first candidate",
+  "audit": "freeze selected options and all model/checkpoint hashes; evaluate all six methods on8 fresh2/3-fork development graphs x8conditions x8seeds x2algorithms =6144 method episodes; no audit-driven model changes",
+  "uncertainty": "exploratory crossed bootstrap intervals conditional on existing routing checkpoints; not independent fresh algorithm-training replication or confirmatory superiority",
+  "advance": "development evidence only; report predictive error vszero and paired fleet outcomes; a new superiority claim needs separately specified matched retraining and untouched confirmation",
+  "limitations": [
+    "one-override budget can miss joint-message benefits",
+    "SAFE remainder is deliberate reference context",
+    "no delayed-effect zero assumption from no next-action change",
+    "tree dispersion not calibrated",
+    "16 existing actors reused, not16 new independent seeds",
+    "small synthetic graphs, not operational validation",
+    "all conditions and negative findings retained"
+  ],
+  "source_hash": "da481db5ccfe32d632ca23934952b95d21ef9463fcf809f1ef90c72a71c00c0b"
+}
