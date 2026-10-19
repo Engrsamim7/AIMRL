@@ -9,7 +9,7 @@
     "exact_reference_cells.csv"
   ],
   "regenerated_readme_index_verification_exact": true,
-  "public_downloads_verified": false,
+  "public_downloads_verified": true,
   "AIMRL-journal-readiness.zip": {
     "bytes": 6342242,
     "sha256": "5eb30ec0df7dc1da69ca9676a4082798c28031e704985d007b6a9f6f98b57881"
@@ -17,5 +17,22 @@
   "AIMRL-journal-readiness-figures.pdf": {
     "bytes": 35045,
     "sha256": "d6e0116fc899174278d0c76685be120237498bd3db460fc476f2ae0a71c6f086"
-  }
+  },
+  "public_downloads": [
+    {
+      "path": "deliverables/AIMRL-journal-readiness.zip",
+      "bytes": 6342242,
+      "sha256": "5eb30ec0df7dc1da69ca9676a4082798c28031e704985d007b6a9f6f98b57881"
+    },
+    {
+      "path": "deliverables/AIMRL-journal-readiness-figures.pdf",
+      "bytes": 35045,
+      "sha256": "d6e0116fc899174278d0c76685be120237498bd3db460fc476f2ae0a71c6f086"
+    },
+    {
+      "path": "revision/journal-readiness-assessment.md",
+      "bytes": 10678,
+      "sha256": "beecd83927b21f2ac2b2e8f015c4d7ca23a6fb299b1e4cc1b16d47b630ed35da"
+    }
+  ]
 }
