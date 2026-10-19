@@ -1,0 +1,17 @@
+algo,case,difference_pp
+dqn,late-control,0.0
+dqn,no-hazard-control,0.0
+dqn,seen-r2.0-d1.0,0.12499999999999997
+dqn,seen-r2.0-d4.0,0.062499999999999986
+dqn,seen-r6.0-d1.0,0.625
+dqn,seen-r6.0-d4.0,0.3125
+dqn,unseen-r4-d2-loss20,-0.18750000000000014
+dqn,unseen-r8-d1-loss20,0.2500000000000001
+mappo,late-control,0.0
+mappo,no-hazard-control,0.0
+mappo,seen-r2.0-d1.0,0.0
+mappo,seen-r2.0-d4.0,0.062499999999999986
+mappo,seen-r6.0-d1.0,0.06250000000000003
+mappo,seen-r6.0-d4.0,0.12499999999999997
+mappo,unseen-r4-d2-loss20,0.3125
+mappo,unseen-r8-d1-loss20,9.992007221626409e-17

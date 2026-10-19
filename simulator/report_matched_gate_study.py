@@ -146,10 +146,14 @@ def main():
         axes[0].set_ylabel('COMBINED minus SAFE delivery (pp)');fig.suptitle('Primary effect by seed: descriptive variation');fig.tight_layout();save(fig,'06_seed_variation')
         fig,axes=plt.subplots(1,2,figsize=(11,4),sharey=True)
         for ax,algo in zip(axes,['dqn','mappo']):
+            warm=training[(training.algo==algo)&(training.method=='WARMUP')].groupby('episode').delivery_rate.mean()
+            ax.plot(warm.index,100*warm.rolling(30,min_periods=1).mean(),color='gray',label='Common ALL warmup')
             for m in METHODS:
-                y=training[(training.algo==algo)&(training.method==m)].groupby('episode').delivery_rate.mean().rolling(30,min_periods=1).mean()*100
+                adapted=training[(training.algo==algo)&(training.method==m)].groupby('episode').delivery_rate.mean()
+                y=pd.concat([warm,adapted]).rolling(30,min_periods=1).mean().loc[300:]*100
                 ax.plot(y.index,y,label=m)
-            ax.set_title(algo.upper());ax.set_xlabel('Training episode (300 common warmup episodes precede this)');ax.legend()
+            ax.axvline(300,color='gray',ls=':',lw=1)
+            ax.set_title(algo.upper());ax.set_xlabel('Training episode; adaptation starts at 300');ax.legend(fontsize=8)
         axes[0].set_ylabel('Training delivery (%, rolling 30)');fig.tight_layout();save(fig,'07_real_training')
         fig,axes=plt.subplots(1,2,figsize=(13,5),sharey=True)
         for ax,algo in zip(axes,['dqn','mappo']):
@@ -161,7 +165,7 @@ def main():
     body='# Matched-training gate study\n\n'
     body+=f'Completed 81,920 final method-evaluation episodes (409,600 convoy records), 10,240 fixed-actor diagnostic episodes, 64 adapted checkpoints and eight independent paired training seeds per algorithm. **Primary learned-addition superiority supported for: {", ".join(successful) if successful else "neither algorithm"}.**\n\n'
     body+='## Primary question: does learned filtering add benefit beyond safeguards?\n\n'+primary.to_markdown(index=False)+'\n\n'
-    body+='Positive numerical differences without a positive corrected lower bound are inconclusive. The intervals jointly correct 50 new and 198 prior comparisons; secondary case wins do not replace the pooled primary endpoint. Eight paired seeds are the training replication, not the number of convoy records.\n\n'
+    body+='Positive numerical differences without a positive corrected lower bound are inconclusive. Each new interval uses a conservative 248-test threshold (50 new plus 198 prior comparisons). Earlier published intervals are preserved rather than recomputed here; this is not a claim of revised joint coverage for all historical results. Secondary case wins do not replace the pooled primary endpoint. Eight paired seeds are the training replication, not the number of convoy records.\n\n'
     body+='## All conditions\n\n'+summary[['algo','case','method','episodes','delivery_pct','follower_delivery_pct','utility','elapsed_delivered']].to_markdown(index=False)+'\n\n'
     body+='## All confirmatory comparisons\n\n'+contrasts.to_markdown(index=False)+'\n\n'
     body+='## Interpretation and limits\n\n'

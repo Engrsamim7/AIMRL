@@ -1,5 +1,22 @@
 # AIMRL
 
+## Matched-training gate study — 19 October 2026
+
+This follow-up tests whether learned message filtering adds benefit beyond
+identical conservative safeguards when the routing actors adapt under each
+method. It uses eight paired seeds per algorithm, four factorial arms, new
+layouts and corruption settings, and a predeclared pooled delivery endpoint.
+Read the actual primary result before interpreting case-specific improvements.
+The earlier frozen-model experiments remain separately available below.
+
+- [New results, primary intervals and all conditions](revision/matched-gate-results/README.md).
+- [Eight new figures in one PDF](deliverables/AIMRL-matched-gate-figures.pdf).
+- [Complete new code, 64 checkpoints and raw data ZIP](deliverables/AIMRL-matched-gate-study.zip).
+- [Offline visual report](revision/matched-gate-results/index.html).
+- [Protocol published before testing](revision/matched-gate-protocol.md).
+- [Figure interpretation guide](revision/matched-gate-figure-guide.md).
+- [Updated bounded manuscript claim](revision/matched-gate-claim-draft.md).
+
 ## Fresh study: physical communication opportunities and learned message value
 
 This study introduces randomized multi-fork layouts with physically leading

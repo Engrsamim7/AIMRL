@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "source_hash": "b2cf1818206c15f39a93308ef396fc366d80d6a4b7130efb0adc7e604b574b8f",
+  "archive": "AIMRL-matched-gate-study.zip",
+  "archive_sha256": "af876349132cfe634482751233d37435d2b3146860000db74a49437ea18733d6",
+  "manifest_files_verified": 258,
+  "tests_passed_from_extracted_package": 85,
+  "tests_failed": 0,
+  "report_regenerated_from_packaged_gzip_data": true,
+  "quantitative_tables_identical": {
+    "common_survivors.csv": "e2506e64873655141ae50ecbed77db02f68e89ee94b2be4224d16fda32ed8c6a",
+    "contrasts.csv": "f541fabd8f74c97bf4d81816fa540278ed66b1b90e20fc72edc7d2f2d04c2b7e",
+    "fixed_actor_diagnostic.csv": "503ffa900c59e1f4b9e195faf8c37949655aa10edcc39cef59a36193b44c8460",
+    "fixed_actor_pooled.csv": "8a44d1e71ea1e4d455f515bf9c9c96c88dbe9fd5a8379e0598d3a35d8a171065",
+    "prediction_diagnostic.csv": "f55a5da9340ea082b5d238f61ce7f2e6c37e2096c3fe73c06b888980fe9fd7c7",
+    "primary_seed_effects.csv": "5e2f4857982c7c18c1132652c7093e2b01368b5c7d26ece23ab126c3fe28d2cd",
+    "summary.csv": "7bbd6142c2953fb78c9ac732a7587a5e3aed06dff3cd9e178c0b123f8297f2fc",
+    "topology_size.csv": "50923bbfc5f8209eed91de7677ada922db1b8d8a23d953e71ab0ef1da861ff59"
+  },
+  "pdf_pages": 8
+}
