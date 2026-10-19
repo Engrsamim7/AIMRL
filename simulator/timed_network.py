@@ -164,8 +164,8 @@ class TimedNetwork:
             self.units.append(Unit(i,target,depart,depart+case.deadline_ratio*lower[target],node=g.depot))
         self.schedule=Schedule(g,case,seed,self.reference)
         self.flow=np.zeros(g.m,int);self.busy=np.zeros(g.n,int);self.queues=[deque() for _ in range(g.n)]
-        self.events=[];self.sequence=0;self.t=0.;self.radio_busy=False;self.radio=[];self.packet_sequence=0
-        self.stats=dict(observations=0,generated=0,transmitted=0,coalesced=0,value_rejected=0,lost=0,delivered_packets=0,radio_queue_delay=0.,routing_calls=0,peer_action_changes=0,peer_available_calls=0,blocked_options=0,blocked_attempts=0,report_brier_sum=0.,report_brier_n=0)
+        self.events=[];self.sequence=0;self.t=0.;self.radio_busy=False;self.radio=[];self.packet_sequence=0;self.active_packet=None
+        self.stats=dict(observations=0,generated=0,transmitted=0,tx_started=0,radio_airtime=0.,coalesced=0,value_rejected=0,lost=0,delivered_packets=0,radio_queue_delay=0.,routing_calls=0,peer_action_changes=0,peer_available_calls=0,blocked_options=0,blocked_attempts=0,report_brier_sum=0.,report_brier_n=0)
         self.decisions=[];self.packets=[];self.observations=[];self.distance_cache={};self.movements=[]
         # Public manifest and topology only; no live remote convoy positions.
         self.reference_paths={target:path(g,g.depot,target,g.c) for target in g.targets}
@@ -231,10 +231,12 @@ class TimedNetwork:
         else:key=lambda p:(p['number'],)
         packet=min(self.radio,key=key);self.radio.remove(packet);self.radio_busy=True
         packet['tx_start']=self.t
-        self.stats['radio_queue_delay']+=self.t-packet['offered']
+        self.stats['tx_started']+=1;self.active_packet=packet
         self.push(self.t+self.case.packet_time*self.scale,'TX_END',packet)
     def finish_radio(self,packet):
-        self.radio_busy=False;self.stats['transmitted']+=1
+        self.radio_busy=False;self.active_packet=None;self.stats['transmitted']+=1
+        self.stats['radio_queue_delay']+=packet['tx_start']-packet['offered']
+        self.stats['radio_airtime']+=self.t-packet['tx_start']
         packet=dict(packet,tx_end=self.t)
         u=self.units[packet['sender']];u.advertised[packet['edge']]=(packet['blocked'],packet['t_obs'],packet['confidence'])
         if self.record:self.packets.append(packet)
@@ -326,6 +328,8 @@ class TimedNetwork:
             elif kind=='INSPECT_END':u.inspection+=self.t-u.segment_start;self.decide(u)
             elif kind=='HOLD_END':u.hold+=self.t-u.segment_start;self.decide(u)
             if all(x.status=='done' for x in self.units):break
+        final_clock=self.t if all(u.status=='done' for u in self.units) else self.horizon
+        if self.active_packet is not None:self.stats['radio_airtime']+=max(0.,final_clock-self.active_packet['tx_start'])
         self.t=self.horizon
         rows=[]
         for u in self.units:
@@ -338,4 +342,4 @@ class TimedNetwork:
             elapsed=end-u.depart
             assert abs(elapsed-u.travel-u.service-u.wait-u.inspection-u.hold)<1e-7,(u.cid,elapsed,u)
             rows.append(dict(convoy=u.cid,target=u.target,depart=u.depart,deadline=u.deadline,delivered=int(u.status=='done'),on_time=int(u.status=='done' and end<=u.deadline),censored=int(u.status!='done'),elapsed=elapsed,travel=u.travel,service=u.service,wait=u.wait,inspection=u.inspection,hold=u.hold,nominal=u.nominal,encounters=u.encounters,path=repr(u.path)))
-        return dict(delivery=np.mean([r['delivered'] for r in rows]),on_time=np.mean([r['on_time'] for r in rows]),elapsed=np.mean([r['elapsed'] for r in rows]),nominal=np.mean([r['nominal'] for r in rows]),encounters=sum(r['encounters'] for r in rows),tx_bytes=64*self.stats['transmitted'],**self.stats),rows
+        return dict(delivery=np.mean([r['delivered'] for r in rows]),on_time=np.mean([r['on_time'] for r in rows]),elapsed=np.mean([r['elapsed'] for r in rows]),nominal=np.mean([r['nominal'] for r in rows]),encounters=sum(r['encounters'] for r in rows),tx_bytes=64*self.stats['transmitted'],attempted_tx_bytes=64*self.stats['tx_started'],**self.stats),rows

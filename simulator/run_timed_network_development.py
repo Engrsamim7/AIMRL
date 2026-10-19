@@ -66,7 +66,7 @@ def job(task):
 
 
 def main():
- ap=argparse.ArgumentParser();ap.add_argument('--output',default='simulator/out/timed-network-development');ap.add_argument('--workers',type=int,default=4);ap.add_argument('--episodes',type=int,default=6);args=ap.parse_args()
+ ap=argparse.ArgumentParser();ap.add_argument('--output',default='simulator/out/timed-network-development-v2');ap.add_argument('--workers',type=int,default=4);ap.add_argument('--episodes',type=int,default=6);args=ap.parse_args()
  out=Path(args.output).resolve();out.mkdir(parents=True,exist_ok=False);initial=fingerprint();start=time.perf_counter()
  design=dict(status='specified_before_development_run',scope='new network development benchmark, not fresh confirmatory superiority or a trained MARL result',source_hash=initial,
   methods=METHODS,cases=[asdict(c) for c in CASES],packet_times=BANDWIDTHS,development_graphs=[19,19,51,51,131,131],episodes_per_cell=args.episodes,
