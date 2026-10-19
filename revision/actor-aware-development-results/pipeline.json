@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "source_hash": "da481db5ccfe32d632ca23934952b95d21ef9463fcf809f1ef90c72a71c00c0b",
+  "seconds": 732.9071060380084,
+  "existing_routing_actors": 16,
+  "new_routing_training_seeds": 0,
+  "estimators": 32,
+  "factual_development_episodes": 6144,
+  "fit_factual_episodes": 4096,
+  "calibration_method_episodes": 39936,
+  "audit_method_episodes": 6144
+}

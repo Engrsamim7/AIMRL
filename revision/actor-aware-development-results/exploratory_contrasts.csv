@@ -1,0 +1,9 @@
+algo,endpoint,baseline,difference,exploratory_lower,exploratory_upper,interpretation
+dqn,utility,SAFE,0.011498478922594299,-0.7327078030114128,0.7939825535763397,development only; no corrected superiority claim
+dqn,utility,TREE_BASE,0.18103846538070423,-0.08998941174552517,0.6092073958425571,development only; no corrected superiority claim
+dqn,delivery,SAFE,0.07812500000000003,-0.8984375000000002,1.1328125,development only; no corrected superiority claim
+dqn,delivery,TREE_BASE,0.2734375,-0.11718749999999997,0.8593750000000001,development only; no corrected superiority claim
+mappo,utility,SAFE,0.44639887908377185,-0.03592072987821534,1.0422951572830852,development only; no corrected superiority claim
+mappo,utility,TREE_BASE,0.24177594934344657,-0.05238573476785353,0.843904250150198,development only; no corrected superiority claim
+mappo,delivery,SAFE,0.6640625,0.0,1.4453125000000004,development only; no corrected superiority claim
+mappo,delivery,TREE_BASE,0.35156249999999994,0.0,1.1718749999999998,development only; no corrected superiority claim

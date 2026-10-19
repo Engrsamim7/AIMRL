@@ -1,0 +1,26 @@
+{
+  "status": "local_validation_passed_publication_pending",
+  "source_hash": "da481db5ccfe32d632ca23934952b95d21ef9463fcf809f1ef90c72a71c00c0b",
+  "manifest_files": 259,
+  "archive_bytes": 10402952,
+  "archive_sha256": "c7e0ca58fa5331e3c535e6922a319b0c76084b7b19a93bc6fe848e98e3c4478a",
+  "pdf_bytes": 39222,
+  "pdf_sha256": "9cd2cdd78f2fd46dc909d3f33eb5972dde2d3d3f7e762f0e647c44b18c33d626",
+  "pdf_pages": 6,
+  "clean_extraction_tests_passed": 111,
+  "regenerated_tables": [
+    "exploratory_contrasts.csv",
+    "label_summary.csv",
+    "opportunity_scope.csv",
+    "pooled_means.csv",
+    "prediction_quality.csv",
+    "sampled_opportunity.csv",
+    "sampled_proposal_quality.csv",
+    "seed_effects.csv",
+    "selection.csv",
+    "summary.csv"
+  ],
+  "comparison": "exact parsed table equality; README, HTML and verification byte-identical",
+  "final_repack_change": "interpretation document only; executable source and data identical to tested extraction",
+  "historical_recovery_fingerprint_unchanged": true
+}

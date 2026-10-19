@@ -1,5 +1,18 @@
 # AIMRL
 
+## Actor-aware fleet-value development
+
+The latest development phase probes the actual frozen routing actor, predicts
+fleet effects and permits one learned override per episode. MAPPO shows a small
+development mean gain; DQN is weak and useful clearance acceptance remains
+unresolved. This is not a new superiority confirmation or new routing training.
+
+- [What changed, measured opportunity and actual findings](revision/actor-aware-development-findings.md).
+- [All development tables and reproduction commands](revision/actor-aware-development-results/README.md).
+- [Download six-figure PDF](deliverables/AIMRL-actor-aware-development-figures.pdf).
+- [Download complete source, models and data ZIP](deliverables/AIMRL-actor-aware-development.zip).
+- [Development protocol](revision/actor-aware-development-protocol.md).
+
 ## Dynamic-recovery gate redesign — completed experiment
 
 The redesigned gate can accept and reject relative to SAFE, with bounded authority,

@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "source_hash": "da481db5ccfe32d632ca23934952b95d21ef9463fcf809f1ef90c72a71c00c0b",
+  "report_sha256": "3835153e8d7cf8f9d22bd7d9c2f8618beca39b658cfbb7c6fb8ff9f4fa0d5d68",
+  "existing_routing_actors": 16,
+  "new_routing_training_seeds": 0,
+  "estimators": 32,
+  "factual_episodes": 6144,
+  "labels": 15397,
+  "audit_episodes": 6144,
+  "audit_convoys": 30720,
+  "calibration_episodes": 39936,
+  "figures": 6,
+  "exploratory_contrasts": 8,
+  "claim": "development only; no superiority established"
+}
