@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "source_hash": "e4deefb549873c6cfb8aee7b73f6ca3e674e0fa990b6dd16305a4174fdc0fb55",
+  "zip_sha256": "da6de956fca4d769a85c05afd19a62d14cdbb2ddf0d405399d00330c9f281a12",
+  "zip_bytes": 4206420,
+  "pdf_sha256": "be1ca58e85190e9edf8b5304143e69b0173cbfcddf25fc9da77372f2a0435b1d",
+  "pdf_bytes": 59897,
+  "manifest_files": 467,
+  "extracted_package_tests": 120,
+  "regenerated_tables_exact": [
+    "all_conditions.csv",
+    "closest_repair_pairs.csv",
+    "communication.csv",
+    "contrasts.csv",
+    "original_cc2.csv",
+    "original_reproduction.csv",
+    "presentation_comparison.csv",
+    "repaired_summary.csv"
+  ],
+  "regenerated_readme_offline_html_verification_exact": true,
+  "public_downloads_verified": false
+}

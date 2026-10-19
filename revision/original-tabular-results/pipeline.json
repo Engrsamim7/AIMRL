@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "source_hash": "e4deefb549873c6cfb8aee7b73f6ca3e674e0fa990b6dd16305a4174fdc0fb55",
+  "seconds": 41.100788423995255,
+  "original_training_episodes": 7500,
+  "original_M4_evaluation_episodes": 515,
+  "original_CC2_unique_episodes": 2000,
+  "closest_repair_training_episodes": 1500,
+  "closest_repair_evaluation_episodes": 100,
+  "repaired_training_episodes": 24000,
+  "validation_episodes": 4320,
+  "test_episodes": 43200,
+  "repaired_tabular_models": 80
+}

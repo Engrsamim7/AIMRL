@@ -1,0 +1,119 @@
+{
+  "status": "specified_before_training_and_comparison",
+  "purpose": "faithful original reproduction and minimal tabular repairs, NOT a neural or learned-gate study",
+  "original": {
+    "topology_seed": 42,
+    "nodes": 19,
+    "edges": 64,
+    "seeds": [
+      42,
+      137,
+      271,
+      999,
+      1337
+    ],
+    "training_episodes": 300,
+    "learned_evaluation_episodes": 20,
+    "classical_evaluation_episodes": 1,
+    "methods": [
+      "B1",
+      "B2",
+      "B3",
+      "IQL",
+      "NC",
+      "AMMARL",
+      "AMMARL_NOGAT",
+      "MAPPO_LABEL"
+    ],
+    "M4": {
+      "n_ag": 3,
+      "rb": 2,
+      "reveal": 5.0,
+      "hub_capacity": 5,
+      "radius": 1,
+      "delay": 2.0
+    },
+    "CC2": "2 unique NC/AMMARL paths x5 seeds x200 episodes; preserve original label-alias mapping, do not pretend seven independent algorithms"
+  },
+  "execution": "AST select unmodified original function/class bodies, run exact training/evaluation helpers; read-only trace instrumentation verified against direct originals; do not run presentation generator or top-level campaigns",
+  "reproduction_limits": "source-execution reproduction, not verification of published constants or a universal fixed-environment bitwise historical reproduction; original eval epsilon.05 and top-level protocol retained",
+  "repair": "same hub-indexed independent Q-learning, alpha.15,gamma.93,epsilon decay.992 floor.05,post-episode updates; connect genuine hazard source, edge-identify buffer, clear/reset, reject future/expired/duplicate packets, own timestamp precedence, stable event ties, recheck blocked retry, avoid self-counting hub capacity and release terminal slots; train only physically realized transitions with terminal mask; separate nominal/legacy costs and failure/censoring",
+  "source_assumption": "observed revealed block maps to hazard1; observed base threat>=.25 or changed block emits confidence1; report generation continues in NONE so message overhead and unrelated RNG consumption remain matched",
+  "unchanged_physics": "original event-driven traversal/congestion, original persistent red blocks and traffic-reactive busiest-edge wave; no destruction probability added; threat-score proxy is NOT delivery or survival probability; same19-node graph",
+  "repaired_train": {
+    "seeds": [
+      42,
+      137,
+      271,
+      999,
+      1337
+    ],
+    "episodes": 300,
+    "arms": [
+      "NONE",
+      "ALL",
+      "FRC",
+      "TRAVEL"
+    ],
+    "weights": {
+      "code": {
+        "peer_weight": 8.0,
+        "local_weight": 2.0,
+        "delta": 0.05
+      },
+      "manuscript": {
+        "peer_weight": 12.0,
+        "local_weight": 8.0,
+        "delta": 0.15
+      }
+    },
+    "sensing": [
+      "uniform",
+      "mixed"
+    ],
+    "models": 80,
+    "regimes": "original M4 training config rb0/1/2 thirds, reveal5,delay2,loss0; six regimes are held-out evaluation sensitivities"
+  },
+  "sensing": "uniform radius1 is closest to original; mixed is separately labeled scientific refinement: C0 radius2, followers radius1 and public inter-hub blind-edge mask; unknown prior.35 at age-inf, not a fabricated clear observation",
+  "scoring": "code8/2 delta.05 versus manuscript12/8 delta.15 is an explicit scoring-specification factor; all modes within each specification have identical coefficients; this factor changes weights AND fork criterion, so do not attribute its total effect to weights alone",
+  "gates": "FRC eta.4 TTL8 confidence.6 immediate fork relevance; TRAVEL min(TTL,eta*own visible outgoing travel estimate),sameconfidence/relevance; no value learning or neural features",
+  "validation": "4 fresh graph seeds100010..100013 x6cases x3 environment episodes x5 actor seeds; choose TRAVEL eta.4/.8/1.6 by pooled delivery then nominal all cost, fixed candidate order; FRC retains manuscript eta.4; weights unchanged",
+  "test": "original graph42 plus8 fresh graph seeds100100..100107;6cases x10 environment episodes;80 separately trained tabular configurations;43200 method episodes129600convoys; original graph primary, fresh graphs transfer; no assumed generalization",
+  "tapes": {
+    "training": "300000000+seed_index*10000+episode",
+    "validation": "310000000+graph_index*10000+case_index*100+episode",
+    "test": "320000000+graph_index*10000+case_index*100+episode"
+  },
+  "contrasts": "FRC minus ALL/NONE and selected TRAVEL minus FRC;2scoring specifications x2sensing contracts x2metrics(delivery,route-prior score on all convoys) x2topology scopes=48 pooled contrasts; all conditions descriptive",
+  "uncertainty": "200000 crossed paired training-seed/environment bootstrap draws; Bonferroni436 =388 earlier+48 new contrasts; original graph inference conditions on that graph; fresh graph scope resamples graphs",
+  "limits": [
+    "not an operational simulator",
+    "original threat is a route score, no attack-induced killing model",
+    "original attack targets can depend on traffic; paired seeds are total policy comparisons, not identical exogenous attack tapes",
+    "uniform sensing can make delayed peer information redundant",
+    "small fixed training budget does not establish convergence",
+    "historical presentation constants remain unverified",
+    "mixed sensing/travel age are refinements, not bug fixes"
+  ],
+  "source_hash": "e4deefb549873c6cfb8aee7b73f6ca3e674e0fa990b6dd16305a4174fdc0fb55",
+  "original_sha256": {
+    "env.py": "480094cac83c282ebbc52b2c712e82abcd384754b24f77fa05e6a16ecc1d70c4",
+    "Core.py": "aabffe1be95b54e2bc51ebdbb315d707fd6cdab1f9804aefe4d97dad97586d73",
+    "Environment1.py": "051c61503a7ab855a5ad6c873b7d533ceae8602110ca45024352327782701439",
+    "ammarl_sim_core.py": "d112b5d3dadeebaeadd63c429003cc9f6edf86aa4c93af90ee23fe65646e3f8d",
+    "eval_marl.py": "a7c9fc0c134170d56f62586689c48b1ebe31813ad4ccd2c419a84bf84008c964",
+    "sim_v1.py": "a983a58c524226ec18fee083ce525f62c61104a3d414faf10e190c9fad26a3ee",
+    "Untitled-1.py": "d853058d109f9eef8b8dca9f194e32e308e5fcdde0b5a19203ea8e11ce1156e3",
+    "environment.py": "591314d5f4b6e8269c3e8e54323e905d4262c7550c427313d016d9a9bdc7231f",
+    "eval_b123.py": "80086f56275500fa9edf45a341216c4a281e5da2808dc37713e6a3695673b8a3",
+    "ammarl_gated_eval.py": "37451e0d6d710d9faf415e40330dd59c7e48a8805382fdc701148374b514a6c1",
+    "inventory.json": "5cfa3b41c01d892ae17ae753c95662aa959bdc2e20e35da181480228ade86d48",
+    "ammarl_tuning_report.txt": "1b753d05b16c776c240ef7989ab602e051fdd12ff10a6c7fb19b23bcffaf1be5",
+    "environment.ini": "98082ff89f368e263f27ab790037ff9fd030201791b15474196b9631b639b77f",
+    "scenario_design.py": "e842bf61ed37afe93dc23a6a9afb0d37c7c1632bd6de9d8a05eb4aa870490d24",
+    "ammarl_tuning_best.csv": "35c00b9161fa76a7691b9c619bfb478d113a1fc1a9c766769ac6a5d8a16b5e12",
+    "sim_v1_sc9_sc10_sc11.py": "5ce8eec372c369b797573e36ca22f5273434e16273192a7e104e1f07086e1726",
+    "final_pipeline.py": "4c6028b1a0a19ac66ea1feaa51c814661fb9385024013bbff222a5651114c12a",
+    "cc2_scenario.py": "f723a0c6cc699c54b3aa84864a8aa0063e1b6447786cfdbafa0879598887cfa0"
+  }
+}

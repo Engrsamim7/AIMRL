@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "source_hash": "e4deefb549873c6cfb8aee7b73f6ca3e674e0fa990b6dd16305a4174fdc0fb55",
+  "report_hash": "787dad114ed7d40f715e971f3acf7212c22e8b4b878730d017912d98257d8a61",
+  "submitted_hashes_preserved": true,
+  "original_training": 7500,
+  "original_M4_evaluation": 515,
+  "original_CC2_unique": 2000,
+  "closest_repair_training": 1500,
+  "closest_repair_evaluation": 100,
+  "controlled_tabular_training": 24000,
+  "validation": 4320,
+  "test_episodes": 43200,
+  "test_convoys": 129600,
+  "contrasts": 48,
+  "correction": 436,
+  "bootstrap_draws": 200000,
+  "figures": 8,
+  "original_M4_AMMARL_hazard_entries": 0,
+  "original_M4_AMMARL_hazard_uses": 0
+}

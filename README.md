@@ -1,5 +1,18 @@
 # AIMRL
 
+## Original tabular AMMARL reproduction and repairs
+
+The latest study returns to the submitted tabular Q-learning and fixed FRC gate.
+Original AMMARL/IQL route scores reproduce 0.876/0.857, but these are not survival
+probabilities: delivery is 100% and original M4 hazard use is zero. The repaired
+43,200-episode comparison also finds no FRC advantage over accepting all reports.
+
+- [What reproduced, what changed and the defensible claim](revision/original-tabular-findings.md).
+- [Eight-figure PDF](deliverables/AIMRL-original-tabular-figures.pdf).
+- [Complete code, original uploads, models and raw-results ZIP](deliverables/AIMRL-original-tabular-study.zip).
+- [Tables and reproduction commands](revision/original-tabular-results/README.md).
+- [Protocol](revision/original-tabular-protocol.md) and [offline figures](revision/original-tabular-results/index.html).
+
 ## Actor-aware fleet-value development
 
 The latest development phase probes the actual frozen routing actor, predicts
