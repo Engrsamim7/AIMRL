@@ -28,7 +28,7 @@ def main():
             if p.suffix=='.csv' and p.with_suffix('.csv.gz').exists():continue
         files.append(p)
     files.extend(p for p in report.rglob('*') if p.is_file())
-    for name in ['requirements-lock.txt','setup_local.sh','.gitignore','.gitattributes','revision/matched-gate-protocol.md','revision/matched-gate-claim-draft.md']:
+    for name in ['requirements-lock.txt','setup_local.sh','.gitignore','.gitattributes','revision/matched-gate-protocol.md','revision/matched-gate-claim-draft.md','revision/submission-code-audit/original_network_seed42.json']:
         files.append(ROOT/name)
     dest=ROOT/'deliverables';dest.mkdir(exist_ok=True)
     shutil.copy2(report/'matched_gate_report.pdf',dest/'AIMRL-matched-gate-figures.pdf')
