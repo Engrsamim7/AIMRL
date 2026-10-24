@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "source_hash": "50955abde683815ede4d1883541870f2d96f260034ed379b0ef0135dc72e13a3",
+  "report_hash": "01483f5d6b2151f8ea974e790dea9e209c10c804b477e688f2d18a5ecc9ee206",
+  "baseline_episodes": 1104,
+  "batched_episodes": 1104,
+  "captured_episodes": 1023,
+  "isolated_interventions": 3017,
+  "convoy_records": 41800,
+  "reference_on_time_pct": 69.79166666666666,
+  "batched_on_time_pct": 69.63315217391305,
+  "batch_difference_pp": -0.1585144927536232,
+  "sampled_hindsight_gain_pp": 0.6340579710144928,
+  "figures": 3,
+  "controller_trained": false,
+  "superiority_test": false
+}

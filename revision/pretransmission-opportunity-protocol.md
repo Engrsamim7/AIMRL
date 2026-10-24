@@ -25,7 +25,7 @@ specific reservation. The send branch must reproduce the uninterrupted outcome
 exactly. Twenty-four predetermined pilot cases also compare the full reference
 outcome against the untouched original event engine.
 
-One preselected reservation per episode is captured at index1/3/8/16, rotated
+One preselected reservation per episode is captured at index 1/3/8/16, rotated
 deterministically by actor, graph, case, capacity and episode. Its selection
 does not inspect a future outcome. Each feasible action is continued through
 fleet completion/horizon, retaining all eight convoy records and elapsed-time
@@ -33,13 +33,13 @@ components. Defer is omitted when service time is zero. Swap is omitted when no
 ready alternative exists. Both helpful and harmful outcomes are retained.
 
 The design uses all eight original routing actors, including the explicitly
-selected initial policy, and three new weighted graph instances at19/51/131
+selected initial policy, and three new weighted graph instances at 19/51/131
 nodes. Adjacency families are fixed; one instance per size does not support
 topology-generalization inference. All twelve prior conditions are retained.
-Each non-unlimited condition is run at packet_time0.25 and1; the unlimited case
-uses0. Each cell has two exogenous schedules. There are1,104 factual episodes
-plus1,104 full-episode batched-priority reference episodes, and a variable number
-of isolated alternative continuations. New development namespace860000000+
+Each non-unlimited condition is run at packet_time 0.25 and 1; the unlimited case
+uses 0. Each cell has two exogenous schedules. There are 1,104 factual episodes
+plus 1,104 full-episode batched-priority reference episodes, and a variable number
+of isolated alternative continuations. New development namespace 860000000+
 is independent of the earlier study. This is a mechanism pilot, not a sufficient
 sample-size justification for a final performance claim.
 

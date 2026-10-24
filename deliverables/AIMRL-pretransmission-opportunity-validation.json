@@ -1,0 +1,28 @@
+{
+  "status": "portable_verification_passed",
+  "files": 297,
+  "bytes": 3341627,
+  "sha256": "a7d9311d44e4973d680c41dbd70e4bf28e4bc04cf718491a8e8407812856f643",
+  "extracted_tests": {
+    "passed": 170,
+    "failed": 0
+  },
+  "report_regeneration_exact": true,
+  "public_downloads_verified": false,
+  "exact_regenerated_files": [
+    "01_action_effects.png",
+    "02_batching_and_opportunity.png",
+    "03_all_conditions.png",
+    "README.md",
+    "action_effects.csv",
+    "all_action_conditions.csv",
+    "all_conditions.csv",
+    "all_episode_diagnostics.csv",
+    "identified_interventions.csv",
+    "index.html",
+    "summary.csv",
+    "verification.json"
+  ],
+  "pdf_note": "Creation metadata excluded; all3 rendered PNG figures match byte-for-byte.",
+  "historical_study_archive_unchanged": true
+}

@@ -1,0 +1,4 @@
+arm,on_time_pct
+Original VALUE priority / ALL receiver,69.79166666666666
+Batched VALUE priority / ALL receiver,69.63315217391305
+Sampled hindsight best action (not deployable),70.42572463768117

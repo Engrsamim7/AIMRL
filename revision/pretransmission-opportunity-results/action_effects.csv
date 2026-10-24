@@ -1,0 +1,4 @@
+action,interventions,helpful,harmful,no_delivery_effect,mean_gain_when_available_pp,gain_sum,mean_gain_over_all_episodes_pp
+defer,975,18,17,940,-0.01282051282051282,-0.125,-0.011322463768115942
+drop,1023,42,47,934,-0.18328445747800587,-1.875,-0.16983695652173914
+swap,1019,18,17,984,-0.01226692836113837,-0.125,-0.011322463768115942

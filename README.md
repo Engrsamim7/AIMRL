@@ -1,6 +1,19 @@
 # AIMRL
 
-## Current delivery-primary learned-routing experiment (v3)
+## Implemented pre-transmission mechanism pilot
+
+A new radio reservation/intervention prototype is implemented and evaluated with
+frozen routers: 1,104 factual episodes, 1,104 batched-priority reference episodes
+and 3,017 isolated interventions. All 170 tests pass. Hindsight over the sampled
+actions finds a 0.634-point delivery opportunity; this is not a deployed or
+learned-controller result. The one-point superiority target remains unsupported.
+
+- [Implemented behavior, results and remaining work](revision/pretransmission-opportunity-findings.md).
+- [Three-figure PDF](deliverables/AIMRL-pretransmission-opportunity-figures.pdf).
+- [Prototype, actor checkpoints and raw-results ZIP](deliverables/AIMRL-pretransmission-opportunity.zip).
+- [All tables](revision/pretransmission-opportunity-results/README.md) and [protocol](revision/pretransmission-opportunity-protocol.md).
+
+## Completed delivery-primary learned-routing experiment (v3)
 
 Delivery improvement remains the primary objective. The corrected simulator
 trains eight routing runs and causal packet-value gates, then evaluates 21,600
