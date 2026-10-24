@@ -1,12 +1,12 @@
 {
-  "status": "portable_verification_passed",
+  "status": "portable_and_public_verified",
   "files": 265,
   "bytes": 5449809,
   "sha256": "75acae9aeee785c4abc7a51f28ded8925c80778be558d68673bb1aaaf8da50de",
   "original_study_sha256_unchanged": "331a806d6b1132ff641aa7ea58afbbdfa94ffe637e453e70280d24ab8113346a",
   "original_simulator_fingerprint_unchanged": "2bd9014a4aea2de6461478e6b1f7da3dcf6c7ef146b083034f71b3374479b6a4",
   "new_test_episodes": 0,
-  "public_downloads_verified": false,
+  "public_downloads_verified": true,
   "exact_audit_outputs": [
     "analysis.json",
     "training_signal_by_seed.csv",
@@ -18,5 +18,26 @@
   "exact_ablation_tables": 2,
   "exact_reproduced_scaled_models": 8,
   "exact_original_model_refits": 8,
-  "original_models_and_study_unchanged": true
+  "original_models_and_study_unchanged": true,
+  "public_commit": "1202a4e656a9721c61a344c22ac840d0494280fa",
+  "public_artifacts": [
+    {
+      "path": "deliverables/AIMRL-delivery-mathematical-analysis.zip",
+      "url": "https://raw.githubusercontent.com/Engrsamim7/AIMRL/1202a4e656a9721c61a344c22ac840d0494280fa/deliverables/AIMRL-delivery-mathematical-analysis.zip",
+      "sha256": "75acae9aeee785c4abc7a51f28ded8925c80778be558d68673bb1aaaf8da50de",
+      "bytes": 5449809
+    },
+    {
+      "path": "revision/delivery-mathematical-analysis.md",
+      "url": "https://raw.githubusercontent.com/Engrsamim7/AIMRL/1202a4e656a9721c61a344c22ac840d0494280fa/revision/delivery-mathematical-analysis.md",
+      "sha256": "da943bfe3acf73e2b3a6e0fa577a5b8292554cf737f9387ac46ee0ace2ac4420",
+      "bytes": 19391
+    },
+    {
+      "path": "revision/delivery-mathematical-analysis/delivery_gap_decomposition.pdf",
+      "url": "https://raw.githubusercontent.com/Engrsamim7/AIMRL/1202a4e656a9721c61a344c22ac840d0494280fa/revision/delivery-mathematical-analysis/delivery_gap_decomposition.pdf",
+      "sha256": "0a208c8b24e6faa51113d9b691a8be63364342d46acdf2041975550fb00963f7",
+      "bytes": 20736
+    }
+  ]
 }
