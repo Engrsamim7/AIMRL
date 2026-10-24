@@ -1,5 +1,5 @@
 {
-  "status": "portable_verification_passed",
+  "status": "portable_and_public_verified",
   "files": 297,
   "bytes": 3341627,
   "sha256": "a7d9311d44e4973d680c41dbd70e4bf28e4bc04cf718491a8e8407812856f643",
@@ -8,7 +8,7 @@
     "failed": 0
   },
   "report_regeneration_exact": true,
-  "public_downloads_verified": false,
+  "public_downloads_verified": true,
   "exact_regenerated_files": [
     "01_action_effects.png",
     "02_batching_and_opportunity.png",
@@ -24,5 +24,26 @@
     "verification.json"
   ],
   "pdf_note": "Creation metadata excluded; all3 rendered PNG figures match byte-for-byte.",
-  "historical_study_archive_unchanged": true
+  "historical_study_archive_unchanged": true,
+  "public_commit": "53df90543ac9ce58376c859c3be87285e914836e",
+  "public_artifacts": [
+    {
+      "path": "deliverables/AIMRL-pretransmission-opportunity.zip",
+      "url": "https://raw.githubusercontent.com/Engrsamim7/AIMRL/53df90543ac9ce58376c859c3be87285e914836e/deliverables/AIMRL-pretransmission-opportunity.zip",
+      "bytes": 3341627,
+      "sha256": "a7d9311d44e4973d680c41dbd70e4bf28e4bc04cf718491a8e8407812856f643"
+    },
+    {
+      "path": "deliverables/AIMRL-pretransmission-opportunity-figures.pdf",
+      "url": "https://raw.githubusercontent.com/Engrsamim7/AIMRL/53df90543ac9ce58376c859c3be87285e914836e/deliverables/AIMRL-pretransmission-opportunity-figures.pdf",
+      "bytes": 32636,
+      "sha256": "6fb5c25dc076964400672ae2c65660206221f289763fdd994f915c506fd10f8d"
+    },
+    {
+      "path": "revision/pretransmission-opportunity-findings.md",
+      "url": "https://raw.githubusercontent.com/Engrsamim7/AIMRL/53df90543ac9ce58376c859c3be87285e914836e/revision/pretransmission-opportunity-findings.md",
+      "bytes": 7893,
+      "sha256": "2f99c6b479a1c16efd316c321e43f770776a170b9556baee2c57ee7c1fcb6028"
+    }
+  ]
 }
