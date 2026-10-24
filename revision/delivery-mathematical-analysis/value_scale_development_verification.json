@@ -1,0 +1,10 @@
+{
+  "status": "completed_development_only",
+  "source_hash": "2bd9014a4aea2de6461478e6b1f7da3dcf6c7ef146b083034f71b3374479b6a4",
+  "ablation_script_hash": "b60aad84d5b3d05cdda3b05b925bd595a6b07c08a28b2921b6e03700a69cba2a",
+  "seconds": 39.3307341740001,
+  "original_models_reproduced_exactly": 8,
+  "validation_rows": 960,
+  "new_test_episodes": 0,
+  "primary_setting1_difference_pp": -0.1953125
+}

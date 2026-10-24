@@ -1,0 +1,22 @@
+{
+  "status": "portable_verification_passed",
+  "files": 265,
+  "bytes": 5449809,
+  "sha256": "75acae9aeee785c4abc7a51f28ded8925c80778be558d68673bb1aaaf8da50de",
+  "original_study_sha256_unchanged": "331a806d6b1132ff641aa7ea58afbbdfa94ffe637e453e70280d24ab8113346a",
+  "original_simulator_fingerprint_unchanged": "2bd9014a4aea2de6461478e6b1f7da3dcf6c7ef146b083034f71b3374479b6a4",
+  "new_test_episodes": 0,
+  "public_downloads_verified": false,
+  "exact_audit_outputs": [
+    "analysis.json",
+    "training_signal_by_seed.csv",
+    "multioutput_target_scale.csv",
+    "selected_rejection_predictions_by_seed.csv",
+    "validation_pairing_and_spread.csv",
+    "delivery_gap_decomposition.png"
+  ],
+  "exact_ablation_tables": 2,
+  "exact_reproduced_scaled_models": 8,
+  "exact_original_model_refits": 8,
+  "original_models_and_study_unchanged": true
+}

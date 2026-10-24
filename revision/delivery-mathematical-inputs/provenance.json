@@ -1,0 +1,20 @@
+{
+  "scope": "Column-only extraction of all completed v3 causal training labels, including controls; no new simulations",
+  "columns": [
+    "seed",
+    "episode",
+    "control",
+    "delta"
+  ],
+  "rows": 2784,
+  "sources": {
+    "simulator/out/delivery-learning-v3/labels/s0.csv.gz": "4f93e14c691be5ab924d772ce15f4fb006a80b039ea206dc10bdb63ef156a879",
+    "simulator/out/delivery-learning-v3/labels/s1.csv.gz": "ed922a3aaa45017ffe4237aa4336ade05d0e9812c4e1122f9939cc62114bd688",
+    "simulator/out/delivery-learning-v3/labels/s2.csv.gz": "0d20de69cf707b5afef9b1faa6f962d6626c796f81a2a6243905a411d599757b",
+    "simulator/out/delivery-learning-v3/labels/s3.csv.gz": "76c8939af54ded831beb766c5f2559e718b2f1870a8e11cd487ad16f87ea4d09",
+    "simulator/out/delivery-learning-v3/labels/s4.csv.gz": "9dcba2d07a32ff68a31541683e1b92e1a4172720f9240046bbad6f3504392af9",
+    "simulator/out/delivery-learning-v3/labels/s5.csv.gz": "ef33b6331f4343c15b868b11167c2c6167c949a34365e1d5a86d45417c522359",
+    "simulator/out/delivery-learning-v3/labels/s6.csv.gz": "ebc7dad45085197613164709cd140a3bbd8783e9922edf0384b805310b60bffe",
+    "simulator/out/delivery-learning-v3/labels/s7.csv.gz": "afe5c5050120748724ef4ca2c0805f431e997443a1f0fd16fe1cc0a04f999b03"
+  }
+}

@@ -13,6 +13,7 @@ all three corrected primary intervals include zero. All 153 tests pass.
 - [Complete code, original uploads, checkpoints and raw-data ZIP](deliverables/AIMRL-delivery-learning-study.zip).
 - [All tables and reproduction commands](revision/delivery-learning-results/README.md).
 - [Reviewer coverage](revision/delivery-learning-reviewer-map.md) and [protocol](revision/delivery-learning-protocol.md).
+- [Mathematical diagnosis and proposed next design](revision/delivery-mathematical-analysis.md): exact gain/loss decomposition, deadline-value control and fair confirmation requirements.
 
 The sections below describe earlier preserved development stages. Their results
 and downloadable archives remain historical evidence.
